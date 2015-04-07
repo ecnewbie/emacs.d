@@ -1,0 +1,23 @@
+Q1. I receive a error msg of (invalid-read-syntax "#") when loading go-mode/default.
+A1. you can manual remove go-mode/default in ~/.emacs.d/elpa/yasnippet-*/snippets/.
+	Or downgrade yasnippet package to version 0.9.0.1.
+
+Q2. Which command or key-binding use often.
+A2. you can have a look at key-binding.org.
+
+Q3. My emacs takes long time to start.
+A3. you can use emacsclient. eg. /usr/bin/emacsclient -c -a emacs  [file].
+
+Q4. Any rules of key-binding.
+A4. I think there are serveral rules of key-binding.
+	1) you may found that the frequency of key-binding you used is always ordered by C-key, M-key, C-x key, C-c key.
+	2) M-key always do more thing than C-key. eg. C-d, M-d.
+	3) C-x key always do more thing than C-x C-key. eg. C-x s.
+
+Q5. How to config emacs.
+A5. The basic you should know is that emacs config file starts from ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el.
+	And write an el file containing (provide '[filename]) can be used by other config file by (require '[filename]) when it's parent dir in the load-path.
+
+Q6. My emacs can't maximize in kde.
+A6. Just right click at emacs window, choose Window-Specific Settings->Size&Position->Obey geometry restrictions->Force->No；Window matching->Window title->Regular Expression->.*.
+	

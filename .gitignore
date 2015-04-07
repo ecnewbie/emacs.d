@@ -1,0 +1,10 @@
+.org-id-locations
+.mc-lists.el
+.smex-items
+auto-save-list/
+dicts/
+elpa/
+history
+ido.last
+tags/
+.directory

@@ -1,0 +1,100 @@
+常用快捷键：隐藏基本快捷键如C-a等.
+| C-c p       | projectile-command-map     | projectile-mode       |
+| M-NUM       | select-window-NUM          | window-numbering-mode |
+| C-c <left>  | winner-undo                | winner-mode           |
+| C-c <right> | winner-redo                | winner-mode           |
+| C-/         | undo-tree-undo             | undo-tree-mode        |
+| C-?         | undo-tree-redo             | undo-tree-mode        |
+| C-x u       | undo-tree-visualize        | undo-tree-mode        |
+| M-,         | ggtags-find-tag-continue   | ggtags-mode           |
+| M-.         | ggtags-find-definition     | ggtags-mode           |
+| -----       | --------------------       | ---------------       |
+| C-u         | universal-argument         | global                |
+| C-0 .. C-9  | digit-argument             | global                |
+| C-;         | ace-jump-mode              | global                |
+| C--         | text-scale-decrease        | global                |
+| C-+         | text-scale-increase        | global                |
+| C-<         | mc/mark-previous-like-this | global                |
+| C->         | mc/mark-next-like-this     | global                |
+| C-=         | er/expand-region           | global                |
+| C-M-=       | er/contract-region         | global                |
+| C-x z [z]   | repeat                     | global                |
+| -----       | --------------------       | ---------------       |
+| <M-down>    | md/move-lines-down         | global                |
+| <M-up>      | md/move-lines-up           | global                |
+| M-SPC       | just-one-space             | global                |
+| M-!         | shell-command              | global                |
+| M-/         | dabbrev-expand             | global                |
+| M-c         | capitalize-word            | global                |
+| M-i         | tab-to-tab-stop            | global                |
+| M-z         | zap-to-char                | global                |
+//| M-|       | shell-command-on-region    | global                |
+| -----       | --------------------          | --------------- |
+| C-x SPC     | rectangle-mark-mode           | global          |
+| C-x C-x     | exchange-point-and-mark       | global          |
+| C-x C-SPC   | pop-global-mark               | global          |
+| C-x C-l     | downcase-region               | global          |
+| C-x C-u     | upcase-region                 | global          |
+| C-x C-o     | ffap find-file-at-point       | global          |
+| C-x v       | vc-prefix-map                 | global          |
+| C-x `       | flymake-goto-next-erro        | global          |
+| -----       | --------------------          | --------------- |
+| C-c f       | helm-for-files                | global          |
+| -----       | --------------------          | --------------- |
+| C-c c a     | mc/edit-beginnings-of-lines   | global          |
+| C-c c c     | mc/edit-lines                 | global          |
+| C-c c e     | mc/edit-ends-of-lines         | global          |
+| C-c c r     | set-rectangular-region-anchor | global          |
+| <C-M-right> | forward-sexp                  | global          |
+| <C-M-left>  | backward-sexp                 | global          |
+
+较少用的一些快捷键:
+| <C-M-backspace>  | kill-back-to-indentation      | global | Kill back to the first non-whitespace character                  |
+| <C-backspace>    | backward-kill-word            | global | Kill backward a word                                             |
+| <C-delete>       | kill-word                     | global | Kill forward a word                                              |
+| <C-M-down>/C-M-d | down-list                     | global | Move forward down one level of parenthese                        |
+| C-x {            | shrink-window-horizontally    | global | Shrink window horizontally, 1 column once.                       |
+| C-x }            | enlarge-window-horizontally   | global | Enlarge window horizontally.                                     |
+| C-x <left>       | previous-buffer               | global | Switch to previous buffer.                                       |
+| C-x <right>      | next-buffer                   | global | Switch to next buffer.                                           |
+| C-x r            |                               | global | Command prefix rectangle/register/bookmark.                      |
+| C-x C-j          | dired-jump                    | global | Jump to current buffer's parent dir.                             |
+| C-c j            | join-line                     | global | Join this line to previous and fix up whitespace                 |
+| C-c q            | auto-fill-mode                | global | Enable auto-fill-mode, automatically breaks the line             |
+| C-c C-<          | mc/mark-all-like-this         | global | Find and mark all the parts matching the currently active region |
+| C-x TAB          | indent-rigidly                | global | Indent all lines starting in the region or all lines below.      |
+| <M-f11>          | steve-ido-choose-from-recentf | global | open recent files with ido.                                      |
+| C-x m            | compose-mail                  | global | Start composing a mail message to send.                          |
+| C-M-/            | dabbrev-completion            | global | Show completion of this buffer's word.                           |
+
+org-mode:
+| c-c a    | org-agenda             | global   | org下一些常用查看命令，需要在配置文件设置org-agenda-files |
+| c-c l    | org-store-link         | global   | 保存当前文件链接                                          |
+| c-c c-l  | org-insert-link        | org-mode | 插入链接/                                                 |
+| c-c c-t  | org-todo               | org-mode | 插入任务状态                                              |
+| c-c >    | org-goto-calendar      | org-mode | 打开日历                                                  |
+| c-c <    | org-date-from-calendar | org-mode | 插入日历时间                                              |
+| c-c .    | org-time-stamp         | org-mode | 手动插入时间                                              |
+| <s-up>   | org-shiftup            | org-mode | 提升任务优先级/提前时间                                   |
+| <s-down> | org-shiftdown          | org-mode | 降低任务优先级/推后时间                                   |
+| c-c c-s  | org-schedule           | org-mode | 插入计划开始时间，scheduled                               |
+| c-c c-d  | org-deadline           | org-mode | 插入计划结束时间，deadline                                |
+
+yasnippet:
+| c-c k | my-yas-expand       | global |
+| c-c y | helm-c-yas-complete | global |
+
+helm:
+| M-a | helm-mark-all   | helm-* |
+| M-u | helm-unmark-all | helm-* |
+
+常用命令：
+| helm-global-mark-ring             | global | 查看mark ring            |
+| occur/helm-occur/helm-multi-occur | global | 使用helm来过滤buffer内容 |
+| calc                              | global | 计算器                   |
+
+保留的命令：
+| calc-eval-line-and-insert         | global | 计算表达式的值           |
+| open-readme-in-git-root-directory | global | 打开readme文档           |
+| fc-eval-and-replace               | global | 计算并替换lisp表达式值   |
+| eval-last-sexp                    | global | c-x c-e,计算lisp表达式值 |

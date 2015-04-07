@@ -1,0 +1,5 @@
+* 给和我同样的emacs新手
+此配置基于[[https://github.com/redguardtoo/emacs.d][redguardtoo的emacs配置]]和[[https://github.com/purcell/emacs.d][purcell的emacs配置]],算是尽我所能的加足了注释。
+希望能够减少你们了解emacs的时间。
+
+更多请参考[[file:FAQ][FAQ]].
