@@ -1,5 +1,5 @@
 * 依赖系统包：
-** emacs、emacs-el、clang、global。
+** emacs24、emacs24-el、clang、global。
 
 * 现装emacs包：
 ** 定制emacs：

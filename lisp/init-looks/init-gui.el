@@ -1,4 +1,5 @@
-(global-hl-line-mode 1)				; 高亮当前行
+(when window-system
+(global-hl-line-mode 1))				; 高亮当前行
 (global-linum-mode 1)				; 显示行号
 (which-function-mode t)                 	;在状态条上显示当前光标在哪个函数体内部
 
