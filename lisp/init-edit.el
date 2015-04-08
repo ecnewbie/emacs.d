@@ -8,6 +8,7 @@
 (require-package 'browse-kill-ring)
 (require 'init-misc-redguardtoo)                ;; cut from redguardtoo. not display fic at modeline.
 (global-unset-key (kbd "C-c c"))
+(define-key global-map (kbd "C-@") 'set-mark-command)
 
 (require 'init-editing-utils)                   ;; editing utils from purcell, cancel guide-key.
 (define-key global-map (kbd "C-+") 'text-scale-increase)
