@@ -109,7 +109,9 @@
                 ;;(ggtags-mode 1)
                 ;; emacs 24.4+ will set up eldoc automatically.
                 ;; so below code is NOT needed.
-                (setq-local eldoc-documentation-function #'ggtags-eldoc-function))
+                (add-hook 'ggtags-mode-hook
+                          '(lambda ()
+                             (setq-local eldoc-documentation-function #'ggtags-eldoc-function))))
               )))
 
 (provide 'init-cc-mode)
