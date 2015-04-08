@@ -5,6 +5,8 @@
 
 ;;; --- 在 Mode-line 显示当前Buffer的大小
 (size-indication-mode 1)
+(when (not window-system)
+(menu-bar-mode -1))
 
 ;(global-set-key [f11] 'fullscreen)
 ;全屏

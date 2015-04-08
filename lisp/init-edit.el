@@ -9,7 +9,7 @@
 (require 'init-misc-redguardtoo)                ;; cut from redguardtoo. not display fic at modeline.
 (global-unset-key (kbd "C-c c"))
 
-(require 'init-editing-utils)                   ;; editing utils from purcell.
+(require 'init-editing-utils)                   ;; editing utils from purcell, cancel guide-key.
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C-M-=") 'er/contract-region)
 

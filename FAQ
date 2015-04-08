@@ -20,4 +20,7 @@ A5. The basic you should know is that emacs config file starts from ~/.emacs, ~/
 
 Q6. My emacs can't maximize in kde.
 A6. Just right click at emacs window, choose Window-Specific Settings->Size&Position->Obey geometry restrictions->Force->No；Window matching->Window title->Regular Expression->.*.
+
+Q7. How to use color theme in xterm.
+A7. try "env TERM=xterm-256color emacs".
 	
