@@ -71,6 +71,7 @@
 ** fill-column-indicator：在80列处显示线，和page-break-lines有些冲突。
 ** fic-mode：高亮注释内的FIXME/BUG/TODO。
 ** flycheck：语法静态检查。
+** imenu: 当前buffer函数跳转。
 ** magit、git-commit-mode、gitignore-mode、gitconfig-mode、git-gutter: git前端。
 ** projectile：项目管理，支持版本控制，本地需要创建.projectile文件。
 
