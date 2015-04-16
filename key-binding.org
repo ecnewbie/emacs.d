@@ -24,7 +24,6 @@
 | <M-up>      | md/move-lines-up           | global                |
 | M-SPC       | just-one-space             | global                |
 | M-!         | shell-command              | global                |
-| M-/         | dabbrev-expand             | global                |
 | M-c         | capitalize-word            | global                |
 | M-i         | tab-to-tab-stop            | global                |
 | M-z         | zap-to-char                | global                |
@@ -66,6 +65,12 @@
 | <M-f11>          | steve-ido-choose-from-recentf | global | open recent files with ido.                                      |
 | C-x m            | compose-mail                  | global | Start composing a mail message to send.                          |
 | C-M-/            | dabbrev-completion            | global | Show completion of this buffer's word.                           |
+
+重定义的快捷键：
+| origin | current | command          | scope        |
+| M-/    | M-/ /   | dabbrev-expand   | global       |
+|        | M-/ c   | company-complete | company-mode |
+|        | M-g i   | ido-goto-symbol  | global       |
 
 org-mode:
 | c-c a    | org-agenda             | global   | org下一些常用查看命令，需要在配置文件设置org-agenda-files |

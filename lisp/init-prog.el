@@ -14,7 +14,8 @@
      (setq company-show-numbers t)
      (setq company-begin-commands '(self-insert-command))
      (setq company-idle-delay 0.2)
-     ;(setq company-clang-insert-arguments nil)
+                                        ;(setq company-clang-insert-arguments nil)
+     (global-set-key (kbd "M-/ c") 'company-complete)
      ))
 
 (require 'init-cpp-include-path)

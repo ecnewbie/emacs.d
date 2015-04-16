@@ -5,7 +5,7 @@
 ** 定制emacs：
 *** anzu、diminish、dropdown-list、flx-ido、fullframe、guide-key、helm、helm-c-yasnippet、helm-company、helm-gtags、ibuffer-vc、idle-require、ido-ubiquitous、idomenu、maxframe、smex、sr-speedbar.
 ** 主题：
-*** color-theme、color-theme-sanityinc-solarized、color-theme-sanityinc-tomorrow.
+*** color-theme、zenburn-theme.
 ** 快速编辑：
 *** ace-jump-mode、browse-kill-ring、buffer-move、expand-region、flyspell、flyspell-lazy、highlight-escape-sequences、highlight-symbol、move-dup、
 *** multiple-cursors、page-break-lines、pointback、saveplace、smartparens、switch-window、undo-tree、unfill、whitespace-cleanup-mode、
@@ -28,7 +28,7 @@
 ** helm、helm-gtags、helm-c-yasnippet：一种显示区域较大的类似ido的，更方便的多文件、buffer选择过滤。
 ** ibuffer-vc：buffer list的一种替换，显示vc（版本控制）状态。
 ** idle-require：能配置空闲时加载一些配置，加快启动。
-** ido、ido-ubiquitous、flx-ido（更智能的缩写匹配）、idomenu（添加到菜单）：更方便查找文件，切换buffer等。
+** ido、ido-ubiquitous、flx-ido（更智能的缩写匹配）、idomenu（ido for imenu）：更方便查找文件，切换buffer等。
 ** maxframe：最大化窗口。
 ** smex：更方便的M-x，基于ido。
 ** sr-speedbar：文件浏览。
