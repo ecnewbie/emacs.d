@@ -14,4 +14,7 @@
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C-M-=") 'er/contract-region)
 
+(require-package 'workgroups2)
+(require 'init-workgroups2)                      ;; setting for workgroup2. from redguardtoo.
+
 (provide 'init-edit)

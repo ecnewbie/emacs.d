@@ -76,4 +76,5 @@
 ;; Locales (setting them earlier in this file doesn't work in X)
 ;;----------------------------------------------------------------------------
 (require 'init-locales)                 ;; setting for locales, utf-8. from redguardtoo.
+(workgroups-mode 1) 
 (provide 'init)

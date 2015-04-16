@@ -12,4 +12,6 @@
 (require-package 'sr-speedbar)
 (require 'init-sr-speedbar)            ;; setting for sr-speedbar. from redguardtoo.
 
+(require 'init-layout)
+
 (provide 'init-looks)
