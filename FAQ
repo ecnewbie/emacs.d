@@ -29,3 +29,12 @@ A8. isearch-forward and isearch-backward aren't supported with multiple cursors.
     Commands run with M-x won't be repeated for all cursors.
     All key bindings that refer to lambdas are always run for all cursors. If you need to limit it, you will have to give it a name.
     Redo might screw with your cursors. Undo works very well.
+    
+Q9. How to use cpputils-cmake.
+A9. For simply use to setup code completion.
+    First, edit CMakeLists.txt like this:
+        project(test)
+        set(SOURCES main.cpp)
+        include_directories(src /usr/include)
+        add_executable(test ${SOURCES})
+    And then touch target(test) in build directory.
