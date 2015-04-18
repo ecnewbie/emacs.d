@@ -16,5 +16,6 @@
 
 (require-package 'workgroups2)
 (require 'init-workgroups2)                      ;; setting for workgroup2. from redguardtoo.
+(add-hook 'after-init-hook 'workgroups-mode) 
 
 (provide 'init-edit)

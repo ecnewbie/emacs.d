@@ -66,11 +66,17 @@
 | C-x m            | compose-mail                  | global | Start composing a mail message to send.                          |
 | C-M-/            | dabbrev-completion            | global | Show completion of this buffer's word.                           |
 
-重定义的快捷键：
+自定义的快捷键：
 | origin | current | command          | scope        |
 | M-/    | M-/ /   | dabbrev-expand   | global       |
 |        | M-/ c   | company-complete | company-mode |
 |        | M-g i   | ido-goto-symbol  | global       |
+
+ggtags:
+| M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                             |
+| M-] | ggtags-find-reference | ggtags-mode | 查找引用                                    |
+| M-n | next-error            | global      | 在global搜索结果窗口打开的情况下，跳转到下一个 |
+| M-p | previous-error        | global      | 在global搜索结果窗口打开的情况下，跳转到上一个 |
 
 org-mode:
 | c-c a    | org-agenda             | global   | org下一些常用查看命令，需要在配置文件设置org-agenda-files |

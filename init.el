@@ -3,7 +3,7 @@
 
 ;; -*- coding: utf-8 -*-
 (setq emacs-load-start-time (current-time))
-(setq debug-on-error t)
+;(setq debug-on-error t)
 
 ;----------------------------------------------------------------------------
 ; config load path
@@ -76,5 +76,4 @@
 ;; Locales (setting them earlier in this file doesn't work in X)
 ;;----------------------------------------------------------------------------
 (require 'init-locales)                 ;; setting for locales, utf-8. from redguardtoo.
-(workgroups-mode 1) 
 (provide 'init)
