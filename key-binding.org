@@ -6,8 +6,6 @@
 | C-/         | undo-tree-undo             | undo-tree-mode        |
 | C-?         | undo-tree-redo             | undo-tree-mode        |
 | C-x u       | undo-tree-visualize        | undo-tree-mode        |
-| M-,         | ggtags-find-tag-continue   | ggtags-mode           |
-| M-.         | ggtags-find-definition     | ggtags-mode           |
 | -----       | --------------------       | ---------------       |
 | C-u         | universal-argument         | global                |
 | C-0 .. C-9  | digit-argument             | global                |
@@ -27,6 +25,8 @@
 | M-c         | capitalize-word            | global                |
 | M-i         | tab-to-tab-stop            | global                |
 | M-z         | zap-to-char                | global                |
+| M-,         | tags-loop-continue         | global                |
+| M-.         | find-tag                   | global                |
 //| M-|       | shell-command-on-region    | global                |
 | -----       | --------------------          | --------------- |
 | C-x SPC     | rectangle-mark-mode           | global          |

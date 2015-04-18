@@ -32,10 +32,10 @@
 (custom-set-variables '(ggtags-oversize-limit (* 20 1024 1024)))		;; larger gtags file.
 (setenv "GTAGSFORCECPP" "")                                             ;; always treat .h as c++ header.
 
-(add-hook 'ggtags-mode-hook
-          '(lambda ()
-              (local-set-key (kbd "M-,") 'ggtags-find-tag-continue)
-              (local-set-key (kbd "M-.") 'ggtags-find-definition)))
+;; (add-hook 'ggtags-mode-hook
+;;           '(lambda ()
+;;               (local-set-key (kbd "M-,") 'ggtags-find-tag-continue)
+;;               (local-set-key (kbd "M-.") 'ggtags-find-definition)))
 (require 'init-gtagslibpath)
 
 (require 'init-doxygen)                             ;; insert doxygen style comment. from redguardtoo.
