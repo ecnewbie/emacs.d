@@ -10,7 +10,9 @@
      `(company-tooltip-common ((t (:inherit font-lock-constant-face)))))))
 
 (require 'init-helm-company)
-(server-mode 1)
+(require 'server)
+(when (not (server-running-p server-name))
+      (server-mode t))
 
 (require-package 'flyspell-lazy)
 (if *emacs24* (require-package 'yasnippet '(0 9 0 1) nil))

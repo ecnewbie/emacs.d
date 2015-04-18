@@ -56,7 +56,7 @@
 ** saveplace：打开文件记录。
 ** switch-window/move-window：快速切换窗口。
 ** window-numbering：编号窗口，快速切换窗口。
-** workgroups2: 保存恢复窗口布局。
+** workgroups2: 保存恢复窗口布局。类似的有window-purpose.
 ** yasnippet：补全片段。
 
 * 模式：
