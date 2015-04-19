@@ -16,6 +16,28 @@
 
 (require-package 'workgroups2)
 (require 'init-workgroups2)                      ;; setting for workgroup2. from redguardtoo.
-(add-hook 'after-init-hook 'workgroups-mode) 
+(add-hook 'after-init-hook 'workgroups-mode)
+
+(defun my-workgroups-undo ()
+  (interactive)
+  (if (wg-current-workgroup-p (wg-current-workgroup (selected-frame)))
+      (wg-undo-wconfig-change)
+    (winner-undo)))
+
+(defun my-workgroups-redo ()
+  (interactive)
+    (if (wg-current-workgroup-p (wg-current-workgroup (selected-frame)))
+      (wg-redo-wconfig-change)
+    (winner-redo)))
+
+(defun my-make-workgroups-mode-map ()
+  (define-key workgroups-mode-map [remap wg-undo-wconfig-change] 'my-workgroups-undo)
+  (define-key workgroups-mode-map [remap wg-redo-wconfig-change] 'my-workgroups-redo)
+  (define-key workgroups-mode-map (kbd "C-c <left>") 'my-workgroups-undo)
+  (define-key workgroups-mode-map (kbd "C-c <right>") 'my-workgroups-redo))
+
+(add-hook 'workgroups-mode-hook 'my-make-workgroups-mode-map)
+
+;; (global-set-key [remap cua-paste-pop] 'yank-pop) ;; not work.
 
 (provide 'init-edit)

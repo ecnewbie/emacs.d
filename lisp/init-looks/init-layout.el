@@ -14,7 +14,9 @@
 
 (defun split-window-below-or-replace ()
   (if (more-than-one-window-vertically-p)
-      (window-in-direction 'below)
+      (if (window-live-p (window-in-direction 'below))
+          (window-in-direction 'below)
+        (selected-window))
     (split-window-below)))
 
 (defun resize-buffer-window-vertically (buffer-name &optional size); &optional autofit)
@@ -23,7 +25,7 @@
       (save-excursion
         (when (not size)
           (setq size new-window-size-vertically))
-        (select-window-to-split)
+        ;(select-window-to-split)
         (when (not (eq (minibuffer-window) (selected-window)))
           (let* ((win (split-window-below-or-replace))
                  (h (window-height win)))
@@ -56,7 +58,8 @@
 (add-hook 'message-mode-hook (lambda () (resize-buffer-window-vertically "*Messages*")))
 (add-hook 'occur-mode-hook (lambda () (resize-buffer-window-vertically "*Occur*")))
 (add-hook 'help-mode-hook (lambda () (resize-buffer-window-vertically "*Help*" 15)))
-;(add-hook 'completion-mode-hook (lambda () (resize-buffer-window-vertically "*Completions*" 20))) ;; this works bad.
+(add-hook 'apropos-mode-hook (lambda () (resize-buffer-window-vertically "*Apropos*" 15)))
+;;(add-hook 'completion-mode-hook (lambda () (resize-buffer-window-vertically "*Completions*" 20))) ;; this works bad.
 (temp-buffer-resize-mode 1)
 
 

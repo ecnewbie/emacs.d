@@ -95,6 +95,10 @@ yasnippet:
 | c-c k | my-yas-expand       | global |
 | c-c y | helm-c-yas-complete | global |
 
+spell:
+| C-c s | flyspell-auto-correct-word | flyspell-mode |
+| M-$   | ispell-word                | global        |
+
 helm:
 | M-a | helm-mark-all   | helm-* |
 | M-u | helm-unmark-all | helm-* |
