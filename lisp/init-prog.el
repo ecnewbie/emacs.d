@@ -52,4 +52,9 @@
   (require-package 'git-gutter '(0 71) nil))
 (require 'init-git)					;; setting for git. from redguardtoo.
 
+(require-package 'paredit)
+(require-package 'quack)
+(require-package 'hl-sexp)
+(require 'init-lisp)					;; setting for lisp. from redguardtoo.
+
 (provide 'init-prog) 
