@@ -5,7 +5,7 @@
 
 (require-package 'ggtags)
 (require-package 'cpputils-cmake)
-(require 'init-cc-mode)             ;; setting for cc-mode. copy from redguardtoo. cancel ggtags-mode.
+(require 'init-cc-mode)             ;; setting for cc-mode. copy from redguardtoo. 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (require-package 'cmake-mode)
 (require 'init-cmake-mode)          ;; cmake-mode. from redguardtoo.

@@ -106,7 +106,7 @@
                 (my-c-mode-hook))
               (when *emacs24*
                 ;; ggtags.el only supports emacs24
-                ;;(ggtags-mode 1)
+                (ggtags-mode 1)
                 ;; emacs 24.4+ will set up eldoc automatically.
                 ;; so below code is NOT needed.
                 (add-hook 'ggtags-mode-hook
