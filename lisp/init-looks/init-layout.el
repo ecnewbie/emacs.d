@@ -89,7 +89,6 @@
 
 (defun last-temp-window ()
   "return last window which buffer is temp buffer."
-  (interactive)
   (require 'window-numbering)
   (let* ((window)
          (wini))
@@ -131,7 +130,6 @@
 
 (defun newest-window ()
   "return newest window exclude minibuf"
-  (interactive)
   (let* ((window (selected-window)))
     (dolist (wini (sort (window-list-1) 'newer-than))
       (when (and wini (not (window-minibuffer-p wini)))

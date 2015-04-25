@@ -15,7 +15,7 @@
 (define-key global-map (kbd "C-M-=") 'er/contract-region)
 
 (require-package 'workgroups2)
-(require 'init-workgroups2)                      ;; setting for workgroup2. from redguardtoo.
+(require 'init-workgroups2)                     ;; setting for workgroup2. from redguardtoo.
 ;(add-hook 'after-init-hook 'workgroups-mode)
 
 (defun my-workgroups-undo ()
