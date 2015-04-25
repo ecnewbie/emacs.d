@@ -8,16 +8,13 @@
 *** color-theme、zenburn-theme.
 ** 快速编辑：
 *** ace-jump-mode、browse-kill-ring、buffer-move、expand-region、flyspell、flyspell-lazy、highlight-escape-sequences、highlight-symbol、hl-sexp、move-dup、
-*** multiple-cursors、page-break-lines、paredit、pointback、saveplace、smartparens、switch-window、undo-tree、unfill、whitespace-cleanup-mode、
+*** multiple-cursors、page-break-lines、paredit、pointback、saveplace、smartparens、switch-window、undo-tree、unfill、visual-regexp、whitespace-cleanup-mode、
 *** whole-line-or-region、window-numbering、workgroups2、yasnippet。
 ** 编程：
 *** company、company-c-headers、cmake-mode、cpputils-cmake、fic-mode、fill-column-indicator、flycheck、flycheck-google-cpplint、ggtags、gitconfig-mode、gitignore-mode、git-commit-mode、git-gutter、
 *** google-c-style、magit、projectile、quack。
 ** 其它：
-*** chinese-pyim。
-
-
-
+*** chinese-pyim、w3m。
 
 * 一些用于定制的emacs包：
 ** anzu：显示isearch匹配个数。
@@ -57,6 +54,7 @@
 ** pointback：切换buffer时恢复光标位置。
 ** saveplace：打开文件记录。
 ** switch-window/move-window：快速切换窗口。
+** visual-regexp: 可视化查找、替换。
 ** window-numbering：编号窗口，快速切换窗口。
 ** workgroups2: 保存恢复窗口布局。类似的有window-purpose.
 ** yasnippet：补全片段。
@@ -75,10 +73,11 @@
 ** fic-mode：高亮注释内的FIXME/BUG/TODO。
 ** flycheck：语法静态检查。
 ** imenu: 当前buffer函数跳转。
-** magit、git-commit-mode、gitignore-mode、gitconfig-mode、git-gutter: git前端。
+** magit、git-commit-mode、gitignore-mode、gitconfig-mode、git-gutter(显示变化): git前端。
 ** projectile：项目管理，支持版本控制，本地需要创建.projectile文件。
 
 * 其它：
 ** highlight-escape-sequences：js，ruby下高亮转义字符。
 ** chinese-pyim：拼音输入法。
 ** quack: 支持scheme编程。
+** w3m: 内置浏览器。

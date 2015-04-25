@@ -11,11 +11,9 @@
               nil
               )))
     (setq gpp-version (substring gpp-version 0 3))
-    (setq hardware-platform
-          (if (eq (shell-command-to-string "uname -i") "unknown")
-              (shell-command-to-string "uname -i")
-            (shell-command-to-string "uname -m")))
-    (setq hardware-platform (combine-and-quote-strings (split-string hardware-platform)))
+    (setq hardware-platform (combine-and-quote-strings (split-string (shell-command-to-string "uname -i"))))
+    (when (equal hardware-platform "unknown")
+      (setq hardware-platform (combine-and-quote-strings (split-string (shell-command-to-string "uname -m")))))
     (list (concat "/usr/include/c++/" gpp-version)
           (concat "/usr/include/c++/" gpp-version "/backward")
           (concat "/usr/include/" hardware-platform "-linux-gnu/c++/" gpp-version)

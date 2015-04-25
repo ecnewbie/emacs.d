@@ -57,4 +57,18 @@
 (require-package 'hl-sexp)
 (require 'init-lisp)					;; setting for lisp. from redguardtoo.
 
-(provide 'init-prog) 
+;; set global key M-[ will confilt with xterm-mouse-mode.
+(when (not window-system)
+  (global-unset-key (kbd "M-[")))
+
+(defun search-cpp-reference()
+  (interactive)
+  (progn
+    (let* ((key-word))
+      (setq key-word (read-from-minibuffer (concat "search " (current-word) "?")))
+      (when (equal key-word "")
+        (setq key-word (current-word)))
+      (w3m-goto-url
+       (concat "http://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=" key-word)))))
+
+(provide 'init-prog)

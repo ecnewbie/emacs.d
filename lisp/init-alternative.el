@@ -17,6 +17,7 @@
 (require-package 'helm-c-yasnippet)
 (require 'init-helm)                            ;; setting for helm. a alternative choice of ido. from redguardtoo.
 
+(require-package 'w3m)
 (require 'init-writting)                         ;; changing key-binding M-c, M-l, M-u. from redguardtoo.
 
 
@@ -25,5 +26,7 @@
 (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "C-x c" "C-x v" "C-x a" "M-g" "C-c p" "C-c c"))
 (guide-key-mode 1)
 (diminish 'guide-key-mode)
+
+(require 'init-emacs-w3m)			;; setting for w3m. a browser. from redguardtoo.
 
 (provide 'init-alternative)

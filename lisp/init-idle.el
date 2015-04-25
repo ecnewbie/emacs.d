@@ -1,3 +1,6 @@
+(require-package 'visual-regexp)
+(require 'init-misc-lazy)		;; misc setup. from redguardtoo.
+
 ;; make tooltip beautiful. has effect here.
 (when (window-system)
 (require 'color)
