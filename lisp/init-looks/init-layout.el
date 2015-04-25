@@ -47,25 +47,29 @@
         (setq buffer-exist t)))
     buffer-exist))
 
-(defun split-window-vertically-and-resize (buffer-name &optional size)
+(defun split-window-vertically-and-resize (buffer-name &optional size quit-func)
   (when (not (get-buffer-window buffer-name))
     (save-selected-window
       (save-excursion
-        (when (not (window-minibuffer-p))
+        (when (window-minibuffer-p)
           (select-window (newest-window)))
         (select-window (split-window-below-or-newest))
         (switch-to-buffer buffer-name)
-        (resize-buffer-window-vertically buffer-name size)))))
+        (resize-buffer-window-vertically buffer-name size)
+        (when quit-func
+          (funcall quit-func))))))
 
-(defun split-window-horizontally-and-resize (buffer-name &optional size)
+(defun split-window-horizontally-and-resize (buffer-name &optional size quit-func)
   (when (not (get-buffer-window buffer-name))
     (save-selected-window
       (save-excursion
-        (when (not (window-minibuffer-p))
+        (when (window-minibuffer-p)
           (select-window (newest-window)))
         (select-window (split-window-horizontally))
         (switch-to-buffer buffer-name)
-        (resize-buffer-window-horizontally buffer-name size)))))
+        (resize-buffer-window-horizontally buffer-name size)
+        (when quit-func
+          (funcall quit-func))))))
 
 (defun delete-temp-window-and-show-in-last-temp-window ()
   "Delete selected window if it is temp window and show its content in last temp window. Use the same order as window-numbering."
@@ -133,7 +137,7 @@
   (let* ((window (selected-window)))
     (dolist (wini (sort (window-list-1) 'newer-than))
       (when (and wini (not (window-minibuffer-p wini)))
-	(setq window wini)))
+        (setq window wini)))
     window))
 
 (add-hook 'temp-buffer-show-hook 'select-newest-window-and-delete-if-temp)
@@ -144,9 +148,29 @@
 (add-hook 'message-mode-hook (lambda () (split-window-vertically-and-resize "*Messages*")))
 (add-hook 'occur-mode-hook (lambda () (split-window-vertically-and-resize "*Occur*")))
 (add-hook 'apropos-mode-hook (lambda () (split-window-vertically-and-resize "*Apropos*")))
+;;(add-hook 'Man-mode-hook (lambda () (split-window-vertically-and-resize "*Man*" 10 'Man-mode)))
+;;(add-hook 'w3m-mode-hook (lambda () (split-window-vertically-and-resize "*w3m*" 10 'w3m-mode)))
 ;;(add-hook 'help-mode-hook (lambda () (split-window-vertically-and-resize "*Help*" 15))) ;; works bad when completions.
 ;;(add-hook 'completion-mode-hook (lambda () (split-window-vertically-and-resize "*Completions*" 20))) ;; this works bad.
 
 (temp-buffer-resize-mode 1)
+
+(defun default-layout-v ()
+  "default layout vertically, a large window above and a small below."
+  (interactive)
+  (when (one-window-p t)
+    (split-window-vertically-instead))
+  (let* ((buffer-name (buffer-name (window-buffer (previous-window)))))
+    (delete-other-windows)
+    (split-window-vertically-and-resize buffer-name)))
+
+(defun default-layout-h ()
+  "default layout horizontally, a large window left and a small right."
+  (interactive)
+  (when (one-window-p t)
+    (split-window-horizontally-instead))
+  (let* ((buffer-name (buffer-name (window-buffer (previous-window)))))
+    (delete-other-windows)
+    (split-window-horizontally-and-resize buffer-name)))
 
 (provide 'init-layout)

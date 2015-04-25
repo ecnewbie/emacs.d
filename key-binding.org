@@ -109,7 +109,8 @@ helm:
 | calc                              | global | 计算器                   |
 
 保留的命令：
-| calc-eval-line-and-insert         | global | 计算表达式的值           |
-| open-readme-in-git-root-directory | global | 打开readme文档           |
-| fc-eval-and-replace               | global | 计算并替换lisp表达式值   |
-| eval-last-sexp                    | global | c-x c-e,计算lisp表达式值 |
+| calc-eval-line-and-insert         | global | 计算表达式的值              |
+| open-readme-in-git-root-directory | global | 打开readme文档              |
+| fc-eval-and-replace               | global | 计算并替换lisp表达式值      |
+| eval-last-sexp                    | global | c-x c-e,计算lisp表达式值    |
+| steve-ido-choose-from-recentf     | global | 使用ido来打开最近打开的文档 |

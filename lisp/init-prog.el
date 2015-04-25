@@ -57,20 +57,23 @@
 (require-package 'hl-sexp)
 (require 'init-lisp)                                                    ;; setting for lisp. from redguardtoo.
 
-;; set global key M-[ will confilt with xterm-mouse-mode.
+;; set global key M-[ will conflict with xterm-mouse-mode.
 (when (not window-system)
   (global-unset-key (kbd "M-[")))
+
+(require 'w3m-search)
+(eval-after-load "w3m-search" '(add-to-list 'w3m-search-engine-alist
+                                            '("c" "http://en.cppreference.com/mwiki/index.php?search=%s" utf-8)))
 
 (defun search-cpp-reference()
   "search http://en.cppreference.com."
   (interactive)
-  (progn
-    (let* ((key-word))
-      (setq key-word (read-from-minibuffer (concat "search " (current-word) "?")))
-      (when (equal key-word "")
-        (setq key-word (current-word)))
-      (w3m-goto-url
-       (concat "http://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=" key-word)))))
+   (progn
+     (let* ((key-word))
+       (setq key-word (read-from-minibuffer (concat "search " (current-word) "?")))
+       (when (equal key-word "")
+         (setq key-word (current-word)))
+       (w3m-search "c" key-word))))
 
 (defun man2()
   "man 2 [key-word]."
@@ -80,6 +83,6 @@
       (setq key-word (read-from-minibuffer (concat "man 2 " (current-word) "?")))
       (when (equal key-word "")
         (setq key-word (current-word)))
-      (man (concat "2 " key-word)))))
+      (manual-entry (concat "2 " key-word)))))
 
 (provide 'init-prog)
