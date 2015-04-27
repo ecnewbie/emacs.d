@@ -130,14 +130,22 @@
     (require 's)
     (setq n1 (string-to-number (nth 0 (s-match "[0-9]+" s1))))
     (setq n2 (string-to-number (nth 0 (s-match "[0-9]+" s2))))
-    (and (< n1 n2) (> (window-use-time win1) (window-use-time win2)))))
+    (message "%s, %s" win1 win2)
+    (message "%d > %d?" n1 n2)
+    (message "%s > %s?" (window-use-time win1) (window-use-time win2))
+    (and (> n1 n2) (> (window-use-time win1) (window-use-time win2)))))
+
+(defun not-newer-than (win1 win2)
+  "not newer than."
+  (not (newer-than win1 win2)))
 
 (defun newest-window ()
   "return newest window exclude minibuf"
   (let* ((window (selected-window)))
-    (dolist (wini (sort (window-list-1) 'newer-than))
+    (dolist (wini (sort (window-list-1) 'not-newer-than))
       (when (and wini (not (window-minibuffer-p wini)))
         (setq window wini)))
+    (message "%s" window)
     window))
 
 (add-hook 'temp-buffer-show-hook 'select-newest-window-and-delete-if-temp)
