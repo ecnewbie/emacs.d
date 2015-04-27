@@ -1,5 +1,5 @@
 * 依赖系统包：
-** emacs24、emacs24-el、clang、global[-6.4]、racket。
+** emacs24、emacs24-el、clang、global[-6.4]、racket、xsel、w3m。
 
 * 现装emacs包：
 ** 定制emacs：
@@ -73,7 +73,7 @@
 ** fic-mode：高亮注释内的FIXME/BUG/TODO。
 ** flycheck：语法静态检查。
 ** imenu: 当前buffer函数跳转。
-** magit、git-commit-mode、gitignore-mode、gitconfig-mode、git-gutter(显示变化): git前端。
+** magit(提供git命令)、git-commit-mode、gitignore-mode、gitconfig-mode、git-gutter(显示变化): git前端。
 ** projectile：项目管理，支持版本控制，本地需要创建.projectile文件。
 
 * 其它：

@@ -18,7 +18,7 @@
 (require 'init-helm)                            ;; setting for helm. a alternative choice of ido. from redguardtoo.
 
 (require-package 'w3m)
-(require 'init-writting)                         ;; changing key-binding M-c, M-l, M-u. from redguardtoo.
+(require 'init-writting)                        ;; changing key-binding M-c, M-l, M-u. from redguardtoo.
 
 
 ;(when (window-system)
@@ -27,6 +27,9 @@
 (guide-key-mode 1)
 (diminish 'guide-key-mode)
 
-(require 'init-emacs-w3m)			;; setting for w3m. a browser. from redguardtoo.
+(require-package 'simpleclip)
+(require 'init-clipboard)                       ;; setting for clipboard. from redguardtoo.
+
+(require 'init-emacs-w3m)                       ;; setting for w3m. a browser. from redguardtoo.
 
 (provide 'init-alternative)

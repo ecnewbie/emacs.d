@@ -55,11 +55,13 @@
 (require-package 'paredit)
 (require-package 'quack)
 (require-package 'hl-sexp)
+(require-package 'rainbow-delimiters)
 (require 'init-lisp)                                                    ;; setting for lisp. from redguardtoo.
 
 ;; set global key M-[ will conflict with xterm-mouse-mode.
-(when (not window-system)
-  (global-unset-key (kbd "M-[")))
+(eval-after-load 'paredit
+  '(when (not window-system)
+   (global-unset-key (kbd "M-["))))
 
 (require 'w3m-search)
 (eval-after-load "w3m-search" '(add-to-list 'w3m-search-engine-alist

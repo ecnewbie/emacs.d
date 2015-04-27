@@ -11,7 +11,7 @@
 (require 'init-gui)						;; setting for frame. highlight cur-line and line num...
 
 (require-package 'sr-speedbar)
-(require 'init-sr-speedbar)            ;; setting for sr-speedbar. from redguardtoo.
+(require 'init-sr-speedbar)             ;; setting for sr-speedbar. from redguardtoo.
 
 (require 'init-layout)
 
