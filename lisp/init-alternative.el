@@ -30,6 +30,9 @@
 (require-package 'simpleclip)
 (require 'init-clipboard)                       ;; setting for clipboard. from redguardtoo.
 
+;; Setting local key M-y will cause calc works bad.
+(remove-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
+
 (require 'init-emacs-w3m)                       ;; setting for w3m. a browser. from redguardtoo.
 
 (provide 'init-alternative)
