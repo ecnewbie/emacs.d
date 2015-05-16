@@ -23,6 +23,10 @@
 (setq company-c-headers-path-system my-c++-path)
 
 (require 'init-flycheck)                                                ;; for syntax checking. from purcell.
+(add-hook 'flycheck-mode-hook
+	  (lambda ()
+	    (when (not (display-graphic-p))
+	      (setq-local flycheck-indication-mode nil))) t)		;; fix flycheck conflicts with company mode in xterm.
 
 (require-package 'ibuffer-vc)
 (require-package 'projectile)
@@ -59,6 +63,7 @@
 (require 'init-lisp)                                                    ;; setting for lisp. from redguardtoo.
 
 ;; set global key M-[ will conflict with xterm-mouse-mode.
+;; Note: Long press on left mouse button works bad.
 (eval-after-load 'paredit
   '(when (not window-system)
    (global-unset-key (kbd "M-["))))
