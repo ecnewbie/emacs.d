@@ -10,7 +10,7 @@
 (global-unset-key (kbd "C-c c"))
 (define-key global-map (kbd "C-@") 'set-mark-command)
 
-(require 'init-editing-utils)                      ;; editing utils from purcell, cancel guide-key.
+(require 'init-editing-utils)                      ;; editing utils from purcell, cancel guide-key, turn on fci-mode.
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C-M-=") 'er/contract-region)
 

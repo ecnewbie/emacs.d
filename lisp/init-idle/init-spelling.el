@@ -33,8 +33,10 @@
 
 (put 'web-mode 'flyspell-mode-predicate 'web-mode-flyspell-verify)
 
-(require 'flyspell-lazy)
-(flyspell-lazy-mode 1)
+(eval-after-load 'flyspell
+  '(progn
+	 (require 'flyspell-lazy)
+	 (flyspell-lazy-mode 1)))
 
 ;; better performance
 (setq flyspell-issue-message-flag nil)
@@ -61,6 +63,25 @@
     args
     ))
 
+;; Aspell Setup (recommended):
+;; Skipped because it's easy.
+;;
+;; Hunspell Setup:
+;; 1. Install hunspell from http://hunspell.sourceforge.net/
+;; 2. Download openoffice dictionary extension from
+;; http://extensions.openoffice.org/en/project/english-dictionaries-apache-openoffice
+;; 3. That is download `dict-en.oxt'. Rename that to `dict-en.zip' and unzip
+;; the contents to a temporary folder.
+;; 4. Copy `en_US.dic' and `en_US.aff' files from there to a folder where you
+;; save dictionary files; I saved it to `~/usr_local/share/hunspell/'
+;; 5. Add that path to shell env variable `DICPATH':
+;; setenv DICPATH $MYLOCAL/share/hunspell
+;; 6. Restart emacs so that when hunspell is run by ispell/flyspell, that env
+;; variable is effective.
+;;
+;; hunspell will search for a dictionary called `en_US' in the path specified by
+;; `$DICPATH'
+
 (cond
  ((executable-find "aspell")
   (setq ispell-program-name "aspell"))
@@ -80,34 +101,48 @@
 (defadvice ispell-word (around my-ispell-word activate)
   (let ((old-ispell-extra-args ispell-extra-args))
     (ispell-kill-ispell t)
+    ;; use emacs original arguments
     (setq ispell-extra-args (flyspell-detect-ispell-args))
     ad-do-it
+    ;; restore our own ispell arguments
     (setq ispell-extra-args old-ispell-extra-args)
     (ispell-kill-ispell t)
     ))
 
-;; Add spell-checking in comments for all programming language modes
+(defadvice flyspell-auto-correct-word (around my-flyspell-auto-correct-word activate)
+  (let ((old-ispell-extra-args ispell-extra-args))
+    (ispell-kill-ispell t)
+    ;; use emacs original arguments
+    (setq ispell-extra-args (flyspell-detect-ispell-args))
+    ad-do-it
+    ;; restore our own ispell arguments
+    (setq ispell-extra-args old-ispell-extra-args)
+    (ispell-kill-ispell t)
+    ))
+
+;; Add auto spell-checking in comments for all programming language modes
 ;; if and only if there is enough memory
+;; You can use prog-mode-hook instead.
 (unless *no-memory*
   (dolist (hook '(lisp-mode-hook
-                   emacs-lisp-mode-hook
-                   scheme-mode-hook
-                   clojure-mode-hook
-                   ruby-mode-hook
-                   yaml-mode
-                   python-mode-hook
-                   shell-mode-hook
-                   php-mode-hook
-                   css-mode-hook
-                   haskell-mode-hook
-                   caml-mode-hook
-                   c++-mode-hook
-                   c-mode-hook
-                   lua-mode-hook
-                   crontab-mode-hook
-                   perl-mode-hook
-                   tcl-mode-hook
-                   js2-mode-hook))
+                  emacs-lisp-mode-hook
+                  scheme-mode-hook
+                  clojure-mode-hook
+                  ruby-mode-hook
+                  yaml-mode
+                  python-mode-hook
+                  shell-mode-hook
+                  php-mode-hook
+                  css-mode-hook
+                  haskell-mode-hook
+                  caml-mode-hook
+                  c++-mode-hook
+                  c-mode-hook
+                  lua-mode-hook
+                  crontab-mode-hook
+                  perl-mode-hook
+                  tcl-mode-hook
+                  js2-mode-hook))
     (add-hook hook 'flyspell-prog-mode)))
 
 

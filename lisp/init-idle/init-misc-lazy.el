@@ -19,8 +19,9 @@
               tooltip-delay 1.5
               truncate-lines nil
               truncate-partial-width-windows nil
-              ;; no annoying beep on errors
-              visible-bell t)
+              ;; visible-bell has some issue
+              ;; @see https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/issues/9#issuecomment-97848938
+              visible-bell nil)
 
 ;; use my own bmk if it exists
 (if (file-exists-p (file-truename "~/.emacs.bmk"))
@@ -54,11 +55,6 @@
 (autoload 'sos "sos" "search stackoverflow" t)
 
 ;;----------------------------------------------------------------------------
-;; Show matching parens
-;;----------------------------------------------------------------------------
-                                        ;(paren-activate)     ; activating mic-paren
-
-;;----------------------------------------------------------------------------
 ;; Fix per-window memory of buffer point positions
 ;;----------------------------------------------------------------------------
 (global-pointback-mode)
@@ -79,12 +75,12 @@
 
 ;; my screen is tiny, so I use minimum eshell prompt
 (setq eshell-prompt-function
-      (lambda ()
-        (concat (getenv "USER") " $ ")))
+       (lambda ()
+         (concat (getenv "USER") " $ ")))
 
 ;; Write backup files to own directory
 (if (not (file-exists-p (expand-file-name "~/.backups")))
-    (make-directory (expand-file-name "~/.backups")))
+  (make-directory (expand-file-name "~/.backups")))
 (setq backup-by-coping t ; don't clobber symlinks
       backup-directory-alist '(("." . "~/.backups"))
       delete-old-versions t
@@ -98,15 +94,15 @@
 
 ;; I'm in Australia now, so I set the locale to "en_AU"
 (defun insert-date (prefix)
-  "Insert the current date. With prefix-argument, use ISO format. With
+    "Insert the current date. With prefix-argument, use ISO format. With
    two prefix arguments, write out the day and month name."
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%d.%m.%Y")
-                 ((equal prefix '(4)) "%Y-%m-%d")
-                 ((equal prefix '(16)) "%d %B %Y")))
-        )
-    (insert (format-time-string format))))
+    (interactive "P")
+    (let ((format (cond
+                   ((not prefix) "%d.%m.%Y")
+                   ((equal prefix '(4)) "%Y-%m-%d")
+                   ((equal prefix '(16)) "%d %B %Y")))
+          )
+      (insert (format-time-string format))))
 
 ;;compute the length of the marked region
 (defun region-length ()
@@ -134,7 +130,7 @@
       (if (< (abs (- (point) p1))
              (abs (- (point) p2)))
           (goto-char p2)
-        (goto-char p1))
+          (goto-char p1))
       )))
 ;; }}
 
@@ -142,8 +138,8 @@
 (defun open-blog-on-current-month ()
   (interactive)
   (let (blog)
-    (setq blog (file-truename (concat "~/blog/" (format-time-string "%Y-%m") ".org")) )
-    (find-file blog)))
+   (setq blog (file-truename (concat "~/blog/" (format-time-string "%Y-%m") ".org")) )
+   (find-file blog)))
 
 (defun insert-blog-version ()
   "insert version of my blog post"
@@ -160,8 +156,8 @@
   (insert (format "ASCII characters up to number %d.\n" 254))
   (let ((i 0))
     (while (< i 254)
-      (setq i (+ i 1))
-      (insert (format "%4d %c\n" i i))))
+           (setq i (+ i 1))
+           (insert (format "%4d %c\n" i i))))
   (beginning-of-buffer))
 
 ;; {{ grep and kill-ring
@@ -308,8 +304,8 @@ The full path into relative path insert it as a local file link in org-mode"
 
     ;; convert to relative path (relative to current buffer) if possible
     (let ((m (string-match (file-name-directory (buffer-file-name)) str) ))
-      (if (and m (= 0 m ))
-          (setq str (substring str (length (file-name-directory (buffer-file-name))))))
+        (if (and m (= 0 m ))
+            (setq str (substring str (length (file-name-directory (buffer-file-name))))))
       (insert (format "[[file:%s]]" str))
       )))
 
@@ -483,19 +479,11 @@ Current position is preserved."
 (setq midnight-mode t)
 
 (add-auto-mode 'tcl-mode "Portfile\\'")
-;;----------------------------------------------------------------------------
-;; Shift lines up and down with M-up and M-down
-;;----------------------------------------------------------------------------
-                                        ;(move-text-default-bindings)
 
 (autoload 'vr/replace "visual-regexp")
 (autoload 'vr/query-replace "visual-regexp")
 ;; if you use multiple-cursors, this is for you:
 (autoload 'vr/mc-mark "visual-regexp")
-
-;; {{go-mode
-                                        ;(require 'go-mode-load)
-;; }}
 
 ;; someone mentioned that blink cursor could slow Emacs24.4
 ;; I couldn't care less about cursor, so turn it off explicitly
@@ -539,17 +527,6 @@ Including indent-buffer, which should not be called automatically on save."
   (interactive)
   (cleanup-buffer-safe)
   (indent-buffer))
-
-;; {{ save history
-;; On Corp machines, I don't have permission to access history,
-;; so safe-wrap is used
-                                        ;(safe-wrap
-(when (file-writable-p (file-truename "~/.emacs.d/history"))
-  (setq history-length 8000)
-  (setq savehist-additional-variables '(search-ring regexp-search-ring kill-ring))
-  (savehist-mode 1))
-                                        ;(message "Failed to access ~/.emacs.d/history"))
-;; }}
 
 (provide 'init-misc-lazy)
 ;;; init-misc-lazy.el ends here

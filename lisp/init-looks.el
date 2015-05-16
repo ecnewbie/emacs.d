@@ -7,7 +7,6 @@
 
 (require-package 'window-numbering)
 (require-package 'buffer-move)
-(require 'init-move-window-buffer) ;; window-numbering and buffer-move. copy from redguardtoo.
 (require 'init-gui)                ;; setting for frame. highlight cur-line and line num...
 
 (require-package 'sr-speedbar)
