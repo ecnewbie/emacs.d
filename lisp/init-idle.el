@@ -1,8 +1,8 @@
 (require-package 'visual-regexp)
 (require 'visual-regexp)
-(require 'init-misc-lazy)               ;; misc setup. from redguardtoo.
+(require 'init-misc-lazy)                           ;; misc setup. from redguardtoo.
 
-;; make tooltip beautiful. has effect here.
+;;; make tooltip beautiful. has effect here.
 (when (window-system)
 (require 'color)
   (let ((bg (face-attribute 'default :background)))
@@ -24,9 +24,9 @@
     (make-directory (expand-file-name "~/.emacs.d/snippets"))
     )
 (require-package 'dropdown-list)
-(require 'init-yasnippet)               ;; setting for yasnippet. from redguardtoo.
+(require 'init-yasnippet)                           ;; setting for yasnippet. from redguardtoo.
 
 (setq flyspell-auto-correct-binding [(control \.)]) ;; default key binding conflict with ace-jump-mode.
-(require 'init-spelling)				;; setting for spell checking. from redguardtoo.
+(require 'init-spelling)                            ;; setting for spell checking. from redguardtoo.
 
 (provide 'init-idle)
