@@ -1,11 +1,7 @@
 (require-package 'google-c-style)
 (require 'google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style t)      ;; add hook at last.
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-
-(add-hook 'c++-mode-hook
-   '(lambda()
-   (c-set-style "stroustrup")))
 
 ;-----------------------------------------------------------------------------------
 (eval-after-load 'flycheck
@@ -19,6 +15,6 @@
 
 
 (add-hook 'c++-mode-hook (lambda ()
-                          (flycheck-mode)))
+			   (flycheck-mode)))
 
 (provide 'init-google-cc-style)
