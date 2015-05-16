@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # contributor: Chen Bin <chenbin DOT sh AT gmail>
-# name: <html>...<script src="angular.js"></script></html>
+# name: <html> angular+angular-ui+bootstrap
 # key: html5
 # --
 <!DOCTYPE html>
@@ -15,7 +15,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.13/angular-mocks.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
     <link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
     <style type="text/css">.nav, .pagination, .carousel, .panel-title a { cursor: pointer; } /* angular ui bootstrap hack */</style>
   </head>
   <body>
@@ -24,25 +23,22 @@
     </div>
     <div ng-view></div>
     <script type="text/javascript">
-      var ${1:app}= angular.module('${2:myApp}', ['ui.bootstrap', 'ngRoute', 'ngMockE2E']);
-      ${1:$(yas/substr yas-text "[^ ]*")}.config(['$routeProvider', function($routeProvider) {
+      angular.module('${2:myApp}', ['ui.bootstrap', 'ngRoute', 'ngMockE2E']).config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/index', {
           templateUrl: 'main.html',
           controller: 'MainCtrl'
         }).otherwise({
           redirectTo: '/index'
         });
-      }]);
-      ${1:$(yas/substr yas-text "[^ ]*")}.run(function($httpBackend) {
+      }]).run(function($httpBackend) {
          // hack $http
          $httpBackend.whenPOST('MY_POST_URL').respond(function(method, url, data, headers){
            return [200, {}, {}];
          });
          $httpBackend.whenGET(/^.*/).passThrough();
-      });
-      ${1:$(yas/substr yas-text "[^ ]*")}.controller('MainCtrl', function ($scope) {
+      }).controller('MainCtrl', ['$scope', function ($scope) {
         $scope.message = 'Hello World';
-      });
+      }]);
     </script>
   </body>
 </html>
