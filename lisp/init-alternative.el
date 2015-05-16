@@ -17,7 +17,6 @@
 (require-package 'helm-c-yasnippet)
 (require 'init-helm)      ;; setting for helm. a alternative choice of ido. from redguardtoo.
 
-(require-package 'w3m)
 (require 'init-writting)  ;; changing key-binding M-c, M-l, M-u. from redguardtoo.
 
 
@@ -33,6 +32,7 @@
 ;; Setting local key M-y will cause calc works bad.
 (remove-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
 
-(require 'init-emacs-w3m) ;; setting for w3m. a browser. from redguardtoo.
+;;(require-package 'w3m)
+;;(require 'init-emacs-w3m) ;; setting for w3m. a browser. from redguardtoo.
 
 (provide 'init-alternative)
