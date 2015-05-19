@@ -25,6 +25,7 @@
     )
 (require-package 'dropdown-list)
 (require 'init-yasnippet)                           ;; setting for yasnippet. from redguardtoo. cancel yasnippet-autoloads.
+(yas-global-mode 1)
 
 (setq flyspell-auto-correct-binding [(control \.)]) ;; default key binding conflict with ace-jump-mode.
 (require 'init-spelling)                            ;; setting for spell checking. from redguardtoo.

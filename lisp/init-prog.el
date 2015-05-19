@@ -37,7 +37,7 @@
 (require 'init-doxygen)                                          ;; insert doxygen style comment. from redguardtoo.
 
 (require-package 'cmake-mode)
-(require 'init-google-cc-style)                                  ;; google coding style.
+;;(require 'init-google-cc-style)                                ;; google coding style.
 
 (require-package 'magit '(1 2 0) nil)
 (require-package 'git-commit-mode)
