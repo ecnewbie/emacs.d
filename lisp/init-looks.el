@@ -5,6 +5,7 @@
 (require 'init-windows)            ;; setting for switch window, winner and split window... from redguardtoo.
 (setq switch-window-shortcut-style 'alphabet)
 
+(require-package 'switch-window)
 (require-package 'window-numbering)
 (require-package 'buffer-move)
 (require 'init-gui)                ;; setting for frame. highlight cur-line and line num...

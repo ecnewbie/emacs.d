@@ -35,4 +35,6 @@
 ;;(require-package 'w3m)
 ;;(require 'init-emacs-w3m) ;; setting for w3m. a browser. from redguardtoo.
 
+(require 'init-smarter-commands) ;; some smarter commands.
+
 (provide 'init-alternative)
