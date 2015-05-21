@@ -5,7 +5,8 @@
 
 (require-package 'ggtags)
 (require-package 'cpputils-cmake)
-(require 'init-cc-mode)       ;; setting for cc-mode. copy from redguardtoo.
+(require-package 'c-eldoc)
+(require 'init-cc-mode)       ;; setting for cc-mode. from redguardtoo. fix indent.
 (require 'init-flymake)       ;; for flymake. from redguardtoo.
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (require-package 'cmake-mode)
