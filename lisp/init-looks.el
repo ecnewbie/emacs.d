@@ -13,6 +13,6 @@
 (require-package 'sr-speedbar)
 (require 'init-sr-speedbar)        ;; setting for sr-speedbar. from redguardtoo.
 
-(require 'init-layout)
+;;(require 'init-layout)           ;; setting for new temp buffer. It works bad sometimes.
 
 (provide 'init-looks)

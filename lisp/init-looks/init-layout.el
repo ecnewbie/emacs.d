@@ -155,6 +155,8 @@
 (add-hook 'ggtags-global-mode-hook (lambda () (split-window-vertically-and-resize "*ggtags-global*")))
 (add-hook 'message-mode-hook (lambda () (split-window-vertically-and-resize "*Messages*")))
 (add-hook 'occur-mode-hook (lambda () (split-window-vertically-and-resize "*Occur*")))
+(add-hook 'grep-mode-hook (lambda () (split-window-vertically-and-resize "*grep*")))
+(add-hook 'helm-moccur-mode-hook (lambda () (split-window-vertically-and-resize "*hmoccur*")))
 (add-hook 'apropos-mode-hook (lambda () (split-window-vertically-and-resize "*Apropos*")))
 ;;(add-hook 'Man-mode-hook (lambda () (split-window-vertically-and-resize "*Man*" 10 'Man-mode)))
 ;;(add-hook 'w3m-mode-hook (lambda () (split-window-vertically-and-resize "*w3m*" 10 'w3m-mode)))
