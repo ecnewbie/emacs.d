@@ -100,13 +100,20 @@ spell:
 | M-$   | ispell-word                | global        |
 
 helm:
-| M-a | helm-mark-all   | helm-* |
-| M-u | helm-unmark-all | helm-* |
+| M-a     | helm-mark-all               | helm-*                 |
+| M-u     | helm-unmark-all             | helm-*                 |
+| C-x C-s | helm-moccur-run-save-buffer | helm-occur/multi-occur |
+
+wgrep:
+| C-c C-p | wgrep-change-to-wgrep-mode | grep-mode/helm-moccur-mode |
+| C-x C-s | wgrep-finish-edit          | wgrep-mode                 |
+| C-c C-d | wgrep-mark-deletion        | wgrep-mode                 |
+| C-c C-k | wgrep-abort-changes        | wgrep-mode                 |
 
 常用命令：
-| helm-global-mark-ring             | global | 查看mark ring            |
-| occur/helm-occur/helm-multi-occur | global | 使用helm来过滤buffer内容 |
-| calc                              | global | 计算器                   |
+| helm-global-mark-ring             | global | 查看mark ring                  |
+| occur/helm-occur/helm-multi-occur | global | 使用helm来过滤、编辑buffer内容 |
+| calc                              | global | 计算器                         |
 
 保留的命令：
 | calc-eval-line-and-insert         | global | 计算表达式的值              |
