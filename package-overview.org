@@ -3,13 +3,14 @@
 
 * 现装emacs包：
 ** 定制emacs：
-*** anzu、diminish、dropdown-list、flx-ido、fullframe、guide-key、helm、helm-c-yasnippet、helm-company、helm-gtags、ibuffer-vc、idle-require、ido-ubiquitous、idomenu、maxframe、smex、sr-speedbar.
+*** anzu、diminish、dropdown-list、chinese-fonts-setup、flx-ido、fullframe、guide-key、helm、helm-c-yasnippet、helm-company、helm-gtags、
+*** ibuffer-vc、idle-require、ido-ubiquitous、idomenu、maxframe、smex、sr-speedbar.
 ** 主题：
 *** color-theme、zenburn-theme.
 ** 快速编辑：
 *** ace-jump-mode、browse-kill-ring、buffer-move、expand-region、flyspell、flyspell-lazy、highlight-escape-sequences、highlight-symbol、hl-sexp、move-dup、
 *** multiple-cursors、page-break-lines、paredit、pointback、rainbow-delimiters、saveplace、smartparens、switch-window、undo-tree、unfill、visual-regexp、whitespace-cleanup-mode、
-*** whole-line-or-region、window-numbering、workgroups2、yasnippet。
+*** wgrep、wgrep-ag、wgrep-helm、whole-line-or-region、window-numbering、workgroups2、yasnippet。
 ** 编程：
 *** company、company-c-headers、cmake-mode、cpputils-cmake、fic-mode、fill-column-indicator、flycheck、flycheck-google-cpplint、ggtags、gitconfig-mode、gitignore-mode、git-commit-mode、git-gutter、
 *** google-c-style、magit、projectile、quack。
@@ -34,6 +35,7 @@
 ** ace-jump-mode： 快速移动光标。
 ** buffer-move：快速交换窗口buffer，即窗口内容对调。
 ** browse-kill-ring：浏览kill ring(C-k) 内容。
+** chinese-fonts-setup: 方便配置中英文对齐。
 ** expand-region：快速选择区域。
 ** flyspell、flyspell-lazy：拼写检查。
 ** highlight-escape-sequences：

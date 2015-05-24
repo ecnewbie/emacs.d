@@ -73,8 +73,8 @@
 |        | M-g i   | ido-goto-symbol  | global       |
 
 ggtags:
-| M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                             |
-| M-] | ggtags-find-reference | ggtags-mode | 查找引用                                    |
+| M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |
+| M-] | ggtags-find-reference | ggtags-mode | 查找引用                                       |
 | M-n | next-error            | global      | 在global搜索结果窗口打开的情况下，跳转到下一个 |
 | M-p | previous-error        | global      | 在global搜索结果窗口打开的情况下，跳转到上一个 |
 
@@ -114,6 +114,7 @@ wgrep:
 | helm-global-mark-ring             | global | 查看mark ring                  |
 | occur/helm-occur/helm-multi-occur | global | 使用helm来过滤、编辑buffer内容 |
 | calc                              | global | 计算器                         |
+| revert-buffer-with-coding-system  | global | 以其它编码格式显示buffer       |
 
 保留的命令：
 | calc-eval-line-and-insert         | global | 计算表达式的值              |
