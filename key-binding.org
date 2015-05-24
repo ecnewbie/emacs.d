@@ -67,10 +67,11 @@
 | C-M-/            | dabbrev-completion            | global | Show completion of this buffer's word.                           |
 
 自定义的快捷键：
-| origin | current | command          | scope        |
-| M-/    | M-/ /   | dabbrev-expand   | global       |
-|        | M-/ c   | company-complete | company-mode |
-|        | M-g i   | ido-goto-symbol  | global       |
+| origin | current | command             | scope        |
+| M-/    | M-/ /   | dabbrev-expand      | global       |
+|        | M-/ c   | company-complete    | company-mode |
+|        | M-/ s   | ispell-word         | global       |
+|        | M-g i   | ido-goto-symbol     | global       |
 
 ggtags:
 | M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |

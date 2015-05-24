@@ -17,6 +17,7 @@
 (require 'init-cpp-include-path)
 (setq company-clang-arguments my-c++-include)
 (setq company-c-headers-path-system my-c++-path)
+(setq c-eldoc-includes my-c++-include)
 
 (require 'init-flycheck)                                         ;; for syntax checking. from purcell.
 (add-hook 'flycheck-mode-hook

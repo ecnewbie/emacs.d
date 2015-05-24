@@ -1,6 +1,7 @@
 (require 'init-markdown)	  ;; setting for markdown from redguardtoo.
 (require 'init-org)			  ;; setting org-mode from redguardtoo.
 (require 'init-org-mime)      ;; send HTML email using Org-mode HTML export. from redguardtoo.
+(require 'init-org-table)
 (require 'init-org-agenda)
 
 (require-package 'ggtags)
@@ -11,5 +12,11 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (require-package 'cmake-mode)
 (require 'init-hs-minor-mode) ;; setting for hide/show block. from redguardtoo.
+
+(add-hook 'cppcm-reload-all-hook
+          '(lambda ()
+             (setq c-eldoc-includes (cppcm--fix-include-path (append cppcm-include-dirs
+                                                                     cppcm-preprocess-defines
+                                                                     cppcm-extra-preprocss-flags-from-user)))))
 
 (provide 'init-modes)
