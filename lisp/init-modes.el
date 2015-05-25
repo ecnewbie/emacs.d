@@ -15,8 +15,6 @@
 
 (add-hook 'cppcm-reload-all-hook
           '(lambda ()
-             (setq c-eldoc-includes (cppcm--fix-include-path (append cppcm-include-dirs
-                                                                     cppcm-preprocess-defines
-                                                                     cppcm-extra-preprocss-flags-from-user)))))
+             (setq c-eldoc-includes (combine-and-quote-strings company-clang-arguments))))
 
 (provide 'init-modes)
