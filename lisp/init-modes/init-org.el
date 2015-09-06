@@ -145,7 +145,7 @@
                 'choose-browser)
                (t
                 (lambda (url &optional new)
-                  (w3m-browse-url url t))))))
+                  (eww-browse-url url t))))))
     ad-do-it))
 
 ;; {{ org2nikola set up

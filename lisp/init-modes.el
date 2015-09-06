@@ -4,6 +4,9 @@
 (require 'init-org-table)
 (require 'init-org-agenda)
 
+(require 'org)
+(set org-link-file-path-type 'adaptive)
+
 (require-package 'ggtags)
 (require-package 'cpputils-cmake)
 (require-package 'c-eldoc)

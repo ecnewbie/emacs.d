@@ -1,5 +1,5 @@
 * 依赖系统包：
-** emacs24、emacs24-el、clang、global[-6.4]、racket、xsel、w3m。
+** emacs24、emacs24-el、clang、global[-6.4]、racket、xsel、w3m、texlive-xetex、libreoffice。
 
 * 现装emacs包：
 ** 定制emacs：
@@ -38,8 +38,6 @@
 ** chinese-fonts-setup: 方便配置中英文对齐。
 ** expand-region：快速选择区域。
 ** flyspell、flyspell-lazy：拼写检查。
-** highlight-escape-sequences：
-
 ** highlight-symbol：手动高亮显示单词。
 ** hl-sexp: 高亮当前括号区域。
 ** iedit: 功能类似multiple-cursors的mark all.
