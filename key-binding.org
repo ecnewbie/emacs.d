@@ -112,6 +112,17 @@
 | C-c C-d | wgrep-mark-deletion        | wgrep-mode                 |
 | C-c C-k | wgrep-abort-changes        | wgrep-mode                 |
 
+* magit:
+| s | magit-stage-item          | magit-status |   |
+| u | magit-unstage-item        | magit-status |   |
+| i | magit-ignore-item         | magit-status |   |
+| I | magit-ignore-item-locally | magit-status |   |
+| j | magit-section-jump-map    | magit-status |   |
+| . | magit-mark-item           | magit-status |   |
+| = | magit-diff-with-mark      | magit-status |   |
+| k | magit-discard-item        | magit-status |   |
+| C | magit-commit-add-log      | magit-status |   |
+
 * 常用命令：
 | helm-global-mark-ring             | global | 查看mark ring                  |
 | occur/helm-occur/helm-multi-occur | global | 使用helm来过滤、编辑buffer内容 |
