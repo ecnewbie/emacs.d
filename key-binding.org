@@ -113,15 +113,14 @@
 | C-c C-k | wgrep-abort-changes        | wgrep-mode                 |
 
 * magit:
-| s | magit-stage-item          | magit-status |   |
-| u | magit-unstage-item        | magit-status |   |
-| i | magit-ignore-item         | magit-status |   |
-| I | magit-ignore-item-locally | magit-status |   |
-| j | magit-section-jump-map    | magit-status |   |
-| . | magit-mark-item           | magit-status |   |
-| = | magit-diff-with-mark      | magit-status |   |
-| k | magit-discard-item        | magit-status |   |
-| C | magit-commit-add-log      | magit-status |   |
+| s | magit-stage-item          | magit | git add file                  |
+| u | magit-unstage-item        | magit | git rm file/git reset -- file |
+| i | magit-ignore-item         | magit | --                            |
+| I | magit-ignore-item-locally | magit | add file to .gitignore        |
+| . | magit-mark-item           | magit | just mark                     |
+| = | magit-diff-with-mark      | magit | git diff                      |
+| k | magit-discard-item        | magit | git checkout file             |
+| C | magit-commit-add-log      | magit | git commit -m                 |
 
 * 常用命令：
 | helm-global-mark-ring             | global | 查看mark ring                  |

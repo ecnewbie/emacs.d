@@ -1,10 +1,38 @@
-;;(require 'yasnippet-autoloads)
+;; loading yasnippet will slow the startup
+;; but it's necessary cost
+(require 'yasnippet)
+
+;; my private snippets, should be placed before enabling yasnippet
+(setq my-yasnippets (expand-file-name "~/my-yasnippets"))
+(if (and  (file-exists-p my-yasnippets) (not (member my-yasnippets yas-snippet-dirs)))
+    (add-to-list 'yas-snippet-dirs my-yasnippets))
+
+(yas-reload-all)
+(defun yasnippet-generic-setup-for-mode-hook ()
+  (unless (is-buffer-file-temp)
+    ;; highlight FIXME/BUG/TODO in comment
+    (yas-minor-mode 1)))
+
+(add-hook 'prog-mode-hook 'yasnippet-generic-setup-for-mode-hook)
+(add-hook 'text-mode-hook 'yasnippet-generic-setup-for-mode-hook)
+(add-hook 'cmake-mode-hook 'yasnippet-generic-setup-for-mode-hook)
 
 (defun my-yas-reload-all ()
   (interactive)
-  (unless (featurep 'yasnippet) (require 'yasnippet))
   (yas-compile-directory (file-truename "~/.emacs.d/snippets"))
   (yas-reload-all))
+
+(defun my-yas-get-first-name-from-to-field ()
+  (let ((rlt "AGENT_NAME") str)
+    (save-excursion
+      (goto-char (point-min))
+      ;; first line in email could be some hidden line containing NO to field
+      (setq str (buffer-substring-no-properties (point-min) (point-max))))
+    (message "str=%s" str)
+    (if (string-match "^To: \"?\\([a-zA-Z]+\\)" str)
+        (setq rlt (capitalize (match-string 1 str))))
+    ;; (message "rlt=%s" rlt)
+    rlt))
 
 (defun my-yas-camelcase-to-string-list (str)
   "Convert camelcase string into string list"
@@ -30,25 +58,6 @@
     (setq case-fold-search old-case)
     (mapconcat 'identity rlt " ")))
 
-(defun my-yas-expand ()
-  (interactive)
-  (unless (featurep 'yasnippet)
-    (require 'yasnippet)
-    (yas-global-mode 1))
-
-  (if (buffer-file-name)
-      (let ((ext (car (cdr (split-string (buffer-file-name) "\\."))) )
-            (old-yas-flag yas-indent-line))
-        (if (or (string= ext "ftl") (string= ext "jsp"))
-          (setq yas-indent-line nil))
-        (yas-expand)
-        ;; restore the flag
-        (setq yas-indent-line old-yas-flag))
-    (yas-expand)))
-
-;; default TAB key is occupied by auto-complete
-(global-set-key (kbd "C-c k") 'my-yas-expand)
-
 (autoload 'snippet-mode "yasnippet" "")
 (add-to-list 'auto-mode-alist '("\\.yasnippet\\'" . snippet-mode))
 
@@ -56,11 +65,6 @@
   '(progn
      ;; http://stackoverflow.com/questions/7619640/emacs-latex-yasnippet-why-are-newlines-inserted-after-a-snippet
      (setq-default mode-require-final-newline nil)
-     ;; my private snippets
-     (setq my-yasnippets (expand-file-name "~/my-yasnippets"))
-     (if (and  (file-exists-p my-yasnippets) (not (member my-yasnippets yas-snippet-dirs)))
-         (add-to-list 'yas-snippet-dirs my-yasnippets))
-     (message "yas-snippet-dirs=%s" yas-snippet-dirs)
      ;; (message "yas-snippet-dirs=%s" (mapconcat 'identity yas-snippet-dirs ":"))
 
      ;; default hotkey `C-c C-s` is still valid

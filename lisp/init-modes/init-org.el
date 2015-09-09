@@ -1,6 +1,9 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
+;; some cool org tricks
+;; @see http://emacs.stackexchange.com/questions/13820/inline-verbatim-and-code-with-quotes-in-org-mode
+
 ;; NO spell check for embedded snippets
 ;; Please note flyspell only use ispell-word
 (defadvice org-mode-flyspell-verify (after org-mode-flyspell-verify-hack activate)
@@ -129,9 +132,9 @@
         "Make lines wrap at window edge and on word boundary,
         in current buffer."
         (interactive)
+        ;; display wrapped lines instead of truncated lines
         (setq truncate-lines nil)
-        (setq word-wrap t)
-        )
+        (setq word-wrap t))
       (add-hook 'org-mode-hook '(lambda ()
                                   (setq evil-auto-indent nil)
                                   (soft-wrap-lines)
@@ -147,6 +150,13 @@
                 (lambda (url &optional new)
                   (eww-browse-url url t))))))
     ad-do-it))
+
+(defadvice org-publish (around org-publish-advice activate)
+  "Stop running major-mode hook when org-publish"
+  (let ((old load-user-customized-major-mode-hook))
+	(setq load-user-customized-major-mode-hook nil)
+    ad-do-it
+	(setq load-user-customized-major-mode-hook old)))
 
 ;; {{ org2nikola set up
 (setq org2nikola-output-root-directory "~/.config/nikola")
