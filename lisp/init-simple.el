@@ -6,4 +6,6 @@
 (require 'linum-relative)
 (setq linum-relative-current-symbol "")
 
+(require-package 'multi-eshell)
+
 (provide 'init-simple)

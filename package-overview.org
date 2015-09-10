@@ -15,7 +15,7 @@
 *** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
 *** google-c-style, magit, projectile, quack.
 ** 其它:
-*** chinese-pyim, w3m.
+*** chinese-pyim, multi-eshell, w3m.
 
 * 一些用于定制的emacs包:
 ** anzu: 显示isearch匹配个数.
@@ -81,7 +81,8 @@
 ** projectile: 项目管理, 支持版本控制, 本地需要创建.projectile文件.
 
 * 其它:
-** highlight-escape-sequences: js, ruby下高亮转义字符.
 ** chinese-pyim: 拼音输入法.
+** highlight-escape-sequences: js, ruby下高亮转义字符.
+** multi-eshell: 打开多个shell, 类似于C-u M-x shell.
 ** quack: 支持scheme编程.
 ** w3m: 内置浏览器.

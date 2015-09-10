@@ -6,7 +6,8 @@ Q2. Which command or key-binding use often.
 A2. you can have a look at key-binding.org.
 
 Q3. My emacs takes long time to start.
-A3. you can use emacsclient. eg. /usr/bin/emacsclient -c -a emacs  [file].
+A3. Always run emacs as daemon. (emacs --daemon)
+    And then use emacsclient. eg. /usr/bin/emacsclient -c -a emacs  [file].
 
 Q4. Any rules of key-binding.
 A4. I think there are serveral rules of key-binding.
