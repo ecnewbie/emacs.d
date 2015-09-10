@@ -59,6 +59,7 @@
 ** saveplace: 打开文件记录.
 ** switch-window/move-window: 快速切换窗口.
 ** visual-regexp: 可视化查找, 替换.
+** vlf: 大文件的查看, 编辑等.
 ** window-numbering: 编号窗口, 快速切换窗口.
 ** workgroups2: 保存恢复窗口布局. 类似的有window-purpose.
 ** yasnippet: 补全片段.

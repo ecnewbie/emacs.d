@@ -8,4 +8,8 @@
 
 (require-package 'multi-eshell)
 
+;;; vlf
+(require-package 'vlf)
+(require 'vlf-setup)
+
 (provide 'init-simple)
