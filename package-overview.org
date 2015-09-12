@@ -8,7 +8,7 @@
 ** 主题:
 *** color-theme, zenburn-theme.
 ** 快速编辑:
-*** ace-jump-mode, browse-kill-ring, buffer-move, expand-region, flyspell, flyspell-lazy, highlight-escape-sequences, highlight-symbol, hl-sexp, move-dup,
+*** ace-jump-mode, browse-kill-ring, buffer-move, expand-region, flyspell, flyspell-lazy, highlight-escape-sequences, highlight-symbol, hl-sexp, lice, move-dup,
 *** multiple-cursors, page-break-lines, paredit, pointback, rainbow-delimiters, saveplace, smartparens, switch-window, undo-tree, unfill, visual-regexp, whitespace-cleanup-mode,
 *** wgrep, wgrep-ag, wgrep-helm, whole-line-or-region, window-numbering, workgroups2, vlf, yasnippet.
 ** 编程:
@@ -42,6 +42,7 @@
 ** highlight-symbol: 手动高亮显示单词.
 ** hl-sexp: 高亮当前括号区域.
 ** iedit: 功能类似multiple-cursors的mark all.
+** lice: 插入license.
 ** mic-paren: 高亮显示匹配括号.
 ** midnight: 清除3天未被显示的buffer.
 ** move-dup/move-text: 移动mark文本或当前行, dup还带复制功能.

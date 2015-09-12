@@ -12,4 +12,6 @@
 (require-package 'vlf)
 (require 'vlf-setup)
 
+(require-package 'lice)
+
 (provide 'init-simple)
