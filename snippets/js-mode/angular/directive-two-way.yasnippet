@@ -1,17 +1,20 @@
 # -*- coding: utf-8; mode: snippet -*-
-# name: two way binding <div ng-model="..." directiveName />
+# name: two way binding <div ng-model="..." input-currency />
 # key: adirective
 # contributor: Chen Bin <chenbin DOT sh AT gmail>
 # --
-angular.module('${1:myApp}').directive('${2:prefixDirectiveId}', function() {
+.directive('${1:inputCurrency}', function($filter) {
   return {
-    restrict: 'A', // A - match attribute, E - match element name, C, match attribute name
+    restrict: 'A', // A - attribute, E - element/name, C - attribute/name
     require: 'ngModel',
-    link: function(scope, element, attr, modelCtrl) {
+    link: function(scope, element, attr, ctrl) {
       var elementFocused;
       var forceDataBinding = function(ctrl) {
-        var value = ctrl.$modelValue;
-        var formatters = ctrl.$formatters,
+        var value = ctrl.$modelValue, formatters = ctrl.$formatters, idx;
+        if(!value) {
+            // because user input invalid data, we'd better not update the view
+            return;
+        }
         idx = formatters.length;
         while(idx--) {
           value = formatters[idx](value);
@@ -23,21 +26,33 @@ angular.module('${1:myApp}').directive('${2:prefixDirectiveId}', function() {
       };
       element.on('focus', function () {
         elementFocused = true;
-        forceDataBinding(modelCtrl);
+        forceDataBinding(ctrl);
       });
       element.on('blur', function () {
         elementFocused = false;
-        forceDataBinding(modelCtrl);
+        forceDataBinding(ctrl);
       });
-      modelCtrl.$parsers.push(function (v) {
-        $0
+      // or ctrl.$parsers.unshift(...)
+      ctrl.$parsers.push(function (origVal) {
+        if (origVal === undefined || origVal === '') return origVal;
+        // you can only input digits here
+        var transformedInput = origVal.replace(/[^0-9]/g, '');
+        if (transformedInput !== origVal) {
+          // force update the view
+          ctrl.$setViewValue(transformedInput);
+          ctrl.$render();
+        }
+        origVal = transformedInput;
         // from user input
-        return v;
+        return origVal;
       });
-      modelCtrl.$formatters.push(function (v) {
-        // to user input
-        return v;
+      ctrl.$formatters.push(function (origVal) {
+        // to user display
+        if(elementFocused === true) {
+          return origVal;
+        }
+        return  $filter('currency')(origVal,'');
       });
     }
   };
-});
+})
