@@ -20,4 +20,6 @@
           '(lambda ()
              (setq c-eldoc-includes (combine-and-quote-strings company-clang-arguments))))
 
+(require 'init-shell)
+
 (provide 'init-modes)

@@ -10,12 +10,12 @@
 ** 快速编辑:
 *** ace-jump-mode, browse-kill-ring, buffer-move, expand-region, flyspell, flyspell-lazy, highlight-escape-sequences, highlight-symbol, hl-sexp, move-dup,
 *** multiple-cursors, page-break-lines, paredit, pointback, rainbow-delimiters, saveplace, smartparens, switch-window, undo-tree, unfill, visual-regexp, whitespace-cleanup-mode,
-*** wgrep, wgrep-ag, wgrep-helm, whole-line-or-region, window-numbering, workgroups2, yasnippet.
+*** wgrep, wgrep-ag, wgrep-helm, whole-line-or-region, window-numbering, workgroups2, vlf, yasnippet.
 ** 编程:
 *** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
 *** google-c-style, magit, projectile, quack.
 ** 其它:
-*** chinese-pyim, multi-eshell, w3m.
+*** chinese-pyim, multi-eshell, readline-complete, w3m.
 
 * 一些用于定制的emacs包:
 ** anzu: 显示isearch匹配个数.
@@ -86,4 +86,5 @@
 ** highlight-escape-sequences: js, ruby下高亮转义字符.
 ** multi-eshell: 打开多个shell, 类似于C-u M-x shell.
 ** quack: 支持scheme编程.
+** readline-complete: shell的补全.
 ** w3m: 内置浏览器.
