@@ -7,6 +7,8 @@
      (add-to-list 'company-backends 'company-c-headers)
      ;;; can't work with TRAMP
      (setq company-backends (delete 'company-ropemacs company-backends))
+     ;;; makes company-clang not work sometimes.
+     (setq company-backends (delete 'company-capf company-backends))
      (setq company-dabbrev-downcase nil)
      (setq company-show-numbers t)
      (setq company-begin-commands '(self-insert-command))

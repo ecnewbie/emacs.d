@@ -8,6 +8,7 @@
 (require-package 'company)
 (require 'company)
 (push 'company-readline company-backends)
-(add-hook 'rlc-no-readline-hook (lambda () (company-mode -1)))
+;;; don't try to trun off company-mode.
+;;(add-hook 'rlc-no-readline-hook (lambda () (company-mode -1)))
 
 (provide 'init-shell)
