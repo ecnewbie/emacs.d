@@ -2,5 +2,5 @@
 # name: boost_require
 # key: req
 # --
-BOOST_REQUIRE( ${1:condition} );
+BOOST_REQUIRE(${1:condition});
 $0
