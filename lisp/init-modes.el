@@ -6,19 +6,7 @@
 
 (require 'org)
 (set org-link-file-path-type 'adaptive)
-
-(require-package 'ggtags)
-(require-package 'cpputils-cmake)
-(require-package 'c-eldoc)
-(require 'init-cc-mode)       ;; setting for cc-mode. from redguardtoo. fix indent.
-(require 'init-flymake)       ;; for flymake. from redguardtoo.
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
-(require-package 'cmake-mode)
 (require 'init-hs-minor-mode) ;; setting for hide/show block. from redguardtoo.
-
-(add-hook 'cppcm-reload-all-hook
-          '(lambda ()
-             (setq c-eldoc-includes (combine-and-quote-strings company-clang-arguments))))
 
 (require 'init-shell)
 

@@ -20,8 +20,7 @@
           (concat "/usr/lib/gcc/" hardware-platform "-linux-gnu/" gpp-version "/include-fixed")
           "/usr/include"
           (concat "/usr/include/" hardware-platform "-linux-gnu")
-          "/usr/local/include"
-          ".")))
+          "/usr/local/include")))
 
 (defvar my-c++-include
   (mapcar (lambda (item) (concat "-I" item))

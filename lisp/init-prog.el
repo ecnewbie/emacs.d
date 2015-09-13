@@ -7,19 +7,31 @@
      (add-to-list 'company-backends 'company-c-headers)
      ;;; can't work with TRAMP
      (setq company-backends (delete 'company-ropemacs company-backends))
-     ;;; makes company-clang not work sometimes.
-     (setq company-backends (delete 'company-capf company-backends))
      (setq company-dabbrev-downcase nil)
      (setq company-show-numbers t)
      (setq company-begin-commands '(self-insert-command))
      (setq company-idle-delay 0.2)
-     (global-set-key (kbd "M-/ c") 'company-complete)
-     ))
+     (global-set-key (kbd "M-/ c") 'company-complete)))
 
 (require 'init-cpp-include-path)
 (setq company-clang-arguments my-c++-include)
 (setq company-c-headers-path-system my-c++-path)
 (setq c-eldoc-includes my-c++-include)
+
+(require-package 'ggtags)
+(require-package 'cmake-mode)
+(require-package 'cpputils-cmake)
+(require-package 'c-eldoc)
+(require 'init-cc-mode)       ;; setting for cc-mode. from redguardtoo. fix indent.
+(require 'init-flymake)       ;; for flymake. from redguardtoo.
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+(add-hook 'cppcm-reload-all-hook
+          '(lambda ()
+             (setq company-clang-arguments (append my-c++-include company-clang-arguments))
+             (setq company-c-headers-path-system (append my-c++-path company-c-headers-path-system))
+             (setq c-eldoc-includes
+                   (combine-and-quote-strings company-clang-arguments))))
 
 (require 'init-flycheck)                                         ;; for syntax checking. from purcell.
 (add-hook 'flycheck-mode-hook

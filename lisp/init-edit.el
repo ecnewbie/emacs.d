@@ -7,6 +7,11 @@
 (require-package 'maxframe)
 (require-package 'browse-kill-ring)
 (require 'init-misc-redguardtoo)					;; cut from redguardtoo. not display fic at modeline.
+
+;;; only don't record these files.
+(setq recentf-exclude '("/tmp/"
+                        "/ssh:"
+                        "/sudo:"))
 (global-unset-key (kbd "C-c c"))
 (define-key global-map (kbd "C-@") 'set-mark-command)
 (define-key global-map (kbd "M-g m") 'pop-to-mark-command)
