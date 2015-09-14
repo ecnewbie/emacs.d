@@ -28,8 +28,8 @@
 
 (add-hook 'cppcm-reload-all-hook
           '(lambda ()
-             (setq company-clang-arguments (append my-c++-include company-clang-arguments))
-             (setq company-c-headers-path-system (append my-c++-path company-c-headers-path-system))
+             (setq company-clang-arguments (append company-clang-arguments my-c++-include))
+             (setq company-c-headers-path-system (append company-c-headers-path-system my-c++-path))
              (setq c-eldoc-includes
                    (combine-and-quote-strings company-clang-arguments))))
 
