@@ -52,4 +52,4 @@
     (replace-string-from-to "／" "/")
     (whitespace-cleanup)))
 
-(provide 'init-defuns-bad.el)
+(provide 'init-defuns-bad)
