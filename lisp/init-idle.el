@@ -13,9 +13,9 @@
      `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
      `(company-tooltip-common ((t (:inherit font-lock-constant-face)))))))
 
-(require 'init-helm-company)
+;(require 'init-helm-company) ;TODO: helm-match-plugin not found.
 (require 'server)
-(when (not (server-running-p server-name))
+(unless (or (daemonp) (server-running-p server-name))
       (server-mode t))
 
 (require-package 'flyspell-lazy)

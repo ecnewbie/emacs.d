@@ -1,0 +1,9 @@
+# name : #ifndef XXX; #define XXX; #endif
+# key: once
+# --
+#ifndef ${1:__`(upcase (replace-regexp-in-string  "[^a-z]+[a-z_]+" (lambda (s) (concat (upcase s) "_")) (replace-regexp-in-string  "\\([^a-z_]+\\)\\([A-Z]\\)" "\\1_\\2" (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))))`H__}
+#define $1
+
+$0
+
+#endif /* $1 */

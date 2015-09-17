@@ -4,7 +4,10 @@
 (require-package 'dropdown-list)
 (setq idle-require-idle-delay 1)
 (setq idle-require-symbols '(init-idle))
-(idle-require-mode 1) ;; starts loading
+(idle-require-mode 2) ;; starts loading
+
+(if (daemonp)
+    (require 'init-idle))
 
 (when (require 'time-date nil t)
    (message "Emacs startup time: %d seconds."
