@@ -114,14 +114,21 @@
 | C-x C-s | wgrep-finish-edit          | wgrep-mode                 |
 
 * magit:
-| . | magit-mark-item           | magit | just mark                     |
-| = | magit-diff-with-mark      | magit | git diff                      |
-| C | magit-commit-add-log      | magit | git commit -m                 |
-| i | magit-ignore-item         | magit | --                            |
-| I | magit-ignore-item-locally | magit | add file to .gitignore        |
-| k | magit-discard-item        | magit | git checkout file             |
-| s | magit-stage-item          | magit | git add file                  |
-| u | magit-unstage-item        | magit | git rm file/git reset -- file |
+| C     | magit-commit-add-log      | magit-status | git commit -m                 |
+| i     | magit-ignore-item         | magit-status | --                            |
+| I     | magit-ignore-item-locally | magit-status | add file to .gitignore        |
+| k     | magit-discard-item        | magit-diff   | git checkout file             |
+| s     | magit-stage-item          | magit-status | git add file                  |
+| u     | magit-unstage-item        | magit-status | git rm file/git reset -- file |
+| c     | magit-commit-popup        | magit-status | git commit                    |
+| d     | magit-diff-popup          | magit        | git diff                      |
+| f     | magit-fetch-popup         | magit        | git fetch                     |
+| F     | magit-pull-popup          | magit        | git pull                      |
+| l     | magit-log-popup           | magit-status | git log                       |
+| m     | magit-merge-popup         | magit        | git merge                     |
+| P     | magit-push-popup          | magit        | git push                      |
+| t     | magit-tag-popup           | magit        | git tag                       |
+| C-SPC |                           | magit-log    | mark range for diff           |
 
 * 常用命令：
 | calc                              | global | 计算器                               |
