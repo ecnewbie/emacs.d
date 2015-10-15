@@ -6,7 +6,9 @@
 (require 'linum-relative)
 (setq linum-relative-current-symbol "")
 
-(require-package 'multi-eshell)
+(require-package 'zlc)
+(require 'zlc)
+(zlc-mode t)
 
 ;;; vlf
 (require-package 'vlf)

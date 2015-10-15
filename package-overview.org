@@ -4,7 +4,7 @@
 * 现装emacs包:
 ** 定制emacs:
 *** anzu, diminish, dropdown-list, chinese-fonts-setup, flx-ido, fullframe, guide-key, helm, helm-c-yasnippet, helm-company, helm-gtags.
-*** ibuffer-vc, idle-require, ido-ubiquitous, idomenu, linum-relative, maxframe, smex, sr-speedbar.
+*** ibuffer-vc, idle-require, ido-ubiquitous, idomenu, linum-relative, maxframe, smex, sr-speedbar, zlc.
 ** 主题:
 *** color-theme, zenburn-theme.
 ** 快速编辑:
@@ -15,7 +15,7 @@
 *** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
 *** google-c-style, magit, projectile, quack.
 ** 其它:
-*** chinese-pyim, multi-eshell, readline-complete, w3m.
+*** chinese-pyim, multi-term, readline-complete, w3m.
 
 * 一些用于定制的emacs包:
 ** anzu: 显示isearch匹配个数.
@@ -31,7 +31,7 @@
 ** maxframe: 最大化窗口.
 ** smex: 更方便的M-x, 基于ido.
 ** sr-speedbar: 文件浏览.
-
+** zlc: zsh风格的tab键补全。
 * 一些编辑相关emacs包:
 ** ace-jump-mode:  快速移动光标.
 ** buffer-move: 快速交换窗口buffer, 即窗口内容对调.
@@ -86,6 +86,7 @@
 ** chinese-pyim: 拼音输入法.
 ** highlight-escape-sequences: js, ruby下高亮转义字符.
 ** multi-eshell: 打开多个shell, 类似于C-u M-x shell.
+** multi-term: 打开多个term, 较好兼容zsh.
 ** quack: 支持scheme编程.
 ** readline-complete: shell的补全.
 ** w3m: 内置浏览器.
