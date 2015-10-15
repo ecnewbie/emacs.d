@@ -7,7 +7,8 @@
 - [[file:key-binding.org][key-binding.org]]: 记录我认为重要的快捷键或命令。
 - [[file:package-overview.org][package-overview.org]]: 记录现有安装的emacs包及我了解的emacs包的功能。
 - [[file:lisp][lisp]]: 配置文件所在目录。
-- [[file:site-lisp][site-lisp]]: 默认安装的emacs包目录。
+- [[file:elpa][elpa]]: 默认安装的emacs包目录。
+- [[file:site-lisp][site-lisp]]: 从第三方下载的emacs包目录。
 - [[file:snippets][snippets]]: 一些snippet模板。
 
 更多请参考[[file:FAQ][FAQ]].
