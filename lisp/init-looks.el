@@ -15,4 +15,7 @@
 
 ;;(require 'init-layout)           ;; setting for new temp buffer. It works bad sometimes.
 
+;;; it seems that cursor color is always black in some environment.
+(setq default-frame-alist '((cursor-color . "white")))
+
 (provide 'init-looks)
