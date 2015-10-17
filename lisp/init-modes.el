@@ -10,4 +10,8 @@
 
 (require 'init-shell)
 
+(require-package 'lua-mode)
+(require-package 'flymake-lua)
+(require 'init-lua-mode)      ;; setting for lua-mode from redguardtoo.
+
 (provide 'init-modes)

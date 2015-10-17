@@ -12,8 +12,8 @@
 *** multiple-cursors, page-break-lines, paredit, pointback, rainbow-delimiters, saveplace, smartparens, switch-window, undo-tree, unfill, visual-regexp, whitespace-cleanup-mode,
 *** wgrep, wgrep-ag, wgrep-helm, whole-line-or-region, window-numbering, workgroups2, vlf, yasnippet.
 ** 编程:
-*** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
-*** google-c-style, magit, projectile, quack.
+*** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, flymake-lua, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
+*** google-c-style, lua-mode, magit, projectile, quack.
 ** 其它:
 *** chinese-pyim, multi-term, readline-complete, w3m.
 
@@ -66,9 +66,9 @@
 ** yasnippet: 补全片段.
 
 * 模式:
+** lua-mode: 支持lua编程.
 ** markdown-mode: markdown, 一种文本格式, 支持HTML等.
 ** org, org-fstree, org-mac-link, org-mac-iCal, org-pomodoro: org , GTD工具.
-
 * c++编程emacs包:
 ** company, company-c-headers/auto-complete, auto-complete-c-headers: 补全.
 ** cmake-mode: 支持cmake.
