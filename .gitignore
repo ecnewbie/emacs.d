@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .depend
 pyim/
 anaconda-mode/
@@ -53,3 +54,18 @@ ido.last
 projectile.cache
 .orig
 .unpacked
+=======
+.*
+*/.*
+auto-save-list/
+dicts/
+elpa/
+history
+ido.last
+tags/
+projectile*
+eshell/
+smex-items
+url/
+old
+>>>>>>> ecnewbie/master

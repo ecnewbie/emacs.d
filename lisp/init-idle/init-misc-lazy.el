@@ -477,7 +477,7 @@ Current position is preserved."
 ;;----------------------------------------------------------------------------
 ;; Shift lines up and down with M-up and M-down
 ;;----------------------------------------------------------------------------
-(move-text-default-bindings)
+;(move-text-default-bindings)
 
 (autoload 'vr/replace "visual-regexp")
 (autoload 'vr/query-replace "visual-regexp")
@@ -485,7 +485,7 @@ Current position is preserved."
 (autoload 'vr/mc-mark "visual-regexp")
 
 ;; {{go-mode
-(require 'go-mode-load)
+;(require 'go-mode-load)
 ;; }}
 
 ;; someone mentioned that blink cursor could slow Emacs24.4

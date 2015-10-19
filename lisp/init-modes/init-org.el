@@ -1,3 +1,6 @@
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+
 ;; some cool org tricks
 ;; @see http://emacs.stackexchange.com/questions/13820/inline-verbatim-and-code-with-quotes-in-org-mode
 
@@ -145,7 +148,7 @@
                 'choose-browser)
                (t
                 (lambda (url &optional new)
-                  (w3m-browse-url url t))))))
+                  (eww-browse-url url t))))))
     ad-do-it))
 
 (defadvice org-publish (around org-publish-advice activate)

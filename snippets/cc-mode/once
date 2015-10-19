@@ -1,0 +1,13 @@
+# name : #ifndef XXX; #define XXX; #endif
+# key: once
+# --
+#ifndef ${2:__`(let*
+        ((buffer-name (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))))
+        (with-temp-buffer
+            (setq case-fold-search nil)
+            (upcase (replace-regexp-in-string  "[^a-z]+[a-z_]+" (lambda (s) (concat (upcase s) "_")) (replace-regexp-in-string  "\\([^a-z_]+\\)\\([A-Z]\\)" "\\1_\\2" buffer-name)))))`H__}
+#define $2
+
+$1
+
+#endif /* $2 */

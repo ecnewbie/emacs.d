@@ -1,46 +1,52 @@
+;;; Find and load the correct package.el
+
+;; When switching between Emacs 23 and 24, we always use the bundled package.el in Emacs 24
+(let ((package-el-site-lisp-dir
+       (expand-file-name "site-lisp/package" user-emacs-directory)))
+  (when (and (file-directory-p package-el-site-lisp-dir)
+             (> emacs-major-version 23))
+    (message "Removing local package.el from load-path to avoid shadowing bundled version")
+    (setq load-path (remove package-el-site-lisp-dir load-path))))
+
 (require 'package)
 
-;;------------------------------------------------------------------------------
-;; Patch up annoying package.el quirks
-;;------------------------------------------------------------------------------
-(defadvice package-generate-autoloads (after close-autoloads (name pkg-dir) activate)
-  "Stop package.el from leaving open autoload files lying around."
-  (let ((path (expand-file-name (concat
-                                 ;; name is string when emacs <= 24.3.1,
-                                 (if (symbolp name) (symbol-name name) name)
-                                 "-autoloads.el") pkg-dir)))
-    (with-current-buffer (find-file-existing path)
-      (kill-buffer nil))))
+
+
+;;; Standard package repositories
+
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+;; We include the org repository for completeness, but don't normally
+;; use it.
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+;;; Also use Melpa for most packages
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 
-;;------------------------------------------------------------------------------
-;; Add support to package.el for pre-filtering available packages
-;;------------------------------------------------------------------------------
-(defvar package-filter-function nil
-  "Optional predicate function used to internally filter packages used by package.el.
+
+;; If gpg cannot be found, signature checking will fail, so we
+;; conditionally enable it according to whether gpg is available. We
+;; re-run this check once $PATH has been configured
+(defun sanityinc/package-maybe-enable-signatures ()
+  (setq package-check-signature (when (executable-find "gpg") 'allow-unsigned)))
 
-The function is called with the arguments PACKAGE VERSION ARCHIVE, where
-PACKAGE is a symbol, VERSION is a vector as produced by `version-to-list', and
-ARCHIVE is the string name of the package archive.")
+(sanityinc/package-maybe-enable-signatures)
+(eval-after-load 'init-exec-path
+  (sanityinc/package-maybe-enable-signatures))
 
-(defadvice package--add-to-archive-contents
-  (around filter-packages (package archive) activate)
-  "Add filtering of available packages using `package-filter-function', if non-nil."
-  (when (or (null package-filter-function)
-      (funcall package-filter-function
-         (car package)
-         (funcall (if (fboundp 'package-desc-version)
-          'package--ac-desc-version
-        'package-desc-vers)
-            (cdr package))
-         archive))
-    ad-do-it))
 
-;;------------------------------------------------------------------------------
-;; On-demand installation of packages
-;;------------------------------------------------------------------------------
+
+;;; On-demand installation of packages
+
 (defun require-package (package &optional min-version no-refresh)
-  "Ask elpa to install given PACKAGE."
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
   (if (package-installed-p package min-version)
       t
     (if (or (assoc package package-archive-contents) no-refresh)
@@ -50,261 +56,47 @@ ARCHIVE is the string name of the package archive.")
         (require-package package min-version t)))))
 
 
-;;------------------------------------------------------------------------------
-;; Standard package repositories
-;;------------------------------------------------------------------------------
+(defun maybe-require-package (package &optional min-version no-refresh)
+  "Try to install PACKAGE, and return non-nil if successful.
+In the event of failure, return nil and print a warning message.
+Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
+available package lists will not be re-downloaded in order to
+locate PACKAGE."
+  (condition-case err
+      (require-package package min-version no-refresh)
+    (error
+     (message "Couldn't install package `%s': %S" package err)
+     nil)))
 
-;; We include the org repository for completeness, but don't use it.
-;; Lock org-mode temporarily:
-;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+
+;;; Fire up package.el
 
-(setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("melpa-stable" . "http://stable.melpa.org/packages/")
-                         ;; uncomment below line if you need use GNU ELPA
-                         ;; ("gnu" . "http://elpa.gnu.org/packages/")
-                         ))
-
-;; Un-comment below line if you download zip file
-;; from https://github.com/redguardtoo/myelpa/archive/master.zip
-;; and extract its content into ~/myelpa/
-;; (setq package-archives '(("myelpa" . "~/projs/myelpa")))
-
-;; Or Un-comment below line if you prefer installing package from https://github.com/redguardtoo/myelpa/ directly
-;; (setq package-archives '(("myelpa" . "https://raw.github.com/redguardtoo/myelpa/master/")))
-
-;; List of VISIBLE packages from melpa-unstable (http://melpa.org)
-;; Feel free to add more packages!
-(defvar melpa-include-packages
-  '(bbdb
-    json-rpc
-    kv
-    color-theme
-    wgrep
-    robe
-    groovy-mode
-    inf-ruby
-    simple-httpd
-    dsvn
-    move-text
-    string-edit ; looks magnars don't update stable tag frequently
-    findr
-    mwe-log-commands
-    dired-details
-    yaml-mode
-    noflet
-    db
-    creole
-    web
-    sass-mode
-    idomenu
-    pointback
-    buffer-move
-    regex-tool
-    csharp-mode
-    quack
-    legalese
-    htmlize
-    scratch
-    session
-    crontab-mode
-    bookmark+
-    flymake-lua
-    multi-term
-    dired+
-    inflections
-    dropdown-list
-    lua-mode
-    pomodoro
-    helm
-    auto-compile
-    packed
-    gitconfig-mode
-    textile-mode
-    w3m
-    fakir
-    erlang
-    company-c-headers
-    company-anaconda
-    anaconda-mode
-    ;; make all the color theme packages available
-    afternoon-theme
-    define-word
-    ahungry-theme
-    alect-themes
-    ample-theme
-    ample-zen-theme
-    anti-zenburn-theme
-    atom-dark-theme
-    badger-theme
-    base16-theme
-    basic-theme
-    birds-of-paradise-plus-theme
-    bliss-theme
-    boron-theme
-    bubbleberry-theme
-    busybee-theme
-    calmer-forest-theme
-    cherry-blossom-theme
-    clues-theme
-    colonoscopy-theme
-    color-theme-approximate
-    color-theme-buffer-local
-    color-theme-sanityinc-solarized
-    color-theme-sanityinc-tomorrow
-    color-theme-solarized
-    colorsarenice-theme
-    cyberpunk-theme
-    dakrone-theme
-    darcula-theme
-    dark-krystal-theme
-    darkburn-theme
-    darkmine-theme
-    display-theme
-    distinguished-theme
-    django-theme
-    espresso-theme
-    firebelly-theme
-    firecode-theme
-    flatland-black-theme
-    pythonic
-    flatland-theme
-    flatui-theme
-    gandalf-theme
-    gotham-theme
-    grandshell-theme
-    gruber-darker-theme
-    gruvbox-theme
-    hc-zenburn-theme
-    helm-themes
-    hemisu-theme
-    heroku-theme)
-  "Don't install any Melpa packages except these packages")
-
-;; Don't take Melpa versions of certain packages
-(setq package-filter-function
-      (lambda (package version archive)
-        (and
-         (not (memq package '(eieio)))
-         (or (and (string-equal archive "melpa") (memq package melpa-include-packages))
-             (not (string-equal archive "melpa")))
-         )))
-
-;; un-comment below code if you prefer use all the package on melpa (unstable) without limitation
-;; (setq package-filter-function nil)
-
-;;------------------------------------------------------------------------------
-;; Fire up package.el and ensure the following packages are installed.
-;;------------------------------------------------------------------------------
-
+(setq package-enable-at-startup nil)
 (package-initialize)
 
-(require-package 'kv)
-(require-package 'dash)
-; color-theme 6.6.1 in elpa is buggy
-(require-package 'color-theme)
-(require-package 'auto-compile)
-(require-package 'avy)
-(require-package 'expand-region) ;; I prefer stable version
-(require-package 'fringe-helper)
-(require-package 'haskell-mode)
-(require-package 'gitignore-mode)
-(require-package 'gitconfig-mode)
-(require-package 'yagist)
-(require-package 'wgrep)
-(require-package 'lua-mode)
-(require-package 'robe)
-(require-package 'inf-ruby)
-(require-package 'yaml-mode)
-(require-package 'paredit)
-(require-package 'erlang)
-(require-package 'findr)
-(require-package 'jump)
-(require-package 'writeroom-mode)
-(require-package 'haml-mode)
-(require-package 'sass-mode)
-(require-package 'scss-mode)
-(require-package 'markdown-mode)
-(require-package 'dired+)
-(require-package 'link)
-(require-package 'connection)
-(require-package 'dictionary) ; dictionary requires 'link and 'connection
-(require-package 'htmlize)
-(require-package 'diminish)
-(require-package 'scratch)
-(require-package 'rainbow-delimiters)
-(require-package 'textile-mode)
-(require-package 'coffee-mode)
-(require-package 'flymake-coffee)
-(require-package 'crontab-mode)
-(require-package 'dsvn)
-(require-package 'git-timemachine)
-(require-package 'exec-path-from-shell)
-(require-package 'flymake-css)
-(require-package 'flymake-jslint)
-(require-package 'flymake-python-pyflakes)
-(require-package 'flymake-ruby)
-(require-package 'flymake-sass)
-(require-package 'hl-sexp)
-(require-package 'ibuffer-vc)
-(require-package 'less-css-mode)
-(require-package 'move-text)
-(require-package 'mwe-log-commands)
-(require-package 'page-break-lines)
-(require-package 'pointback)
-(require-package 'regex-tool)
-(require-package 'rinari)
-(require-package 'groovy-mode)
-(require-package 'ruby-compilation)
-(require-package 'csharp-mode)
-(require-package 'emmet-mode)
-(require-package 'session)
-;; (require-package 'tidy)
-(require-package 'unfill)
-(require-package 'w3m)
-(require-package 'idomenu)
-(require-package 'ggtags)
-(require-package 'buffer-move)
-(require-package 'ace-window)
-(require-package 'cmake-mode)
-(require-package 'cpputils-cmake)
-(require-package 'flyspell-lazy)
-(require-package 'bbdb)
-(require-package 'pomodoro)
-(require-package 'flymake-lua)
-(require-package 'dropdown-list)
-;; rvm-open-gem to get gem's code
-(require-package 'rvm)
-;; C-x r l to list bookmarks
-(require-package 'bookmark+)
-(require-package 'multi-term)
-(require-package 'json-mode)
-(require-package 'js2-mode)
-(require-package 's)
-;; js2-refactor requires js2, dash, s, multiple-cursors, yasnippet
-;; I don't use multiple-cursors, but js2-refactor requires it
-(require-package 'multiple-cursors)
-(require-package 'tagedit)
-(require-package 'git-link)
-(require-package 'cliphist)
-(require-package 'yasnippet)
-(require-package 'company)
-(require-package 'company-c-headers)
-(require-package 'legalese)
-(require-package 'string-edit)
-(require-package 'dired-details)
-(require-package 'guide-key)
-(require-package 'fakir)
-(require-package 'simple-httpd)
-(require-package 'git-messenger)
-(require-package 'git-gutter)
-(require-package 'flx-ido)
-(require-package 'neotree)
-(require-package 'define-word)
-(require-package 'quack) ;; for scheme
-(require-package 'anaconda-mode)
-(require-package 'company-anaconda)
 
+
+(require-package 'fullframe)
+(fullframe list-packages quit-window)
 
-;; (require-package 'command-frequency)
+
+(require-package 'cl-lib)
+(require 'cl-lib)
+
+(defun sanityinc/set-tabulated-list-column-width (col-name width)
+  "Set any column with name COL-NAME to the given WIDTH."
+  (cl-loop for column across tabulated-list-format
+           when (string= col-name (car column))
+           do (setf (elt column 1) width)))
+
+(defun sanityinc/maybe-widen-package-menu-columns ()
+  "Widen some columns of the package menu table to avoid truncation."
+  (when (boundp 'tabulated-list-format)
+    (sanityinc/set-tabulated-list-column-width "Version" 13)
+    (let ((longest-archive-name (apply 'max (mapcar 'length (mapcar 'car package-archives)))))
+      (sanityinc/set-tabulated-list-column-width "Archive" longest-archive-name))))
+
+(add-hook 'package-menu-mode-hook 'sanityinc/maybe-widen-package-menu-columns)
+
 
 (provide 'init-elpa)

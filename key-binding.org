@@ -1,0 +1,147 @@
+* 常用快捷键：隐藏基本快捷键如C-a等.
+| C-/         | undo-tree-undo                       | undo-tree-mode        |
+| C-?         | undo-tree-redo                       | undo-tree-mode        |
+| C-c <left>  | winner-undo                          | winner-mode           |
+| C-c <right> | winner-redo                          | winner-mode           |
+| M-NUM       | select-window-NUM                    | window-numbering-mode |
+|-------------+--------------------------------------+-----------------------|
+| C-0 .. C-9  | digit-argument                       | global                |
+| C-;         | ace-jump-mode                        | global                |
+| C-<         | mc/mark-previous-like-this           | global                |
+| C-= [=/-]   | er/expand-region  er/contract-region | global                |
+| C->         | mc/mark-next-like-this               | global                |
+| C-u         | universal-argument                   | global                |
+| C-x z [z]   | repeat                               | global                |
+|-------------+--------------------------------------+-----------------------|
+| <M-down>    | md/move-lines-down                   | global                |
+| <M-up>      | md/move-lines-up                     | global                |
+| M-!         | shell-command                        | global                |
+| M-,         | tags-loop-continue                   | global                |
+| M-.         | find-tag                             | global                |
+| M-\vert     | shell-command-on-region              | global                |
+| M-c         | capitalize-word                      | global                |
+| M-h         | mark-paragraph                       | global                |
+| M-i         | tab-to-tab-stop                      | global                |
+| M-l         | endless/downcase                     | global                |
+| M-SPC       | just-one-space                       | global                |
+| M-u         | endless/upcase                       | global                |
+| M-z         | zap-to-char                          | global                |
+| M-{         | backward-paragraph                   | global                |
+| M-}         | forward-paragraph                    | global                |
+|-------------+--------------------------------------+-----------------------|
+| C-x `       | flymake-goto-next-erro               | global                |
+| C-x C-o     | ffap find-file-at-point              | global                |
+| C-x C-SPC   | pop-global-mark                      | global                |
+| C-x C-x     | exchange-point-and-mark              | global                |
+| C-x SPC     | rectangle-mark-mode                  | global                |
+|-------------+--------------------------------------+-----------------------|
+| C-u C-SPC   | pop-to-mark-command                  | global                |
+| C-u M-x     | run command with C-u                 | global                |
+
+* 较少用的一些快捷键:
+| C-+              | text-scale-increase           | global         |
+| C--              | text-scale-decrease           | global         |
+| C-c c a          | mc/edit-beginnings-of-lines   | global         |
+| C-c c c          | mc/edit-lines                 | global         |
+| C-c c e          | mc/edit-ends-of-lines         | global         |
+| C-c c r          | set-rectangular-region-anchor | global         |
+| C-c C-<          | mc/mark-all-like-this         | global         |
+| C-c f            | helm-for-files                | global         |
+| C-c j            | join-line                     | global         |
+| C-c q            | auto-fill-mode                | global         |
+| C-M-/            | dabbrev-completion            | global         |
+| C-x <left>       | previous-buffer               | global         |
+| C-x <right>      | next-buffer                   | global         |
+| C-x C-j          | dired-jump                    | global         |
+| C-x C-l          | downcase-region               | global         |
+| C-x C-u          | upcase-region                 | global         |
+| C-x TAB          | indent-rigidly                | global         |
+| C-x u            | undo-tree-visualize           | undo-tree-mode |
+| C-x v            | vc-prefix-map                 | global         |
+| C-x {            | shrink-window-horizontally    | global         |
+| C-x }            | enlarge-window-horizontally   | global         |
+
+* 有快捷键却更喜欢M-x的命令
+| backward-sexp | global          |
+| down-list     | global          |
+| forward-sexp  | global          |
+| projectile-*  | projectile-mode |
+| up-list       | global          |
+
+* 自定义的快捷键：
+| origin | current | command             | scope        |
+| M-/    | M-/ /   | dabbrev-expand      | global       |
+|        | M-/ c   | company-complete    | company-mode |
+|        | M-/ s   | ispell-word         | global       |
+|        | M-g i   | ido-goto-symbol     | global       |
+
+* ggtags:
+| M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |
+| M-] | ggtags-find-reference | ggtags-mode | 查找引用                                       |
+| M-n | next-error            | global      | 在global搜索结果窗口打开的情况下，跳转到下一个 |
+| M-p | previous-error        | global      | 在global搜索结果窗口打开的情况下，跳转到上一个 |
+
+* org-mode:
+| <s-down> | org-shiftdown          | org-mode | 降低任务优先级/推后时间                                   |
+| <s-up>   | org-shiftup            | org-mode | 提升任务优先级/提前时间                                   |
+| c-c .    | org-time-stamp         | org-mode | 手动插入时间                                              |
+| c-c <    | org-date-from-calendar | org-mode | 插入日历时间                                              |
+| c-c >    | org-goto-calendar      | org-mode | 打开日历                                                  |
+| c-c a    | org-agenda             | global   | org下一些常用查看命令，需要在配置文件设置org-agenda-files |
+| c-c c-d  | org-deadline           | org-mode | 插入计划结束时间，deadline                                |
+| c-c c-l  | org-insert-link        | org-mode | 插入链接/                                                 |
+| c-c c-s  | org-schedule           | org-mode | 插入计划开始时间，scheduled                               |
+| c-c c-t  | org-todo               | org-mode | 插入任务状态                                              |
+| c-c l    | org-store-link         | global   | 保存当前文件链接                                          |
+
+* yasnippet:
+| c-c k | my-yas-expand       | global |
+| c-c y | helm-c-yas-complete | global |
+
+* spell:
+| C-c s | flyspell-auto-correct-word | flyspell-mode |
+| M-$   | ispell-word                | global        |
+
+* helm:
+| C-x C-s | helm-moccur-run-save-buffer | helm-occur/multi-occur |
+| M-a     | helm-mark-all               | helm-*                 |
+| M-u     | helm-unmark-all             | helm-*                 |
+
+* wgrep:
+| C-c C-d | wgrep-mark-deletion        | wgrep-mode                 |
+| C-c C-k | wgrep-abort-changes        | wgrep-mode                 |
+| C-c C-p | wgrep-change-to-wgrep-mode | grep-mode/helm-moccur-mode |
+| C-x C-s | wgrep-finish-edit          | wgrep-mode                 |
+
+* magit:
+| C     | magit-commit-add-log      | magit-status | git commit -m                 |
+| i     | magit-ignore-item         | magit-status | --                            |
+| I     | magit-ignore-item-locally | magit-status | add file to .gitignore        |
+| k     | magit-discard-item        | magit-diff   | git checkout file             |
+| s     | magit-stage-item          | magit-status | git add file                  |
+| u     | magit-unstage-item        | magit-status | git rm file/git reset -- file |
+| c     | magit-commit-popup        | magit-status | git commit                    |
+| d     | magit-diff-popup          | magit        | git diff                      |
+| f     | magit-fetch-popup         | magit        | git fetch                     |
+| F     | magit-pull-popup          | magit        | git pull                      |
+| l     | magit-log-popup           | magit-status | git log                       |
+| m     | magit-merge-popup         | magit        | git merge                     |
+| P     | magit-push-popup          | magit        | git push                      |
+| t     | magit-tag-popup           | magit        | git tag                       |
+| C-SPC |                           | magit-log    | mark range for diff           |
+
+* 常用命令：
+| calc                              | global | 计算器                               |
+| er/mark-*                         | global | 快速mark, 在er/expand-region后被载入 |
+| helm-global-mark-ring             | global | 查看mark ring                        |
+| helm-recentf                      | global | 使用helm打开最近使用文件             |
+| occur/helm-occur/helm-multi-occur | global | 使用helm来过滤、编辑buffer内容       |
+| re-builder                        | global | 调试正则表达式                       |
+| revert-buffer-with-coding-system  | global | 以其它编码格式显示buffer             |
+| steve-ido-choose-from-recentf     | global | 使用ido打开最近使用文件              |
+
+* 保留的命令：
+| calc-eval-line-and-insert         | global | 计算表达式的值              |
+| open-readme-in-git-root-directory | global | 打开readme文档              |
+| fc-eval-and-replace               | global | 计算并替换lisp表达式值      |
+| eval-last-sexp                    | global | c-x c-e,计算lisp表达式值    |

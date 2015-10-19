@@ -1,0 +1,58 @@
+Q1. I receive a error msg of (invalid-read-syntax "#") when loading go-mode/default.
+A1. you can manual remove go-mode/default in ~/.emacs.d/elpa/yasnippet-*/snippets/.
+    Or downgrade yasnippet package to version 0.9.0.1.
+
+Q2. Which command or key-binding use often.
+A2. you can have a look at key-binding.org.
+
+Q3. My emacs takes long time to start.
+A3. Always run emacs as daemon. (emacs --daemon)
+    And then use emacsclient. eg. /usr/bin/emacsclient -c -a emacs  [file].
+
+Q4. Any rules of key-binding.
+A4. I think there are serveral rules of key-binding.
+    1) you may found that the frequency of key-binding you used is always ordered by C-key, M-key, C-x key, C-c key.
+    2) M-key always do more thing than C-key. eg. C-d, M-d.
+    3) C-x key always do more thing than C-x C-key. eg. C-x s.
+
+Q5. How to config emacs.
+A5. The basic you should know is that emacs config file starts from ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el.
+    And write an el file containing (provide '[filename]) can be used by other config file by (require '[filename]) when it's parent dir in the load-path.
+
+Q6. My emacs can't maximize in kde.
+A6. Just right click at emacs window, choose Window-Specific Settings->Size&Position->Obey geometry restrictions->Force->No；Window matching->Window title->Regular Expression->.*.
+
+Q7. How to use color theme in xterm.
+A7. try "env TERM=xterm-256color emacs".
+
+Q8. What command support multiple-cursors.
+A8. isearch-forward and isearch-backward aren't supported with multiple cursors. If you want this functionality, you can use phi-search.
+    Commands run with M-x won't be repeated for all cursors.
+    All key bindings that refer to lambdas are always run for all cursors. If you need to limit it, you will have to give it a name.
+    Redo might screw with your cursors. Undo works very well.
+
+Q9. How to use cpputils-cmake.
+A9. For simply use to setup code completion.
+    First, edit CMakeLists.txt like this:
+        project(test)
+        set(SOURCES main.cpp)
+        include_directories(src /usr/include)
+        add_executable(test ${SOURCES})
+    And then touch target(test) in build directory.
+
+Q10. What to do when emacs hangs or crash.
+A10. First, try C-g. If it doesn't work, you may need to kill emacs.
+     After emacs crashed, try recover-session to recover everything if you're lucky.
+
+Q11. How to use projectile.
+A11. Projectile works well with vc tools(eg. git),
+     but sometimes you may want to search in some files,
+     try write .projectile file to instruct Projectile to ignore certain files in a project.
+     there is an example:
+           +/src
+           -/src/foo
+           -/src/*.d
+           -/src/*/*.d
+     keep these in mind:
+          + only supports subdirectories(- supports more).
+          * matches strings not containing '/'.

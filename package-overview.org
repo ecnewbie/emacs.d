@@ -1,0 +1,92 @@
+* 依赖系统包:
+** emacs24, emacs24-el, clang, global[-6.4], racket, xsel, w3m, texlive-xetex, libreoffice.
+
+* 现装emacs包:
+** 定制emacs:
+*** anzu, diminish, dropdown-list, chinese-fonts-setup, flx-ido, fullframe, guide-key, helm, helm-c-yasnippet, helm-company, helm-gtags.
+*** ibuffer-vc, idle-require, ido-ubiquitous, idomenu, linum-relative, maxframe, smex, sr-speedbar, zlc.
+** 主题:
+*** color-theme, zenburn-theme.
+** 快速编辑:
+*** ace-jump-mode, browse-kill-ring, buffer-move, expand-region, flyspell, flyspell-lazy, highlight-escape-sequences, highlight-symbol, hl-sexp, lice, move-dup,
+*** multiple-cursors, page-break-lines, paredit, pointback, rainbow-delimiters, saveplace, smartparens, switch-window, undo-tree, unfill, visual-regexp, whitespace-cleanup-mode,
+*** wgrep, wgrep-ag, wgrep-helm, whole-line-or-region, window-numbering, workgroups2, vlf, yasnippet.
+** 编程:
+*** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, flymake-lua, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
+*** google-c-style, lua-mode, magit, projectile, quack.
+** 其它:
+*** chinese-pyim, multi-term, readline-complete, w3m.
+
+* 一些用于定制的emacs包:
+** anzu: 显示isearch匹配个数.
+** diminish: 不在modeline上显示一些主模式.
+** dropdown-list: 下拉菜单.
+** fullframe: 独占窗口方式运行命令.
+** guide-key: 再按下组合快捷键时, 显示可能的快捷键, 如C-x会提示以C-x开头的组合键和其对应M-x命令.
+** helm, helm-gtags, helm-c-yasnippet: 一种显示区域较大的类似ido的, 更方便的多文件, buffer选择过滤.
+** ibuffer-vc: buffer list的一种替换, 显示vc(版本控制)状态.
+** idle-require: 能配置空闲时加载一些配置, 加快启动.
+** ido, ido-ubiquitous, flx-ido(更智能的缩写匹配), idomenu(ido for imenu): 更方便查找文件, 切换buffer等.
+** linum-relative: 以相对当前行的方式显示行数.
+** maxframe: 最大化窗口.
+** smex: 更方便的M-x, 基于ido.
+** sr-speedbar: 文件浏览.
+** zlc: zsh风格的tab键补全。
+* 一些编辑相关emacs包:
+** ace-jump-mode:  快速移动光标.
+** buffer-move: 快速交换窗口buffer, 即窗口内容对调.
+** browse-kill-ring: 浏览kill ring(C-k) 内容.
+** chinese-fonts-setup: 方便配置中英文对齐.
+** expand-region: 快速选择区域.
+** flyspell, flyspell-lazy: 拼写检查.
+** highlight-symbol: 手动高亮显示单词.
+** hl-sexp: 高亮当前括号区域.
+** iedit: 功能类似multiple-cursors的mark all.
+** lice: 插入license.
+** mic-paren: 高亮显示匹配括号.
+** midnight: 清除3天未被显示的buffer.
+** move-dup/move-text: 移动mark文本或当前行, dup还带复制功能.
+** multiple-cursors: 多行mark, 编辑.
+** page-break-lines: 不以^L显示分页符(插入分页符C-q C-l).
+** paredit: 选择区域添加括号等.
+** rainbow-delimiters: 以不同颜色显示高亮括号.
+** smartparens: 自动补全括号.
+** undo-tree: 树形显示undo/redo内容.
+** unfill: 手动去掉断行符.
+** wgrep/wgrep-ag/wgrep-helm: 在grep/ag/helm-occur查找结果中编辑并同步到buffer中.
+** whitespace-cleanup-mode: 去掉行尾空格.
+** whole-line-or-region: 没选中区域时复制/剪切当前行.
+** pointback: 切换buffer时恢复光标位置.
+** saveplace: 打开文件记录.
+** switch-window/move-window: 快速切换窗口.
+** visual-regexp: 可视化查找, 替换.
+** vlf: 大文件的查看, 编辑等.
+** window-numbering: 编号窗口, 快速切换窗口.
+** workgroups2: 保存恢复窗口布局. 类似的有window-purpose.
+** yasnippet: 补全片段.
+
+* 模式:
+** lua-mode: 支持lua编程.
+** markdown-mode: markdown, 一种文本格式, 支持HTML等.
+** org, org-fstree, org-mac-link, org-mac-iCal, org-pomodoro: org , GTD工具.
+* c++编程emacs包:
+** company, company-c-headers/auto-complete, auto-complete-c-headers: 补全.
+** cmake-mode: 支持cmake.
+** cpputils-cmake: 自动语法检查和补全, ff-find-other-file配置.
+** flycheck-google-cpplint, google-c-style: google c 编程风格.
+** ggtags: tags.
+** fill-column-indicator: 在80列处显示线, 和page-break-lines有些冲突.
+** fic-mode: 高亮注释内的FIXME/BUG/TODO.
+** flycheck: 语法静态检查.
+** imenu: 当前buffer函数跳转.
+** magit(提供git命令), git-commit-mode, gitignore-mode, gitconfig-mode, git-gutter(显示变化): git前端.
+** projectile: 项目管理, 支持版本控制, 本地需要创建.projectile文件.
+
+* 其它:
+** chinese-pyim: 拼音输入法.
+** highlight-escape-sequences: js, ruby下高亮转义字符.
+** multi-eshell: 打开多个shell, 类似于C-u M-x shell.
+** multi-term: 打开多个term, 较好兼容zsh.
+** quack: 支持scheme编程.
+** readline-complete: shell的补全.
+** w3m: 内置浏览器.
