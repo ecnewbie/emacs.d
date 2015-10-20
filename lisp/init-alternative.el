@@ -3,7 +3,7 @@
 (require-package 'ido-ubiquitous)
 (require-package 'idomenu)
 (require 'init-ido)       ;; setting for ido. smart completion on switch buffer, find file and so on. from redguardtoo.
-(global-set-key "\M-gi" 'ido-goto-symbol)
+(global-set-key "\M-gi" 'ido-imenu)
 (global-unset-key (kbd "M-/"))
 (global-set-key (kbd "M-/ /") 'dabbrev-expand)
 
