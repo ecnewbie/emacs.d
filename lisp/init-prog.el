@@ -56,7 +56,7 @@
 ;;(require 'init-google-cc-style)                                ;; google coding style.
 
 (require-package 'magit '(1 2 0) nil)
-(require-package 'git-commit-mode)
+;(require-package 'git-commit-mode)
 (require-package 'gitignore-mode)
 (require-package 'gitconfig-mode)
 (when *emacs24*
