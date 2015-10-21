@@ -43,6 +43,10 @@
 (require-package 'ibuffer-vc)
 (require-package 'projectile)
 (require 'init-projectile)                                       ;; for project from redguardtoo.
+
+(require-package 'find-file-in-project)
+(global-set-key (kbd "C-x f") 'find-file-in-project)
+
 (require 'init-gtags)                                            ;; for tags. from redguardtoo.
 (custom-set-variables '(ggtags-global-abbreviate-filename nil))  ;; don't show abbreviate filename in global result.
 (custom-set-variables '(ggtags-oversize-limit (* 20 1024 1024))) ;; larger gtags file.

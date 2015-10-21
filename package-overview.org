@@ -9,10 +9,10 @@
 *** color-theme, zenburn-theme.
 ** 快速编辑:
 *** ace-jump-mode, browse-kill-ring, buffer-move, expand-region, flyspell, flyspell-lazy, highlight-escape-sequences, highlight-symbol, hl-sexp, lice, move-dup,
-*** multiple-cursors, page-break-lines, paredit, pointback, rainbow-delimiters, saveplace, smartparens, switch-window, undo-tree, unfill, visual-regexp, whitespace-cleanup-mode,
+*** multiple-cursors, page-break-lines, paredit, pointback, rainbow-delimiters, saveplace, smartparens, swipper, switch-window, undo-tree, unfill, visual-regexp, whitespace-cleanup-mode,
 *** wgrep, wgrep-ag, wgrep-helm, whole-line-or-region, window-numbering, workgroups2, vlf, yasnippet.
 ** 编程:
-*** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, flycheck, flycheck-google-cpplint, flymake-lua, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
+*** company, company-c-headers, cmake-mode, cpputils-cmake, fic-mode, fill-column-indicator, find-file-in-project, flycheck, flycheck-google-cpplint, flymake-lua, ggtags, gitconfig-mode, gitignore-mode, git-commit-mode, git-gutter,
 *** google-c-style, lua-mode, magit, projectile, quack.
 ** 其它:
 *** chinese-pyim, multi-term, readline-complete, w3m.
@@ -58,6 +58,7 @@
 ** whole-line-or-region: 没选中区域时复制/剪切当前行.
 ** pointback: 切换buffer时恢复光标位置.
 ** saveplace: 打开文件记录.
+** swipper: 利用i-search快速搜索.
 ** switch-window/move-window: 快速切换窗口.
 ** visual-regexp: 可视化查找, 替换.
 ** vlf: 大文件的查看, 编辑等.
@@ -75,8 +76,9 @@
 ** cpputils-cmake: 自动语法检查和补全, ff-find-other-file配置.
 ** flycheck-google-cpplint, google-c-style: google c 编程风格.
 ** ggtags: tags.
-** fill-column-indicator: 在80列处显示线, 和page-break-lines有些冲突.
 ** fic-mode: 高亮注释内的FIXME/BUG/TODO.
+** fill-column-indicator: 在80列处显示线, 和page-break-lines有些冲突.
+** find-file-in-project: 快速打开文件。
 ** flycheck: 语法静态检查.
 ** imenu: 当前buffer函数跳转.
 ** magit(提供git命令), git-commit-mode, gitignore-mode, gitconfig-mode, git-gutter(显示变化): git前端.

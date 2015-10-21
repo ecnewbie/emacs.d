@@ -69,11 +69,12 @@
 | up-list       | global          |
 
 * 自定义的快捷键：
-| origin | current | command          | scope        |
-| M-/    | M-/ /   | dabbrev-expand   | global       |
-|        | M-/ c   | company-complete | company-mode |
-|        | M-/ s   | ispell-word      | global       |
-|        | M-g i   | ido-imenu        | global       |
+| origin | current | command              | scope        |
+| M-/    | M-/ /   | dabbrev-expand       | global       |
+|        | M-/ c   | company-complete     | company-mode |
+|        | M-/ s   | ispell-word          | global       |
+|        | M-g i   | ido-imenu            | global       |
+|        | C-x f   | find-file-in-project | global       |
 
 * ggtags:
 | M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |
@@ -131,14 +132,15 @@
 | C-SPC |                           | magit-log    | mark range for diff           |
 
 * 常用命令：
-| calc                              | global | 计算器                               |
-| er/mark-*                         | global | 快速mark, 在er/expand-region后被载入 |
-| helm-global-mark-ring             | global | 查看mark ring                        |
-| helm-recentf                      | global | 使用helm打开最近使用文件             |
-| occur/helm-occur/helm-multi-occur | global | 使用helm来过滤、编辑buffer内容       |
-| re-builder                        | global | 调试正则表达式                       |
-| revert-buffer-with-coding-system  | global | 以其它编码格式显示buffer             |
-| steve-ido-choose-from-recentf     | global | 使用ido打开最近使用文件              |
+| calc                              | global | 计算器                                             |
+| er/mark-*                         | global | 快速mark, 在er/expand-region后被载入               |
+| helm-global-mark-ring             | global | 查看mark ring                                      |
+| helm-recentf                      | global | 使用helm打开最近使用文件                           |
+| occur/helm-occur/helm-multi-occur | global | 使用helm来过滤、编辑buffer内容                     |
+| swipper                           | global | 使用i-search提供的类似于helm-occur的功能, 快速搜索 |
+| re-builder                        | global | 调试正则表达式                                     |
+| revert-buffer-with-coding-system  | global | 以其它编码格式显示buffer                           |
+| steve-ido-choose-from-recentf     | global | 使用ido打开最近使用文件                            |
 
 * 保留的命令：
 | calc-eval-line-and-insert         | global | 计算表达式的值              |
