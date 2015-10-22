@@ -6,7 +6,9 @@
 (require-package 'fic-mode)
 (require-package 'maxframe)
 (require-package 'browse-kill-ring)
+(require-package 'swiper)
 (require 'init-misc)                                      ;; cut from redguardtoo. not display fic at modeline.
+(define-key global-map (kbd "M-g s") 'swiper-the-thing)
 
 ;;; only don't record these files.
 (setq recentf-exclude '("/tmp/"
@@ -48,7 +50,5 @@
   (define-key workgroups-mode-map (kbd "C-c <right>") 'my-workgroups-redo))
 
 (add-hook 'workgroups-mode-hook 'my-make-workgroups-mode-map)
-
-;(global-set-key [remap cua-paste-pop] 'yank-pop)                     ;; not work.
 
 (provide 'init-edit)
