@@ -19,6 +19,7 @@
 
 * 一些用于定制的emacs包:
 ** anzu: 显示isearch匹配个数.
+** control-lock: 所有按键都如按下ctrl一样, 如p意味着C-p.
 ** diminish: 不在modeline上显示一些主模式.
 ** dropdown-list: 下拉菜单.
 ** fullframe: 独占窗口方式运行命令.

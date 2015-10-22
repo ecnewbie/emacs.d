@@ -37,4 +37,8 @@
 
 (require 'init-smarter-commands) ;; some smarter commands.
 
+(require 'control-lock)
+;;  Make C-z turn on control lock
+(control-lock-keys)
+
 (provide 'init-alternative)
