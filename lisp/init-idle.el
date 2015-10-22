@@ -13,6 +13,8 @@
      `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
      `(company-tooltip-common ((t (:inherit font-lock-constant-face)))))))
 
+(require 'init-modeline)
+
 ;(require 'init-helm-company) ;TODO: helm-match-plugin not found.
 (require 'server)
 (unless (or (daemonp) (server-running-p server-name))
