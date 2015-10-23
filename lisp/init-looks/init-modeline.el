@@ -3,6 +3,12 @@
 ;; @see http://www.delorie.com/gnu/docs/elisp-manual-21/elisp_360.html
 ;; use setq-default to set it for /all/ modes
 
+;; set frame title.
+(setq-default frame-title-format
+          '(buffer-file-name
+            "%f"
+            (dired-directory dired-directory "%b")))
+
 (setq-default mode-line-format
   (list
     ;; the buffer name; the file name as a tool tip

@@ -76,6 +76,7 @@
 |        | M-g i   | ido-imenu            | global       |
 |        | C-x f   | find-file-in-project | global       |
 |        | M-g s   | swiper               | global       |
+|        | C-z     | control-lock-enable  | global       |
 * ggtags:
 | M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |
 | M-] | ggtags-find-reference | ggtags-mode | 查找引用                                       |
@@ -104,9 +105,10 @@
 | M-$   | ispell-word                | global        |
 
 * helm:
-| C-x C-s | helm-moccur-run-save-buffer | helm-occur/multi-occur |
-| M-a     | helm-mark-all               | helm-*                 |
-| M-u     | helm-unmark-all             | helm-*                 |
+| C-x C-s | helm-moccur-run-save-buffer    | helm-occur/multi-occur |
+| M-a     | helm-mark-all                  | helm-*                 |
+| M-u     | helm-unmark-all                | helm-*                 |
+| C-j     | helm-execute-persistent-action | helm-*                 |
 
 * wgrep:
 | C-c C-d | wgrep-mark-deletion        | wgrep-mode                 |
