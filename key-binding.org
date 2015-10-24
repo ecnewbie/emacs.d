@@ -19,6 +19,7 @@
 | M-,         | tags-loop-continue                   | global                |
 | M-.         | find-tag                             | global                |
 | M-\vert     | shell-command-on-region              | global                |
+| M-;         | my-comment-or-uncomment-region       | global                |
 | M-c         | capitalize-word                      | global                |
 | M-h         | mark-paragraph                       | global                |
 | M-i         | tab-to-tab-stop                      | global                |
@@ -69,14 +70,21 @@
 | up-list       | global          |
 
 * 自定义的快捷键：
-| origin | current | command              | scope        |
-| M-/    | M-/ /   | dabbrev-expand       | global       |
-|        | M-/ c   | company-complete     | company-mode |
-|        | M-/ s   | ispell-word          | global       |
-|        | M-g i   | ido-imenu            | global       |
-|        | C-x f   | find-file-in-project | global       |
-|        | M-g s   | swiper               | global       |
-|        | C-z     | control-lock-enable  | global       |
+| origin | current    | command              | scope        |
+| M-/    | M-/ /[M-/] | dabbrev-expand       | global       |
+|        | M-/ c      | company-complete     | company-mode |
+|        | M-/ s      | ispell-word          | global       |
+|        | M-g ;      | ace-jump-mode        | global       |
+|        | M-g f      | find-file-in-project | global       |
+|        | M-g b      | previous-buffer      | global       |
+|        | M-g u      | up-list              | global       |
+|        | M-g d      | down-list            | global       |
+|        | M-g j      | jump-to-char         | global       |
+|        | M-g s      | swiper               | global       |
+|        | M-g i      | ido-imenu            | global       |
+|        | M-g o      | helm-occur           | global       |
+|        | C-z        | control-lock-enable  | global       |
+
 * ggtags:
 | M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |
 | M-] | ggtags-find-reference | ggtags-mode | 查找引用                                       |

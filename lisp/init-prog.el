@@ -2,6 +2,8 @@
 (require-package 'company-statistics)
 (require-package 'company-c-headers)
 (require 'init-company)                                          ;; for auto complete. cut from redguardtoo.
+
+(global-unset-key (kbd "M-/"))
 (eval-after-load 'company
   '(progn
      (add-to-list 'company-backends 'company-cmake)
@@ -45,7 +47,6 @@
 (require 'init-projectile)                                       ;; for project from redguardtoo.
 
 (require-package 'find-file-in-project)
-(global-set-key (kbd "C-x f") 'find-file-in-project)
 
 (require 'init-gtags)                                            ;; for tags. from redguardtoo.
 (custom-set-variables '(ggtags-global-abbreviate-filename nil))  ;; don't show abbreviate filename in global result.

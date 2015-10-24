@@ -8,7 +8,6 @@
 (require-package 'browse-kill-ring)
 (require-package 'swiper)
 (require 'init-misc)                                      ;; cut from redguardtoo. not display fic at modeline.
-(define-key global-map (kbd "M-g s") 'swiper-the-thing)
 
 ;;; only don't record these files.
 (setq recentf-exclude '("/tmp/"
@@ -50,5 +49,15 @@
   (define-key workgroups-mode-map (kbd "C-c <right>") 'my-workgroups-redo))
 
 (add-hook 'workgroups-mode-hook 'my-make-workgroups-mode-map)
+
+(defun jump-to-char (arg char)
+  "Like Zap-to-char, but not kill."
+  (interactive (list (prefix-numeric-value current-prefix-arg)
+             (read-char "Jump to char: " t)))
+  ;; Avoid "obsolete" warnings for translation-table-for-input.
+  (with-no-warnings
+    (if (char-table-p translation-table-for-input)
+    (setq char (or (aref translation-table-for-input char) char))))
+  (search-forward (char-to-string char) nil nil arg))
 
 (provide 'init-edit)

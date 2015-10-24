@@ -69,6 +69,7 @@
 
 (require 'init-prog)                    ;; setting for programing.
 (require 'init-simple)                	;; provide some packages with default setting.
+(require 'init-hotkey)                  ;; some custom hot keys.
 
 (require 'init-idle-require)    		;; load some package when idle.
 

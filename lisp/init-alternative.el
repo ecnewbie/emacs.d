@@ -3,9 +3,6 @@
 (require-package 'ido-ubiquitous)
 (require-package 'idomenu)
 (require 'init-ido)       ;; setting for ido. smart completion on switch buffer, find file and so on. from redguardtoo.
-(global-set-key "\M-gi" 'ido-imenu)
-(global-unset-key (kbd "M-/"))
-(global-set-key (kbd "M-/ /") 'dabbrev-expand)
 
 (require-package 'smex)
 (require 'init-smex)      ;; setting for smex. smart M-x use ido. from redguardtoo.
@@ -22,7 +19,7 @@
 
 ;;(when (window-system)
 (require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "C-x c" "C-x v" "C-x a" "M-g" "C-c p" "C-c c"))
+(setq guide-key/guide-key-sequence t)   ; enable any key sequence.
 (guide-key-mode 1)
 (diminish 'guide-key-mode)
 
@@ -40,5 +37,8 @@
 (require 'control-lock)
 ;;  Make C-z turn on control lock
 (control-lock-keys)
+
+(require-package 'comment-dwim-2)
+(global-set-key [remap comment-dwim] 'comment-dwim-2)
 
 (provide 'init-alternative)

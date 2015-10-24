@@ -31,6 +31,5 @@
 
 (setq flyspell-auto-correct-binding [(control \.)]) ;; default key binding conflict with ace-jump-mode.
 (require 'init-spelling)                            ;; setting for spell checking. from redguardtoo.
-(global-set-key (kbd "M-/ s") 'ispell-word)
 
 (provide 'init-idle)
