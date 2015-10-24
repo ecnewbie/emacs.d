@@ -19,8 +19,8 @@
 
 ;;(when (window-system)
 (require-package 'guide-key)
-(setq guide-key/guide-key-sequence t)   ; enable any key sequence.
 (guide-key-mode 1)
+(setq guide-key/guide-key-sequence t)   ; enable any key sequence.
 (diminish 'guide-key-mode)
 
 (require-package 'simpleclip)

@@ -1,5 +1,5 @@
 ;; Show number of matches while searching
-(when (maybe-require-package 'anzu)
+(when (require-package 'anzu)
   (global-anzu-mode t)
   (diminish 'anzu-mode)
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)

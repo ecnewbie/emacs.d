@@ -7,6 +7,7 @@
 (require-package 'maxframe)
 (require-package 'browse-kill-ring)
 (require-package 'swiper)
+(require-package 'guide-key)
 (require 'init-misc)                                      ;; cut from redguardtoo. not display fic at modeline.
 
 ;;; only don't record these files.
@@ -16,6 +17,7 @@
 (global-unset-key (kbd "C-c c"))
 (define-key global-map (kbd "C-@") 'set-mark-command)
 
+(require-package 'diminish)
 (require 'init-editing-utils)                                         ;; editing utils from purcell, cancel guide-key.
 ;(when window-system
 ;  (add-hook 'prog-mode-hook 'sanityinc/prog-mode-fci-settings))      ;; fci-mode confilcts with company in xterm, also confilcts with dropdown-list.

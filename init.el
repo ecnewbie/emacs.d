@@ -62,9 +62,9 @@
 (require 'init-defuns)                 	;; fuctions for utils.
 (require 'init-elpa)              		;; setting for package-archives. from purcell.
 (require 'init-looks)                   ;; setting for frames, windows and theme.
-(require 'init-alternative)             ;; some usable package to replace default key-binding.
-
 (require 'init-edit)                    ;; setting for edit utils.
+
+(require 'init-alternative)             ;; some usable package to replace default key-binding.
 (require 'init-modes)                   ;; setting for modes.
 
 (require 'init-prog)                    ;; setting for programing.

@@ -1,4 +1,4 @@
-(when (maybe-require-package 'flycheck)
+(when (require-package 'flycheck)
   (add-hook 'after-init-hook 'global-flycheck-mode)
 
   ;; Override default flycheck triggers
