@@ -16,6 +16,13 @@
 ;;(require 'init-layout)           ;; setting for new temp buffer. It works bad sometimes.
 
 ;;; it seems that cursor color is always black in some environment.
-(setq default-frame-alist '((cursor-color . "white")))
+(require-package 'smart-cursor-color)
+(smart-cursor-color-mode 1)
+
+(eval-after-load 'helm
+  ;; set color for helm's "->".
+  '(set-face-attribute 'helm-header-line-left-margin nil
+		      :background nil
+		      :foreground (face-attribute 'font-lock-type-face :foreground)))
 
 (provide 'init-looks)
