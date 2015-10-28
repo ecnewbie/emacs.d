@@ -70,20 +70,23 @@
 | up-list       | global          |
 
 * 自定义的快捷键：
-| origin | current    | command              | scope        |
-| M-/    | M-/ /[M-/] | dabbrev-expand       | global       |
-|        | M-/ c      | company-complete     | company-mode |
-|        | M-/ s      | ispell-word          | global       |
-|        | M-g ;      | ace-jump-mode        | global       |
-|        | M-g f      | find-file-in-project | global       |
-|        | M-g b      | previous-buffer      | global       |
-|        | M-g u      | up-list              | global       |
-|        | M-g d      | down-list            | global       |
-|        | M-g j      | jump-to-char         | global       |
-|        | M-g s      | swiper               | global       |
-|        | M-g i      | ido-imenu            | global       |
-|        | M-g o      | helm-occur           | global       |
-|        | C-z        | control-lock-enable  | global       |
+| origin | current    | command                                 | scope        |
+| M-/    | M-/ /[M-/] | dabbrev-expand                          | global       |
+|        | M-/ c      | company-complete                        | company-mode |
+|        | M-/ s      | ispell-word                             | global       |
+|        | M-g ;      | ace-jump-mode                           | global       |
+|        | M-g f      | find-file-in-project                    | global       |
+|        | M-g b      | previous-buffer                         | global       |
+|        | M-g u      | up-list                                 | global       |
+|        | M-g d      | down-list                               | global       |
+|        | M-g j      | jump-to-char                            | global       |
+|        | M-g s      | swiper                                  | global       |
+|        | M-g i      | ido-imenu                               | global       |
+|        | M-g o      | helm-occur                              | global       |
+|        | M-s s      | swiper                                  | global       |
+|        | M-s d      | youdao-dictionary-search                | global       |
+|        | M-s v      | youdao-dictionary-play-voice-from-input | global       |
+|        | C-z        | control-lock-enable                     | global       |
 
 * ggtags:
 | M-. | ggtags-find-tag-dwim  | ggtags-mode | 根据情况查找tag                                |

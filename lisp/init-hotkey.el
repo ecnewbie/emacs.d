@@ -17,4 +17,8 @@
 
 (global-set-key [remap comment-dwim] 'my-comment-or-uncomment-region)
 
+(global-set-key (kbd "M-s s") 'swiper)
+(global-set-key (kbd "M-s d") 'youdao-dictionary-search)
+(global-set-key (kbd "M-s v") 'youdao-dictionary-play-voice-from-input)
+
 (provide 'init-hotkey)

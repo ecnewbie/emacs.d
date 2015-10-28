@@ -16,4 +16,6 @@
 
 (require-package 'lice)
 
+(require-package 'youdao-dictionary)
+
 (provide 'init-simple)
