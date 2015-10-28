@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+#name: File description with git user infomation.
+#key: \file
+#group: doxygen
+# --
+/**
+ * @file  ${4:`(file-name-nondirectory(buffer-file-name))`}
+ * @brief ${1:Brief}.
+ ${2:*
+ * ${3:<long description>}}
+ *
+ * @author ${5:`(concat (string-rtrim (shell-command-to-string "git config --get user.name")) "<" (string-rtrim (shell-command-to-string "git config --get user.email")) ">")`}
+ * @date   ${6:`(format-time-string "%Y-%m-%d")`}
+ */
