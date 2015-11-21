@@ -41,4 +41,6 @@
 (require-package 'comment-dwim-2)
 (global-set-key [remap comment-dwim] 'comment-dwim-2)
 
+(require-package 'dired+)
+
 (provide 'init-alternative)

@@ -19,11 +19,13 @@
 (require 'init-cpp-include-path)
 (setq company-clang-arguments my-c++-include)
 (setq company-c-headers-path-system my-c++-path)
+(setq flycheck-clang-args my-c++-include)
 (setq c-eldoc-includes my-c++-include)
 
 (require-package 'ggtags)
 (require-package 'cmake-mode)
-(require-package 'cpputils-cmake)
+;;(require-package 'cpputils-cmake)
+(require 'cpputils-cmake)
 (require-package 'c-eldoc)
 (require 'init-cc-mode)       ;; setting for cc-mode. from redguardtoo. fix indent.
 (require 'init-flymake)       ;; for flymake. from redguardtoo.
@@ -33,6 +35,8 @@
           '(lambda ()
              (setq company-clang-arguments (append company-clang-arguments my-c++-include))
              (setq company-c-headers-path-system (append company-c-headers-path-system my-c++-path))
+             (setq flycheck-clang-args company-clang-arguments)
+             (message "flycheck-clang-args = %s" flycheck-clang-args)
              (setq c-eldoc-includes
                    (combine-and-quote-strings company-clang-arguments))))
 
