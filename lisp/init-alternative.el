@@ -29,8 +29,7 @@
 ;; Setting local key M-y will cause calc works bad.
 (remove-hook 'minibuffer-setup-hook 'my/paste-in-minibuffer)
 
-;;(require-package 'w3m)
-;;(require 'init-emacs-w3m) ;; setting for w3m. a browser. from redguardtoo.
+(require 'init-w3m) ;; setting for w3m. a browser.
 
 (require 'init-smarter-commands) ;; some smarter commands.
 

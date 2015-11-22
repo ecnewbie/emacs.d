@@ -344,12 +344,12 @@ buffer is not visiting a file."
 ;; }}
 
 ;; {{ show email sent by `git send-email' in gnus
-(eval-after-load 'gnus
-  '(progn
-     (require 'gnus-article-treat-patch)
-     (setq gnus-article-patch-conditions
-           '( "^@@ -[0-9]+,[0-9]+ \\+[0-9]+,[0-9]+ @@" ))
-     ))
+;; (eval-after-load 'gnus
+;;   '(progn
+;;      (require 'gnus-article-treat-patch)
+;;      (setq gnus-article-patch-conditions
+;;            '( "^@@ -[0-9]+,[0-9]+ \\+[0-9]+,[0-9]+ @@" ))
+;;      ))
 ;; }}
 
 (defun toggle-full-window()

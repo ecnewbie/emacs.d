@@ -1,3 +1,6 @@
+(require-package 'w3m)
+(require 'w3m)
+
 (setq w3m-coding-system 'utf-8
       w3m-file-coding-system 'utf-8
       w3m-file-name-coding-system 'utf-8
@@ -9,15 +12,14 @@
       w3m-terminal-coding-system 'utf-8
       w3m-use-cookies t
       w3m-cookie-accept-bad-cookies t
-      w3m-home-page "http://www.google.com.au"
       w3m-command-arguments       '("-F" "-cookie")
       w3m-mailto-url-function     'compose-mail
       browse-url-browser-function 'w3m
       mm-text-html-renderer       'w3m
-      w3m-use-toolbar t
+      w3m-use-toolbar nil
       ;; show images in the browser
       ;; setq w3m-default-display-inline-images t
-      ;; w3m-use-tab     nil
+      w3m-use-tab     nil
       w3m-confirm-leaving-secure-page nil
       w3m-search-default-engine "g"
       w3m-key-binding 'info)
@@ -32,21 +34,19 @@
 
 ;; C-u S g RET <search term> RET in w3m
 (setq w3m-search-engine-alist
-      '(("g" "http://www.google.com.au/search?q=%s" utf-8)
+      '(("g" "http://www.google.com.hk/search?hl=zh-CN&q=%s" utf-8)
         ;; stackoverflow search
-        ("q" "http://www.google.com.au/search?q=%s+site:stackoverflow.com" utf-8)
+        ("q" "http://www.google.com.hk/search?hl=zh-CN&q=%s+site:stackoverflow.com" utf-8)
         ;; elisp code search
-        ("s" "http://www.google.com.au/search?q=%s+filetype:el"  utf-8)
-        ;; wikipedia
-        ("w" "http://en.wikipedia.org/wiki/Special:Search?search=%s" utf-8)
+        ("s" "http://www.google.com.hk/search?hl=zh-CN&q=%s+filetype:el"  utf-8)
         ;; online dictionary
         ("d" "http://dictionary.reference.com/search?q=%s" utf-8)
         ;; java google search
-        ("java" "https://www.google.com.au/search?q=java+%s" utf-8)
+        ("java" "https://www.google.com.hk/search?hl=zh-CN&q=java+%s" utf-8)
         ;; financial dictionary
         ("f" "http://financial-dictionary.thefreedictionary.com/%s" utf-8)
         ;; javascript seawrch on mozilla.org
-        ("j" "http://www.google.com.au/search?q=%s+site:developer.mozilla.org" utf-8)))
+        ("j" "http://www.google.com.hk/search?hl=zh-CN&q=%s+site:developer.mozilla.org" utf-8)))
 
 (defun w3m-set-url-from-search-engine-alist (k l url)
     (if (listp l)
@@ -65,10 +65,6 @@
 (defun w3m-customized-search-api (search-engine)
   (unless (featurep 'w3m) (require 'w3m))
   (w3m-search search-engine (w3m-get-current-thing)))
-
-(defun w3m-stackoverflow-search ()
-  (interactive)
-  (w3m-customized-search-api "q"))
 
 (defun w3m-java-search ()
   (interactive)
@@ -116,18 +112,18 @@
 (setq browse-url-browser-function 'browse-url-generic)
 
 ;; use external browser to search programming stuff
-(defun w3-hacker-search ()
+(defun w3m-hacker-search ()
   "Search on all programming related sites in external browser"
   (interactive)
   (let ((keyword (w3m-get-current-thing)))
     ;; google
-    (browse-url-generic (concat "http://www.google.com.au/search?hl=en&q=%22"
+    (browse-url-generic (concat "http://www.google.com.hk/search?hl=en&q=%22"
                                 keyword
                                 "%22"
                                 (if buffer-file-name
 									(concat "+filetype%3A" (file-name-extension buffer-file-name))
 									"")  ))
-    (browse-url-generic (concat "http://www.google.com.au/search?hl=en&q="
+    (browse-url-generic (concat "http://www.google.com.hk/search?hl=en&q="
                                 keyword
                                 "+site:stackoverflow.com" ))
     ;; koders.com
@@ -146,8 +142,4 @@
     (browse-url-generic (if url url (car (browse-url-interactive-arg "URL: "))))
     ))
 
-(eval-after-load 'w3m
-  '(progn
-     (define-key w3m-mode-map (kbd "C-c b") 'w3mext-open-link-or-image-or-url)
-     ))
-(provide 'init-emacs-w3m)
+(provide 'init-w3m)
