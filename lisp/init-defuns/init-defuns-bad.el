@@ -8,7 +8,7 @@
 ;;; search funcs.
 (defun get-keyword(TIP)
   (let* ((key-word))
-      (setq key-word (read-from-minibuffer (concat TIP (current-word) "?")))
+      (setq key-word (read-from-minibuffer (concat TIP " : ") (current-word)))
       (when (equal key-word "")
         (setq key-word (current-word)))
       key-word
@@ -44,36 +44,43 @@
   "search http://en.cppreference.com."
   (interactive)
   (async-browse-url
-   (concat "http://en.cppreference.com/mwiki/index.php?search=" (get-keyword "search-cppreference "))))
+   (concat "http://en.cppreference.com/mwiki/index.php?search="
+           (get-keyword "search-cppreference"))))
 
 (defun search-boost ()
   "search boost."
   (interactive)
   (async-browse-url
-   (concat "http://www.google.com.hk/search?hl=zh-CN&q=" (get-keyword "search-boost ") "+site:boost.org")))
+   (concat "http://www.google.com.hk/search?hl=zh-CN&q="
+           (get-keyword "search-boost") "+site:boost.org")))
 
 (defun search-wiki ()
   "search en wiki."
   (interactive)
   (async-browse-url
-   (concat "https://en.wikipedia.org/w/index.php?search=" (get-keyword "search-wiki "))))
+   (concat "https://en.wikipedia.org/w/index.php?search="
+           (get-keyword "search-wiki"))))
 
 (defun search-archwiki ()
   "search archwiki."
   (interactive)
   (async-browse-url
-   (concat "https://wiki.archlinux.org/index.php?search=" (get-keyword "search-archwiki "))))
+   (concat "https://wiki.archlinux.org/index.php?search="
+           (get-keyword "search-archwiki"))))
 
 (defun search-stackoverflow ()
   "search stackoverflow."
   (interactive)
   (async-browse-url
-   (concat "http://www.google.com.hk/search?hl=zh-CN&q=" (get-keyword "search-stackoverflow ") "+site:stackoverflow.com")))
+   (concat "http://www.google.com.hk/search?hl=zh-CN&q="
+           (get-keyword "search-stackoverflow") "+site:stackoverflow.com")))
 
 (defun man2 ()
   "man 2 [key-word]."
   (interactive)
-  (manual-entry (concat "2 " (get-keyword "man 2 "))))
+  (manual-entry
+   (concat "2 " (completing-read "Man 2: " 'Man-completion-table nil nil
+                                 (concat "2 " (current-word))))))
 
 
 ;;; comment funcs.

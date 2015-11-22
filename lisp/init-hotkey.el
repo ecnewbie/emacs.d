@@ -10,6 +10,7 @@
 (global-set-key (kbd "M-g s") 'swiper)
 (global-set-key (kbd "M-g i") 'ido-imenu)
 (global-set-key (kbd "M-g o") 'helm-occur)
+(global-set-key (kbd "M-g w") 'w3m-browse-url)
 
 (global-set-key (kbd "M-/ s") 'ispell-word)
 
