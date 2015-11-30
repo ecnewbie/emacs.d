@@ -5,64 +5,72 @@
 
 ;; set frame title.
 (setq-default frame-title-format
-          '(buffer-file-name
-            "%f"
-            (dired-directory dired-directory "%b")))
+              '(buffer-file-name
+                "%f"
+                (dired-directory dired-directory "%b")))
 
 (setq-default mode-line-format
-  (list
-    ;; the buffer name; the file name as a tool tip
-    '(:eval (propertize "%b " 'face 'font-lock-keyword-face
-        'help-echo (buffer-file-name)))
+              (list
+               ;; the buffer name; the file name as a tool tip
+               '(:eval (propertize "%b " 'face (if (window-system)
+                                                   'font-lock-keyword-face
+                                                 nil)
+                                   'help-echo (buffer-file-name)))
 
-    ;; line and column
-    "(" ;; '%02' to set to 2 chars at least; prevents flickering
-      (propertize "%02l" 'face nil ) ","
-      (propertize "%02c" 'face nil )
-    ") "
+               ;; line and column
+               "(" ;; '%02' to set to 2 chars at least; prevents flickering
+               (propertize "%02l" 'face nil ) ","
+               (propertize "%02c" 'face nil )
+               ") "
 
-    ;; relative position, size of file
-    "["
-    (propertize "%p" 'face nil) ;; % above top
-    "/"
-    (propertize "%I" 'face nil) ;; size
-    "] "
+               ;; relative position, size of file
+               "["
+               (propertize "%p" 'face nil) ;; % above top
+               "/"
+               (propertize "%I" 'face nil) ;; size
+               "] "
 
-    ;; the current major mode for the buffer.
-    "["
+               ;; the current major mode for the buffer.
+               "["
 
-    '(:eval (propertize "%m" 'face nil
-              'help-echo buffer-file-coding-system))
-    "] "
+               '(:eval (propertize "%m" 'face nil
+                                   'help-echo buffer-file-coding-system))
+               "] "
 
 
-    "[" ;; insert vs overwrite mode, input-method in a tooltip
-    '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
-              'face 'font-lock-string-face
-              'help-echo (concat "Buffer is in "
-                           (if overwrite-mode "overwrite" "insert") " mode")))
+               "[" ;; insert vs overwrite mode, input-method in a tooltip
+               '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
+                                   'face (if (window-system)
+                                             'font-lock-string-face
+                                           nil)
+                                   'help-echo (concat "Buffer is in "
+                                                      (if overwrite-mode "overwrite" "insert") " mode")))
 
-    ;; was this buffer modified since the last save?
-    '(:eval (when (buffer-modified-p)
-              (concat ","  (propertize "Mod"
-                             'face 'font-lock-warning-face
-                             'help-echo "Buffer has been modified"))))
+               ;; was this buffer modified since the last save?
+               '(:eval (when (buffer-modified-p)
+                         (concat ","  (propertize "Mod"
+                                                  'face (if (window-system)
+                                                            'font-lock-warning-face
+                                                          nil)
+                                                  'help-echo "Buffer has been modified"))))
 
-    ;; is this buffer read-only?
-    '(:eval (when buffer-read-only
-              (concat ","  (propertize "RO"
-                             'face 'font-lock-type-face
-                             'help-echo "Buffer is read-only"))))
-    "] "
+               ;; is this buffer read-only?
+               '(:eval (when buffer-read-only
+                         (concat ","  (propertize "RO"
+                                                  'face (if (window-system)
+                                                            'font-lock-type-face
+                                                          nil)
+                                                  'help-echo "Buffer is read-only"))))
+               "] "
 
-    ;; global-mode-string, org-timer-set-timer in org-mode need this
-    " ["
-    (propertize "%M" 'face nil)
-    "] ---"
+               ;; global-mode-string, org-timer-set-timer in org-mode need this
+               " ["
+               (propertize "%M" 'face nil)
+               "] ---"
 
-    minor-mode-alist  ;; list of minor modes
+               minor-mode-alist  ;; list of minor modes
 
-    ;;"%-" ;; fill with '-'
-    ))
+               ;;"%-" ;; fill with '-'
+               ))
 
 (provide 'init-modeline)
