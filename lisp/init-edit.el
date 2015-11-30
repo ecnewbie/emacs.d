@@ -26,6 +26,7 @@
 
 ;;; make ace jump case insensitive.
 (setq ace-jump-mode-case-fold nil)
+(setq ace-jump-mode-gray-background nil)
 ;(setq ace-jump-mode-move-keys (loop for i from ?A to ?Z collect i))  ;; this can't be used with case fold.
 
 (require-package 'workgroups2)
