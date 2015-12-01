@@ -67,4 +67,4 @@ or current directory."
      nil nil)
     ))
 
-(provide 'init-quilkly-defuns)
+(provide 'init-quickly-defuns)

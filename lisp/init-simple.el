@@ -5,6 +5,7 @@
 (require-package 'linum-relative)
 (require 'linum-relative)
 (setq linum-relative-current-symbol "")
+(linum-relative-global-mode)
 
 (require-package 'zlc)
 (require 'zlc)
