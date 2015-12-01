@@ -2,5 +2,6 @@
 
 (require 'init-defuns-good)
 (require 'init-defuns-bad)
+(require 'init-quilkly-defuns)
 
 (provide 'init-defuns)

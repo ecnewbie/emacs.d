@@ -1,12 +1,5 @@
-;;; compile func.
-(defun compile-cmake ()
-  "call cmake at cppcm-build-dir"
-  (interactive)
-  (shell-command (concat "cd " cppcm-build-dir " && cmake " cppcm-src-dir) "*compilation*")
-  (cppcm-compile-in-root-build-dir))
-
 ;;; search funcs.
-(defun get-keyword(TIP)
+(defun get-keyword (TIP)
   (let* ((key-word))
       (setq key-word (read-from-minibuffer (concat TIP " : ") (current-word)))
       (when (equal key-word "")
