@@ -35,7 +35,6 @@
      (setq company-show-numbers t)
      (setq company-begin-commands '(self-insert-command))
      (setq company-idle-delay 0.2)
-     (setq company-clang-insert-arguments nil)
      (setq company-require-match nil)
      (setq company-etags-ignore-case t)
 
