@@ -1,3 +1,10 @@
+(require-package 'magit '(1 2 0) nil)
+;(require-package 'git-commit-mode)
+(require-package 'gitignore-mode)
+(require-package 'gitconfig-mode)
+(when *emacs24*
+  (require-package 'git-gutter '(0 71) nil))
+
 ;; Solution 1: disable all vc backends
 ;; @see http://stackoverflow.com/questions/5748814/how-does-one-disable-vc-git-in-emacs
 ;; (setq vc-handled-backends ())

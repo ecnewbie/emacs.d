@@ -1,3 +1,7 @@
+(require-package 'company)
+(require-package 'company-statistics)
+(require-package 'company-c-headers)
+
 (add-hook 'prog-mode-hook 'global-company-mode)
 (add-hook 'cmake-mode-hook 'global-company-mode)
 
@@ -10,6 +14,7 @@
             company-complete-number
             )))
 
+(global-unset-key (kbd "M-/"))
 (eval-after-load 'company
   '(progn
      ;; @see https://github.com/company-mode/company-mode/issues/348
@@ -46,6 +51,7 @@
      (setq company-global-modes
            '(not
              eshell-mode comint-mode org-mode erc-mode gud-mode))
+     (global-set-key (kbd "M-/ c") 'company-complete)
      ))
 
 (provide 'init-company)

@@ -1,3 +1,9 @@
+(require-package 'c-eldoc)
+(require-package 'ggtags)
+(require-package 'cmake-mode)
+;;(require-package 'cpputils-cmake) ;; use site-lisp's cpputils-cmake.
+(require 'cpputils-cmake)
+
 (defun c-wx-lineup-topmost-intro-cont (langelem)
   (save-excursion
     (beginning-of-line)
@@ -97,5 +103,7 @@
               ;; so below code is NOT needed.
               (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
               )))
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (provide 'init-cc-mode)

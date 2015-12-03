@@ -59,7 +59,7 @@ or current directory."
        nil nil)
 
     (call-process-shell-command
-     (concat quickly-run-command
+     (concat quickly-run-command " "
              (quickly-get-keyword
               "exe name"
               (file-name-directory buffer-file-name)

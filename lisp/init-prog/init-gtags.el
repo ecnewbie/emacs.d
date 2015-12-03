@@ -33,4 +33,8 @@
   (interactive)
   (message "GTAGSLIBPATH=%s" (getenv "GTAGSLIBPATH")))
 
+(custom-set-variables '(ggtags-global-abbreviate-filename nil))  ;; don't show abbreviate filename in global result.
+(custom-set-variables '(ggtags-oversize-limit (* 20 1024 1024))) ;; larger gtags file.
+(setenv "GTAGSFORCECPP" "")                                      ;; always treat .h as c++ header.
+
 (provide 'init-gtags)

@@ -1,3 +1,7 @@
+(require-package 'paredit)
+(require-package 'quack)
+(require-package 'hl-sexp)
+
 ;; ----------------------------------------------------------------------------
 ;; Paredit
 ;; ----------------------------------------------------------------------------
@@ -54,11 +58,10 @@
 ;; ----------------------------------------------------------------------------
 (defun sanityinc/lisp-setup ()
   "Enable features useful in any Lisp mode."
-  (enable-paredit-mode)
-  (rainbow-delimiters-mode t)
   (turn-on-eldoc-mode))
 
-(let* ((lispy-hooks '(lisp-mode-hook
+(let* ((lispy-hooks '(emacs-lisp-mode-hook
+                      lisp-mode-hook
                       inferior-lisp-mode-hook
                       lisp-interaction-mode-hook)))
   (dolist (hook lispy-hooks)
