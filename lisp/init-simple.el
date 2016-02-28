@@ -19,4 +19,10 @@
 
 (require-package 'youdao-dictionary)
 
+(require-package 'projectile-speedbar)
+(require 'projectile-speedbar)
+(setq projectile-speedbar-enable nil)
+
+(require-package 'helm-projectile)
+
 (provide 'init-simple)

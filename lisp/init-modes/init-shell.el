@@ -1,6 +1,5 @@
 (require-package 'readline-complete)
 (require 'readline-complete)
-(require 'multi-term)
 
 (setq explicit-shell-file-name "bash")
 (setq explicit-bash-args '("-c" "export EMACS=; stty echo; bash"))
@@ -24,5 +23,24 @@
 (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
+
+(require 'multi-term)
+(setq term-bind-key-alist
+      '(
+        ("C-c C-c" . term-interrupt-subjob)
+        ("C-c C-j" . term-line-mode)
+        ("C-c C-k" . term-char-mode)
+        ("C-m" . term-send-return)
+        ("C-y" . term-paste))
+      )
+
+(setq term-unbind-key-list
+      '("C-z" "C-x" "C-c" "C-h" "C-y"
+        "M-x"))
+
+(add-hook 'term-mode-hook
+          (lambda()
+            (setq term-buffer-maximum-size 10000)
+            (setq show-trailing-whitespace nil)))
 
 (provide 'init-shell)
