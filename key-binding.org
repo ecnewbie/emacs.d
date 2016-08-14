@@ -35,6 +35,7 @@
 | C-x C-SPC   | pop-global-mark                      | global                |
 | C-x C-x     | exchange-point-and-mark              | global                |
 | C-x SPC     | rectangle-mark-mode                  | global                |
+| C-x TAB     | indent-rigidly                       | global                |
 |-------------+--------------------------------------+-----------------------|
 | C-u C-SPC   | pop-to-mark-command                  | global                |
 | C-u M-x     | run command with C-u                 | global                |

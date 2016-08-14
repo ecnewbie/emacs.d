@@ -68,10 +68,9 @@
 ** yasnippet: 补全片段.
 
 * 模式:
-** lua-mode: 支持lua编程.
 ** markdown-mode: markdown, 一种文本格式, 支持HTML等.
 ** org, org-fstree, org-mac-link, org-mac-iCal, org-pomodoro: org , GTD工具.
-* c++编程emacs包:
+* 编程相关:
 ** company, company-c-headers/auto-complete, auto-complete-c-headers: 补全.
 ** cmake-mode: 支持cmake.
 ** cpputils-cmake: 自动语法检查和补全, ff-find-other-file配置.
@@ -82,9 +81,11 @@
 ** find-file-in-project: 快速打开文件。
 ** flycheck: 语法静态检查.
 ** imenu: 当前buffer函数跳转.
+** lua-mode: 支持lua编程.
 ** magit(提供git命令), git-commit-mode, gitignore-mode, gitconfig-mode, git-gutter(显示变化): git前端.
 ** projectile: 项目管理, 支持版本控制, 本地需要创建.projectile文件.
 
+** quickrun: 快速运行当前文件, 支持多种编程语言.
 * 其它:
 ** chinese-pyim: 拼音输入法.
 ** highlight-escape-sequences: js, ruby下高亮转义字符.

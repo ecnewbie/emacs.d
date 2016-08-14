@@ -1,32 +1,19 @@
-(require-package 'paredit)
-(require-package 'quack)
-(require-package 'hl-sexp)
-
-;; ----------------------------------------------------------------------------
 ;; Paredit
-;; ----------------------------------------------------------------------------
+(require-package 'paredit)
 (autoload 'enable-paredit-mode "paredit")
 
 (setq-default initial-scratch-message
               (concat ";; Happy hacking " (or user-login-name "") " - Emacs loves you!\n\n"))
 
-;; {{ scheme setup
+;; todo
+;; scheme setup
 (setq scheme-program-name "guile")
-(eval-after-load 'scheme-mode
-  '(progn
-     (require 'quack)))
-;; }}
-
-;; A quick way to jump to the definition of a function given its key binding
-(global-set-key (kbd "C-h K") 'find-function-on-key)
-
-(eval-after-load 'paredit
-  '(progn
-     (diminish 'paredit-mode " Par")))
-
+(with-eval-after-load 'scheme-mode
+  (require-package 'quack)
+  (require 'quack))
 
 ;; Use paredit in the minibuffer
-(add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
+;;(add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
 
 (defvar paredit-minibuffer-commands '(eval-expression
                                       pp-eval-expression
@@ -40,25 +27,15 @@
   (if (memq this-command paredit-minibuffer-commands)
       (enable-paredit-mode)))
 
-
-
-
-
-;; ----------------------------------------------------------------------------
-;; Highlight current sexp
-;; ----------------------------------------------------------------------------
-;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
-(eval-after-load 'hl-sexp
-  '(defadvice hl-sexp-mode (after unflicker (turn-on) activate)
-     (when turn-on
-       (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
-
-;; ----------------------------------------------------------------------------
+(require-package 'rainbow-delimiters)
 ;; Enable desired features for all lisp modes
-;; ----------------------------------------------------------------------------
 (defun sanityinc/lisp-setup ()
   "Enable features useful in any Lisp mode."
-  (turn-on-eldoc-mode))
+  ;; I don't like paredit, as it change too many basic key binding.
+  ;; (enable-paredit-mode)
+  (rainbow-delimiters-mode t)
+  (turn-on-eldoc-mode)
+  (turn-on-elisp-slime-nav-mode))
 
 (let* ((lispy-hooks '(emacs-lisp-mode-hook
                       lisp-mode-hook
@@ -66,5 +43,8 @@
                       lisp-interaction-mode-hook)))
   (dolist (hook lispy-hooks)
     (add-hook hook 'sanityinc/lisp-setup)))
+
+(require-package 'elisp-slime-nav)
+(require 'elisp-slime-nav)
 
 (provide 'init-lisp)

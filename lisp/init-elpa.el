@@ -63,8 +63,7 @@ ARCHIVE is the string name of the package archive.")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar melpa-not-include-packages
-  '(yasnippet
-    swiper)
+  '()
   "Don't install these Melpa packages")
 
 ;; Don't take Melpa versions of certain packages
@@ -84,5 +83,34 @@ ARCHIVE is the string name of the package archive.")
 
 (package-initialize)
 
+(defcustom newbie/debug nil
+  "Turn on to show debug log.")
+
+;; make require several files easily.
+(defun require-dir (dir)
+  "Ask require on all files in dir."
+  (let ((emacs-load-start-time (current-time)))
+    (let ((count 0) (file-path))
+      (dolist (path load-path)
+        (when (string-equal dir (file-name-base path))
+          (setq file-path path)
+          (setq count (+ 1 count))))
+      (if (= count 1)
+          (dolist (file (directory-files file-path))
+            (unless (or (file-directory-p (expand-file-name file))
+                        (string-match "^[.]*#+" (file-name-base file))
+                        (string-match "~+$" (expand-file-name file)))
+              (require (intern (file-name-base file)))
+              (when (and newbie/debug
+                         (require 'time-date nil t))
+                (message "Load File %s cost %s seconds."
+                         file
+                         (time-to-seconds (time-since emacs-load-start-time))))))
+        (error "no one or more than one dir match, do nothing for require-dir %s." dir)))
+    (when (and newbie/debug
+               (require 'time-date nil t))
+      (message "Load Dir %s cost %s seconds."
+               dir
+               (time-to-seconds (time-since emacs-load-start-time))))))
 
 (provide 'init-elpa)

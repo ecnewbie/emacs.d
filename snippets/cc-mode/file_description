@@ -1,14 +1,13 @@
 # -*- mode: snippet -*-
-#name: File description with git user infomation.
+#cotributor: Henrique Jung <henriquenj@gmail.com>
+#name: File description
 #key: \file
 #group: doxygen
 # --
 /**
- * @file  ${4:`(file-name-nondirectory(buffer-file-name))`}
- * @brief ${1:Brief}.
- ${2:*
- * ${3:<long description>}}
+ *   \file ${1:`(file-name-nondirectory(buffer-file-name))`}
+ *   \brief ${2:A Documented file.}
+ ${3:*
+ *  ${4:Detailed description}
  *
- * @author ${5:`(concat (string-rtrim (shell-command-to-string "git config --get user.name")) "<" (string-rtrim (shell-command-to-string "git config --get user.email")) ">")`}
- * @date   ${6:`(format-time-string "%Y-%m-%d")`}
- */
+}*/

@@ -1,0 +1,160 @@
+alias which-command whence
+
+alias nmtui-connect x-terminal-emulator -e "nmtui-connect"&
+alias quitemacs emacsclient -n -e "(kill-emacs)"
+
+alias rd rmdir $*
+alias please sudo $*
+alias pu pushd $*
+alias po popd $*
+alias md mkdir -p $*
+alias lsa ls -lah $*
+alias ls ls --color=tty $*
+alias ll ls -lh $*
+alias la ls -lAh $*
+alias l ls -lah $*
+
+alias gwip git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--" $*
+alias gwch git whatchanged -p --abbrev-commit --pretty=medium $*
+alias gupv git pull --rebase -v $*
+alias gup git pull --rebase $*
+alias gunwip git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1 $*
+alias gunignore git update-index --no-assume-unchanged $*
+alias gtv git tag | sort -V $*
+alias gts git tag -s $*
+alias gsu git submodule update $*
+alias gsts git stash show --text $*
+alias gstp git stash pop $*
+alias gstl git stash list $*
+alias gstd git stash drop $*
+alias gstaa git stash apply $*
+alias gsta git stash $*
+alias gst git status $*
+alias gss git status -s $*
+alias gsr git svn rebase $*
+alias gsps git show --pretty=short --show-signature $*
+alias gsi git submodule init $*
+alias gsd git svn dcommit $*
+alias gsb git status -sb $*
+alias grv git remote -v $*
+alias grup git remote update $*
+alias gru git reset -- $*
+alias grt cd $(git rev-parse --show-toplevel || echo ".") $*
+alias grset git remote set-url $*
+alias grrm git remote remove $*
+alias grmv git remote rename $*
+alias grhh git reset HEAD --hard $*
+alias grh git reset HEAD $*
+alias grbs git rebase --skip $*
+alias grbm git rebase master $*
+alias grbi git rebase -i $*
+alias grbc git rebase --continue $*
+alias grba git rebase --abort $*
+alias grb git rebase $*
+alias gra git remote add $*
+alias gr git remote $*
+alias gpv git push -v $*
+alias gpu git push upstream $*
+alias gpristine git reset --hard && git clean -dfx $*
+alias gpoat git push origin --all && git push origin --tags $*
+alias gpd git push --dry-run $*
+alias gp git push $*
+alias gmum git merge upstream/master $*
+alias gmtvim git mergetool --no-prompt --tool=vimdiff $*
+alias gmt git mergetool --no-prompt $*
+alias gmom git merge origin/master $*
+alias gm git merge $*
+alias glum git pull upstream master $*
+alias glp _git_log_prettily $*
+alias glola git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --all $*
+alias glol git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit $*
+alias glog git log --oneline --decorate --graph $*
+alias globurl noglob urlglobber $*
+alias glo git log --oneline --decorate $*
+alias glgp git log --stat -p $*
+alias glgm git log --graph --max-count=10 $*
+alias glgga git log --graph --decorate --all $*
+alias glgg git log --graph $*
+alias glg git log --stat $*
+alias gl git pull $*
+alias gke \gitk --all $(git log -g --pretty=format:%h) $*
+alias gk \gitk --all --branches $*
+alias git-svn-dcommit-push git svn dcommit && git push github master:svntrunk $*
+alias gignored git ls-files -v | grep "^[[:lower:]]" $*
+alias gignore git update-index --assume-unchanged $*
+alias ggsup git branch --set-upstream-to=origin/$(git_current_branch) $*
+alias ggpush git push origin $(git_current_branch) $*
+alias ggpur ggu $*
+alias ggpull git pull origin $(git_current_branch) $*
+alias gga git gui citool --amend $*
+alias gg git gui citool $*
+alias gfo git fetch origin $*
+alias gfa git fetch --all --prune $*
+alias gf git fetch $*
+alias gdw git diff --word-diff $*
+alias gdt git diff-tree --no-commit-id --name-only -r $*
+alias gdct git describe --tags `git rev-list --tags --max-count=1` $*
+alias gdca git diff --cached $*
+alias gd git diff $*
+alias gcs git commit -S $*
+alias gcp git cherry-pick $*
+alias gcount git shortlog -sn $*
+alias gco git checkout $*
+alias gcmsg git commit -m $*
+alias gcm git checkout master $*
+alias gclean git clean -fd $*
+alias gcl git clone --recursive $*
+alias gcf git config --list $*
+alias gcb git checkout -b $*
+alias gcan!' 'git commit -v -a -s --no-edit --amend $*
+alias gcam git commit -a -m $*
+alias gca!' 'git commit -v -a --amend $*
+alias gca git commit -v -a $*
+alias gc!' 'git commit -v --amend $*
+alias gc git commit -v $*
+alias gbss git bisect start $*
+alias gbsr git bisect reset $*
+alias gbsg git bisect good $*
+alias gbsb git bisect bad $*
+alias gbs git bisect $*
+alias gbr git branch --remote $*
+alias gbnm git branch --no-merged $*
+alias gbl git blame -b -w $*
+alias gbda git branch --merged | command grep -vE "^(\*|\s*master\s*$)" | command xargs -n 1 git branch -d $*
+alias gba git branch -a $*
+alias gb git branch $*
+alias gapa git add --patch $*
+alias gaa git add --all $*
+alias ga git add $*
+alias g git $*
+alias ftmpr find . -name "*[~#]" | xargs rm $*
+alias ftmp find . -name "*[~#]" $*
+alias ffct find . -type f | sed  -e "/\/\./ d" | sed "/^/ {s/^/\"/; s/$/\"/; p}" | xargs grep -n $*
+alias emcas emacs $*
+alias emasc emacs $*
+alias emacsw emacs -mm $*
+alias emacst env TERM=xterm-256color emacs -nw $*
+alias eframe emacsclient --alternate-editor "" --create-frame $*
+alias eeval emacsclient --eval $*
+alias ect emacsclient -nw -a "" $*
+alias ec emacsclient --no-wait $*
+alias e emacs -q -nw $*
+alias d dirs -v | head -10 $*
+alias afind ack -il $*
+alias _ sudo $*
+alias 9 cd -9
+alias 8 cd -8
+alias 7 cd -7
+alias 6 cd -6
+alias 5 cd -5
+alias 4 cd -4
+alias 3 cd -3
+alias 2 cd -2
+alias 1 cd -
+alias ...... ../../../../..
+alias ..... ../../../..
+alias .... ../../..
+alias ... ../..
+alias - cd -
+alias ff find-file $1
+alias musicbox x-terminal-emulator -e "musicbox"&

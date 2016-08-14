@@ -1,0 +1,29 @@
+(require-package 'projectile)
+
+(require 'projectile)
+(projectile-global-mode)
+;; (setq projectile-enable-caching nil) ; caching mixed ignored files.
+
+(require-package 'projectile-speedbar)
+(require 'projectile-speedbar)
+(setq projectile-speedbar-enable nil)
+
+(require-package 'ibuffer-projectile)
+
+(require-package 'counsel-projectile)
+(autoload 'counsel-projectile-find-file "counsel-projectile" nil t)
+
+(defun newbie/find-file-in-current-directory (&optional arg)
+  "Find file in current directory with option -maxdepth 3."
+  (interactive)
+  (unless (and arg (> arg 0))
+    (setq arg 3))
+  (let* ((cmd (concat "find * -type f -print0 -maxdepth " (number-to-string arg))))
+    (ivy-read "Find file: "
+              (split-string (shell-command-to-string cmd) "\0" t)
+              :require-match t)))
+
+(require-package 'nameframe-projectile)
+(nameframe-projectile-mode t)
+
+(provide 'init-projectile)

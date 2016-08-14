@@ -8,18 +8,16 @@
 ;----------------------------------------------------------------------------
 ; config load path
 ;----------------------------------------------------------------------------
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(defun add-path (dir)
+  "Add all directories in dir to load-path."
+  (when (file-directory-p dir)
+    (add-to-list 'load-path (expand-file-name dir))
+      (dolist (file (directory-files dir t "\\w+"))
+        (when (file-directory-p file)
+          (add-path file)))))
 
-(defun add-path (file)
-  "documentation..."
-  (if (file-directory-p file)
-      (dolist (file2 (directory-files file t "\\w+"))
-	  (when (file-directory-p file2)
-         	(add-to-list 'load-path (expand-file-name file2)))
-       (add-path file2))
-     nil))
-
-(add-path "~/.emacs.d")
+(add-path "~/.emacs.d/lisp")
+(add-path "~/.emacs.d/site-lisp")
 
 ;;----------------------------------------------------------------------------
 ;; Which functionality to enable (use t or nil for true and false)
@@ -59,22 +57,25 @@
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
-(require 'init-defuns)                 	;; fuctions for utils.
-(require 'init-elpa)              		;; setting for package-archives. from purcell.
-(require 'init-looks)                   ;; setting for frames, windows and theme.
-(require 'init-edit)                    ;; setting for edit utils.
+(require 'init-elpa)             ; setting for package-archives.
+(require-dir "init-defuns")      ; functions for utils.
+(require-dir "init-looks")       ; setting for frames, windows and theme.
+(require-dir "init-alternative") ; some usable package to replace default key-binding.
+(require-dir "init-editing")     ; setting for edit utils.
 
-(require 'init-alternative)             ;; some usable package to replace default key-binding.
-(require 'init-modes)                   ;; setting for modes.
+(require-dir "init-project")     ; project management
 
-(require 'init-prog)                    ;; setting for programing.
-(require 'init-simple)                	;; provide some packages with default setting.
-(require 'init-hotkey)                  ;; some custom hot keys.
+(require-dir "init-text-modes")  ; setting for modes.
+(require-dir "init-prog")        ; setting for programing.
 
-(require 'init-idle-require)    		;; load some package when idle.
+(require-dir "init-funny")       ; some funny usage.
 
-;;----------------------------------------------------------------------------
-;; Locales (setting them earlier in this file doesn't work in X)
-;;----------------------------------------------------------------------------
-(require 'init-locales)                 ;; setting for locales, utf-8. from redguardtoo.
+(require-dir "init-custom")      ; custom settings.
+
+(require 'init-idle-require)     ; load some package when idle.
+
+;; ;;----------------------------------------------------------------------------
+;; ;; Locales (setting them earlier in this file doesn't work in X)
+;; ;;----------------------------------------------------------------------------
+(require-dir "init-locale")      ; internationalization
 (provide 'init)
