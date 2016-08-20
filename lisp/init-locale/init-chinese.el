@@ -13,7 +13,8 @@
 
 (require-package 'pangu-spacing)
 (require 'pangu-spacing)
-(global-pangu-spacing-mode 1)
+;; For better performace.
+;; (global-pangu-spacing-mode 1)
 
 ;;;FIXME: org table
 ;; (add-hook 'org-mode-hook
