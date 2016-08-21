@@ -1,5 +1,4 @@
 (require-package 'rtags)
-(require 'rtags)
 ;; https://github.com/Andersbakken/rtags
 (defun use-rtags (&optional useFileManager)
   (and (rtags-executable-find "rc")
