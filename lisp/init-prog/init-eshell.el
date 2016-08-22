@@ -18,6 +18,9 @@
   (setq multi-eshell-name "*eshell*"))
 
 (defun newbie/eshell-setup ()
+  ;; For better performance.
+  (if (featurep 'auto-mark)
+      (auto-mark-mode -1))
   ;; (setq mode-line-format nil)
   (setq eshell-buffer-maximum-lines 10000)
   (setq show-trailing-whitespace nil)

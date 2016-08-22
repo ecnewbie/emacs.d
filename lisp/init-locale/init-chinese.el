@@ -13,7 +13,7 @@
 
 (require-package 'pangu-spacing)
 (require 'pangu-spacing)
-;; For better performace.
+;; For better performance.
 ;; (global-pangu-spacing-mode 1)
 
 ;;;FIXME: org table
