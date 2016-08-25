@@ -208,6 +208,17 @@
 ;; these hotkeys are good
 (require-package 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(with-eval-after-load 'expand-region
+  (setq-default er/try-expand-list
+        '(er/mark-word
+          er/mark-symbol
+          er/mark-method-call
+          er/mark-comment
+          er/mark-comment-block
+          er/mark-inside-quotes
+          er/mark-outside-quotes
+          er/mark-inside-pairs
+          er/mark-outside-pairs)))
 
 ;; Zap *up* to char is a handy pair for zap-to-char
 (autoload 'zap-up-to-char "misc" "Kill up to, but not including ARGth occurrence of CHAR.")

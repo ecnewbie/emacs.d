@@ -26,7 +26,8 @@
     (unless (and exists
                  (not (y-or-n-p "Overwirte exist desktop file?")))
       (newbie/desktop-remove)
-      (desktop-save desktop-dirname))))
+      (when desktop-dirname
+        (desktop-save desktop-dirname)))))
 
 (add-hook 'kill-emacs-hook 'newbie/save-desktop)
 (desktop-save-mode t)

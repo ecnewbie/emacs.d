@@ -1,7 +1,8 @@
 (require-package 'rtags)
 ;; https://github.com/Andersbakken/rtags
 (defun use-rtags (&optional useFileManager)
-  (and (rtags-executable-find "rc")
+  (and (featurep 'rtags)
+       (rtags-executable-find "rc")
        (cond ((and (not (eq major-mode 'c++-mode))
                    (not (eq major-mode 'c-mode))) (rtags-has-filemanager))
              (useFileManager (rtags-has-filemanager))
