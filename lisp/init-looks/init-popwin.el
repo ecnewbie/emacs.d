@@ -8,6 +8,7 @@
                   (anaconda-mode-view-mode :noselect t)
                   ("*Flycheck errors*" :noselect t)
                   ("*RTags*" :noselect t)
+                  (ggtags-global-mode :noselect t)
                   ("*quickrun*" :noselect t))
                 popwin:special-display-config)))
 
