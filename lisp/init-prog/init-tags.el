@@ -26,7 +26,7 @@
   (call-interactively (if (use-rtags t) 'rtags-find-file 'gtags-find-file)))
 (defun tags-imenu ()
   (interactive)
-  (call-interactively (if (use-rtags t) 'rtags-imenu 'idomenu)))
+  (call-interactively (if (use-rtags t) 'rtags-imenu 'imenu-anywhere)))
 
 (defun newbie/tags-search ()
   (interactive)

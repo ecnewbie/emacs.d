@@ -3,7 +3,7 @@
 
 (require-package 'flx-ido)
 (require-package 'ido-ubiquitous)
-(require-package 'idomenu)
+(require-package 'imenu-anywhere)
 (require-package 'ido-vertical-mode)
 
 ;; Use C-f during file selection to switch to regular find-file
