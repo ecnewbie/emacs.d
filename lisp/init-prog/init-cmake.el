@@ -14,7 +14,6 @@
       (dolist (flag flags)
         (when (string-match "--sysroot=.*" flag)
           (setq sysroot t)))
-      (setq newbie/old-sys-includes sys-includes)
       (unless sysroot
         (setq sys-includes (append sys-includes (newbie/guess-c++-header-path)))
         (when (featurep 'company-c-headers)

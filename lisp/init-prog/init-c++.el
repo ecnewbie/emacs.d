@@ -2,7 +2,7 @@
 (autoload 'expand-member-functions "member-functions" "Expand C++ member function declarations" t)
 
 ;; doc
-(require 'doxymacs)
+(require 'doxymacs nil 'noerror)
 (defun newbie/doxymacs-font-lock-hook ()
   (when (featurep 'doxymacs)
   (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
