@@ -1,8 +1,9 @@
 (require-package 'simpleclip)
 
-;; Use the system clipboard
-(setq x-select-enable-clipboard t
-      x-select-enable-primary t)
+;; ;; Use the system clipboard
+;;;FIXME: conflict with multiple-cursors.
+;; (setq x-select-enable-clipboard t
+;;       x-select-enable-primary t)
 
 ;; kill-ring and clipboard are same? No, it's annoying!
 ;; (setq save-interprogram-paste-before-kill t)
