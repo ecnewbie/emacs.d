@@ -28,6 +28,8 @@
       (enable-paredit-mode)))
 
 (require-package 'rainbow-delimiters)
+(require-package 'elisp-slime-nav)
+
 ;; Enable desired features for all lisp modes
 (defun sanityinc/lisp-setup ()
   "Enable features useful in any Lisp mode."
@@ -44,7 +46,6 @@
   (dolist (hook lispy-hooks)
     (add-hook hook 'sanityinc/lisp-setup)))
 
-(require-package 'elisp-slime-nav)
 (require 'elisp-slime-nav)
 
 (provide 'init-lisp)
