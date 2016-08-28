@@ -24,4 +24,8 @@
                  (dolist (path newbie/system-header-cache)
                    (add-to-list 'cc-search-directories path)))))))
 
+(with-eval-after-load 'find-file
+  (dolist (path (newbie/guess-c++-header-path))
+    (add-to-list 'cc-search-directories path)))
+
 (provide 'init-cmake)

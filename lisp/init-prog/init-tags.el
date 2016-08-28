@@ -51,10 +51,9 @@
         (ggtags-mode -1)
         (remove-hook 'c-mode-common-hook 'newbie/ggtags-setup))
     (ggtags-mode 1)
-    (add-hook 'c-mode-common-hook 'newbie/ggtags-setup))
-  (add-hook 'c-mode-common-hook 'newbie/c-mode-base-map-setup))
+    (add-hook 'c-mode-common-hook 'newbie/ggtags-setup)))
 
-(defun newbie/c-mode-base-map-setup ()
+(with-eval-after-load 'cc-mode
   (define-key c-mode-base-map (kbd "M-.") (function tags-find-symbol-at-point))
   (define-key c-mode-base-map (kbd "M-]") (function tags-find-references-at-point))
   (define-key c-mode-base-map (kbd "C-u M-.") (function tags-find-symbol))
