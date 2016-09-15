@@ -8,4 +8,6 @@
 \#*
 *~
 .*
+!.yas-setup.el
+!.yas-parents
 !.gitignore
