@@ -218,7 +218,10 @@
           er/mark-inside-quotes
           er/mark-outside-quotes
           er/mark-inside-pairs
-          er/mark-outside-pairs)))
+          er/mark-outside-pairs
+          er/mark-url
+          er/mark-email
+          er/mark-defun)))
 
 ;; Zap *up* to char is a handy pair for zap-to-char
 (autoload 'zap-up-to-char "misc" "Kill up to, but not including ARGth occurrence of CHAR.")
