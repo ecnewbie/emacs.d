@@ -3,8 +3,12 @@
 (require-package 'company-c-headers)
 (require-package 'company-lua)
 
+(with-eval-after-load 'company-etags
+     (add-to-list 'company-etags-modes 'web-mode)
+     (add-to-list 'company-etags-modes 'lua-mode))
+
 (defvar newbie/company-backend-alist
-  '((lua-mode-hook (company-lua company-dabbrev-code company-yasnippet))
+  '((lua-mode-hook (company-lua company-dabbrev-code company-yasnippet company-etags))
     (c-mode-hook company-c-headers
                  (company-clang company-dabbrev-code company-yasnippet))
     (c++-mode-hook company-c-headers
