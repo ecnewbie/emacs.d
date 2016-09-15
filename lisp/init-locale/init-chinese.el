@@ -1,8 +1,7 @@
 (when (executable-find "fcitx")
   (require-package 'fcitx)
   (require 'fcitx)
-  (fcitx-default-setup)
-  (setq fcitx-use-dbus t))
+  (fcitx-default-setup))
 
 (require-package 'chinese-pyim)
 (require 'chinese-pyim)
