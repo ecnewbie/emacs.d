@@ -3,6 +3,7 @@
 (require-package 'wgrep-ag)
 (require-package 'wgrep-helm)
 (require-package 'scf-mode)
+(require-package 'ag)
 
 (with-eval-after-load 'grep
   (dolist (v '("auto"

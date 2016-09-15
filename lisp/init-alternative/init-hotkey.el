@@ -29,6 +29,8 @@
 (global-set-key (kbd "M-s v") 'youdao-dictionary-play-voice-from-input)
 (global-set-key (kbd "M-s r") 'anzu-query-replace-regexp)
 (global-set-key (kbd "M-s p") 'prog-doc)
+(global-set-key (kbd "M-s a") 'projectile-ag)
+(global-set-key (kbd "M-s A") 'ag-regexp)
 
 ;; do what i mean.
 (global-set-key (kbd "C-c d n") 'narrow-or-widen-dwim)
