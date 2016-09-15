@@ -1,0 +1,13 @@
+* multiple-cursors(C->)
+  - copy to other buffer.
+    use yank-rectangle(C-x r y) in other buffer.
+  - more: [[http://emacsrocks.com/e13.html][emacsrocks]].
+* query-replace-regexp(M-s r/C-M%)
+  - replace with increase number.
+    \#
+  - replace with eval.
+    \,(elisp sentence)
+  - replace with something manually.
+    \?
+* wdired, wgrep(C-x C-q)
+  - rename files or edit grep result.
