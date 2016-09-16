@@ -31,7 +31,8 @@
 
 (with-eval-after-load 'hungry-delete (diminish 'hungry-delete-mode))
 
-(with-eval-after-load 'company (diminish 'company-mode))
+;; (with-eval-after-load 'company (diminish 'company-mode))
+(with-eval-after-load 'autorevert (diminish 'auto-revert-mode))
 
 (with-eval-after-load 'highlight-parentheses (diminish 'highlight-parentheses-mode))
 
