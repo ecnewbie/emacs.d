@@ -1,6 +1,6 @@
 (require-package 'lua-mode)
-(require-package 'flymake-lua)
 
+(require-package 'auto-complete)
 (autoload 'lua-eldoc-mode "lua-eldoc-mode" "" t)
 
 (defun my-lua-mode-setup ()
@@ -10,7 +10,6 @@
                                          ("Module" "^ *module +\\([^ ]+\\) *$" 1)
                                          ("Variable" "^ *local +\\([^ ]+\\).*$" 1)))
   (setq lua-indent-level 4)
-  (flymake-lua-load)
   (lua-eldoc-mode)
   (highlight-indentation-mode t))
 
