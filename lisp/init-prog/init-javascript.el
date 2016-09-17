@@ -1,5 +1,6 @@
 (require-package 'json-mode)
 (require-package 'js2-mode)
+(require-package 'js3-mode)
 (require-package 'coffee-mode)
 (require-package 'js-comint)
 
@@ -83,6 +84,8 @@
 (define-minor-mode inferior-js-keys-mode
   "Bindings for communicating with an inferior js interpreter."
   nil " InfJS" inferior-js-minor-mode-map)
+
+(diminish 'inferior-js-keys-mode)
 
 (dolist (hook '(js2-mode-hook js-mode-hook))
   (add-hook hook 'inferior-js-keys-mode))

@@ -44,6 +44,8 @@
 
 (with-eval-after-load 'anaconda-mode (diminish 'anaconda-mode))
 
+(with-eval-after-load 'emmet-mode (diminish 'emmet-mode))
+
 ;; use spaceline now.
 (with-eval-after-load 'flycheck (diminish 'flycheck-mode))
 
