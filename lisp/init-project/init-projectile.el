@@ -21,7 +21,11 @@
   (let* ((cmd (concat "find * -type f -print0 -maxdepth " (number-to-string arg))))
     (ivy-read "Find file: "
               (split-string (shell-command-to-string cmd) "\0" t)
-              :require-match t)))
+              :require-match t
+              :action
+              (lambda (x)
+                (with-ivy-window
+                  (find-file x))))))
 
 (require-package 'nameframe-projectile)
 (nameframe-projectile-mode t)
