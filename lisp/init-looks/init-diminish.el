@@ -7,6 +7,8 @@
 
 (with-eval-after-load 'paredit (diminish 'paredit-mode))
 
+(with-eval-after-load 'paredit-everywhere (diminish 'paredit-everywhere-mode))
+
 (with-eval-after-load 'anzu (diminish 'anzu-mode))
 
 (with-eval-after-load 'undo-tree (diminish 'undo-tree-mode))
