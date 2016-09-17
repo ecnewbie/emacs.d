@@ -6,7 +6,7 @@
 (global-set-key (kbd "M-g L") 'counsel-locate)
 
 (global-set-key (kbd "M-g b") 'newbie/doremi-buffers+)
-(global-set-key (kbd "M-g e") 'multi-eshell-go-back)
+(global-set-key (kbd "M-g e") 'show-this-file-external)
 (global-set-key (kbd "M-g d") 'dired-jump)
 
 (global-set-key (kbd "M-g j") 'jump-to-char)
