@@ -5,6 +5,9 @@
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
   (global-set-key [remap query-replace] 'anzu-query-replace))
 
+;; query-replace
+(global-set-key (kbd "M-%") 'query-replace-regexp)
+
 ;; {{ isearch
 ;; Use regex to search by default
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)

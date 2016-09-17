@@ -5,7 +5,7 @@
 
 (with-eval-after-load 'smart-cursor-color (diminish 'smart-cursor-color-mode))
 
-(with-eval-after-load 'paredit (diminish 'paredit-mode " Par"))
+(with-eval-after-load 'paredit (diminish 'paredit-mode))
 
 (with-eval-after-load 'anzu (diminish 'anzu-mode))
 

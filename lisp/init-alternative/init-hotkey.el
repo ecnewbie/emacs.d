@@ -25,7 +25,6 @@
 (global-set-key (kbd "M-g w") 'w3m-browse-url)
 
 ;; search.
-(global-set-key (kbd "M-s s") 'swiper)
 (global-set-key (kbd "M-s d") 'youdao-dictionary-search)
 (global-set-key (kbd "M-s v") 'youdao-dictionary-play-voice-from-input)
 (global-set-key (kbd "M-s r") 'anzu-query-replace-regexp)
@@ -35,6 +34,7 @@
 
 ;; do what i mean.
 (global-set-key (kbd "C-c d n") 'narrow-or-widen-dwim)
+(global-set-key (kbd "C-c s") 'flyspell-auto-correct-word)
 
 ;; other keys
 (global-set-key (kbd "<f5>") 'quickrun)
