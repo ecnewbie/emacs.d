@@ -10,9 +10,9 @@
       (sanityinc/utf8-locale-p (getenv "LANG"))))
 
 (when (or window-system (locale-is-utf8-p))
-  (setq locale-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (unless (eq system-type 'windows-nt)
+    (setq locale-coding-system 'utf-8)
     (set-selection-coding-system 'utf-8))
   (prefer-coding-system 'utf-8))
 
