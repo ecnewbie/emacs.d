@@ -3,8 +3,9 @@
 (global-set-key (kbd "M-g F") 'newbie/find-file-in-current-directory)
 (global-set-key (kbd "M-g r") 'ivy-recentf)
 (global-set-key (kbd "M-g R") 'newbie/jump-to-recently-dir)
-(global-set-key (kbd "M-g b") 'newbie/doremi-buffers+)
+(global-set-key (kbd "M-g L") 'counsel-locate)
 
+(global-set-key (kbd "M-g b") 'newbie/doremi-buffers+)
 (global-set-key (kbd "M-g e") 'multi-eshell-go-back)
 (global-set-key (kbd "M-g d") 'dired-jump)
 
