@@ -2,6 +2,7 @@
 (require-package 'company-statistics)
 (require-package 'company-c-headers)
 (require-package 'company-lua)
+(require-package 'company-web)
 
 (with-eval-after-load 'company-etags
      (add-to-list 'company-etags-modes 'web-mode)
@@ -13,6 +14,7 @@
                  (company-clang company-keywords company-dabbrev-code company-yasnippet))
     (c++-mode-hook company-c-headers
                    (company-clang company-keywords company-dabbrev-code company-yasnippet))
+    (web-mode-hook (company-web-html company-web-jade company-web-slim company-yasnippet company-files company-keywords))
     ))
 
 (defun newbie/company-backends-setup()

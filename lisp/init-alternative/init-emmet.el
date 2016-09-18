@@ -1,5 +1,9 @@
 (require-package 'emmet-mode)
 
+;; turn on emmet preview for training.
+(with-eval-after-load 'emmet-mode
+  (setq emmet-preview-default t))
+
 (require 'emmet-mode)
 ;; @see https://github.com/rooney/zencoding for original tutorial
 ;; @see https://github.com/smihica/emmet for new tutorial
