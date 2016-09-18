@@ -8,11 +8,11 @@
      (add-to-list 'company-etags-modes 'lua-mode))
 
 (defvar newbie/company-backend-alist
-  '((lua-mode-hook (company-lua company-dabbrev-code company-yasnippet company-etags))
+  '((lua-mode-hook (company-lua company-dabbrev-code company-yasnippet company-etags company-keywords))
     (c-mode-hook company-c-headers
-                 (company-clang company-dabbrev-code company-yasnippet))
+                 (company-clang company-keywords company-dabbrev-code company-yasnippet))
     (c++-mode-hook company-c-headers
-                   (company-clang company-dabbrev-code company-yasnippet))
+                   (company-clang company-keywords company-dabbrev-code company-yasnippet))
     ))
 
 (defun newbie/company-backends-setup()
@@ -32,12 +32,18 @@
   ;; can't work with TRAMP
   (setq company-backends (delete 'company-ropemacs company-backends))
 
+  (require 'company-keywords)
+  (add-to-list 'company-keywords-alist '(lua-mode
+                                         "and" "break" "do" "else" "elseif" "end" "for" "function"
+                                         "goto" "if" "in" "local" "not" "or" "repeat" "return"
+                                         "then" "until" "while"))
+
   (newbie/company-backends-setup)
 
   (setq company-show-numbers t)
   (setq company-begin-commands '(self-insert-command))
   (setq company-idle-delay 0.4)
-  (setq company-minimum-prefix-length 3)
+  (setq company-minimum-prefix-length 2)
   (setq company-require-match nil)
   (setq company-etags-ignore-case t)
 
