@@ -9,7 +9,8 @@
                   ("*Flycheck errors*" :noselect t)
                   ("*RTags*" :noselect t)
                   (ggtags-global-mode :noselect t)
-                  ("*quickrun*" :noselect t))
+                  ("*quickrun*" :noselect t)
+                  ("*Compile-Log*" :noselect t))
                 popwin:special-display-config)))
 
 (require 'popwin)
