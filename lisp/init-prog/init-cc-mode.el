@@ -42,6 +42,7 @@
 
   ;; make a #define be left-aligned
   (setq c-electric-pound-behavior (quote (alignleft)))
+  (setq c-hungry-delete-key t)
 
   (when buffer-file-name
     ;; c-eldoc (https://github.com/mooz/c-eldoc)
