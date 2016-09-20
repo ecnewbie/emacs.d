@@ -58,9 +58,9 @@ ARCHIVE is the string name of the package archive.")
 ;; Lock org-mode temporarily:
 ;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
-(setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("melpa-stable" . "http://stable.melpa.org/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (defvar melpa-not-include-packages
   '()
