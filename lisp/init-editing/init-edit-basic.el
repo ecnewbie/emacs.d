@@ -22,7 +22,10 @@
               truncate-partial-width-windows nil
               ;; visible-bell has some issue
               ;; @see https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/issues/9#issuecomment-97848938
-              visible-bell nil)
+              visible-bell nil
+              ;; open read only files in view-mode
+              view-read-only t
+              )
 
 ;; recentf
 (require-package 'sync-recentf)
@@ -202,8 +205,9 @@
 ;; if you use multiple-cursors, this is for you:
 (autoload 'vr/mc-mark "visual-regexp")
 
-(require-package 'goto-last-change)
+(require-package 'goto-chg)
 (autoload 'goto-last-change "goto-last-change" nil t)
+(autoload 'goto-last-change-reverse "goto-last-change" nil t)
 
 ;; these hotkeys are good
 (require-package 'expand-region)

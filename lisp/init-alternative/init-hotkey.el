@@ -8,6 +8,8 @@
 (global-set-key (kbd "M-g b") 'newbie/doremi-buffers+)
 (global-set-key (kbd "M-g e") 'show-this-file-external)
 (global-set-key (kbd "M-g d") 'dired-jump)
+(global-set-key (kbd "M-g m") 'bookmark-jump)
+(global-set-key (kbd "M-g M") 'bookmark-set)
 
 (global-set-key (kbd "M-g j") 'jump-to-char)
 (global-set-key (kbd "M-g l") 'ace-link)
@@ -34,14 +36,15 @@
 
 ;; do what i mean.
 (global-set-key (kbd "C-c d n") 'narrow-or-widen-dwim)
-(global-set-key (kbd "C-c s") 'flyspell-auto-correct-word)
 
 ;; other keys
 (global-set-key (kbd "<f5>") 'quickrun)
 
-(global-set-key (kbd "C--") 'newbie/doremi-marks+)
-(global-set-key (kbd "C-_") 'doremi-global-marks+)
+(global-set-key (kbd "C--") 'goto-last-change)
+(global-set-key (kbd "C-_") 'goto-last-change-reverse)
 (global-set-key (kbd "C-+") 'doremi-frame-font-size+)
+(global-set-key (kbd "C-'") 'newbie/doremi-marks+)
+(global-set-key (kbd "C-\"") 'doremi-global-marks+)
 
 (global-set-key (kbd "C-c c c") 'copy-to-char)
 (global-set-key (kbd "C-c c e") 'copy-to-end-of-line)
