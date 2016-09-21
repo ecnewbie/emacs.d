@@ -11,7 +11,8 @@
                                          ("Variable" "^ *local +\\([^ ]+\\).*$" 1)))
   (setq lua-indent-level 4)
   (lua-eldoc-mode)
-  (highlight-indentation-mode t))
+  (when (featurep 'indent-guide)
+    (indent-guide-mode t)))
 
 (add-hook 'lua-mode-hook 'my-lua-mode-setup)
 

@@ -9,7 +9,10 @@
 
 (require-package 'hl-todo)
 (require-package 'highlight-numbers)
-(require-package 'highlight-indentation)
+
+(require-package 'indent-guide)
+(require 'indent-guide)
+(setq indent-guide-recursive t)
 
 (global-hl-todo-mode t)
 
