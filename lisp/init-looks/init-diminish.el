@@ -48,6 +48,8 @@
 
 (with-eval-after-load 'emmet-mode (diminish 'emmet-mode))
 
+(with-eval-after-load 'indent-guide (diminish 'indent-guide-mode))
+
 ;; use spaceline now.
 (with-eval-after-load 'flycheck (diminish 'flycheck-mode))
 
