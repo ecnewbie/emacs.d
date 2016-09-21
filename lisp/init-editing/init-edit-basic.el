@@ -247,12 +247,12 @@
 (use-package ace-link)
 
 ;; Shift lines up and down with M-up and M-down. When paredit is enabled,
-;; it will use those keybindings.
+;; M-up and M-down is not available, so use M-S-up and M-S-down.
 (require-package 'move-dup)
 (global-set-key [M-up] 'md/move-lines-up)
 (global-set-key [M-down] 'md/move-lines-down)
-(global-set-key [M-S-up] 'md/duplicate-up)
-(global-set-key [M-S-down] 'md/duplicate-down)
+(global-set-key [M-S-up] 'md/move-lines-up)
+(global-set-key [M-S-down] 'md/move-lines-down)
 
 
 ;; @see http://stackoverflow.com/questions/4222183/emacs-how-to-jump-to-function-definition-in-el-file
