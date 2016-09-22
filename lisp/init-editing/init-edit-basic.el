@@ -206,8 +206,8 @@
 (autoload 'vr/mc-mark "visual-regexp")
 
 (require-package 'goto-chg)
-(autoload 'goto-last-change "goto-last-change" nil t)
-(autoload 'goto-last-change-reverse "goto-last-change" nil t)
+(autoload 'goto-last-change "goto-chg" nil t)
+(autoload 'goto-last-change-reverse "goto-chg" nil t)
 
 ;; these hotkeys are good
 (require-package 'expand-region)
@@ -234,6 +234,8 @@
 (require-package 'multiple-cursors)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 
 ;; avy, jump between texts
 ;; @see http://emacsredux.com/blog/2015/07/19/ace-jump-mode-is-dead-long-live-avy/ for more tips
