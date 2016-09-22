@@ -4,9 +4,10 @@
 (projectile-global-mode)
 ;; (setq projectile-enable-caching nil) ; caching mixed ignored files.
 
-(require-package 'projectile-speedbar)
-(require 'projectile-speedbar)
-(setq projectile-speedbar-enable nil)
+(when (featurep 'sr-speedbar)
+  (require-package 'projectile-speedbar)
+  (require 'projectile-speedbar)
+  (setq projectile-speedbar-enable nil))
 
 (require-package 'ibuffer-projectile)
 
