@@ -56,3 +56,12 @@ A11. Projectile works well with vc tools(eg. git),
      keep these in mind:
           + only supports subdirectories(- supports more).
           * matches strings not containing '/'.
+
+Q12. How to use emacs in window nt(w32 version).
+A12. Step 1: Install msys2 and then run mingw32-setup.sh with mingw32.exe
+     to install nessary package,
+     with -r to fully upgrade packages if you're in china.
+     Step 2: set the environment variable HOME to your home directory,
+     and set ALTERNATE_EDITOR to runemacs.exe,
+     and Add path to mingw32/bin and usr/bin to PATH.
+     Now, set emacsclientw.exe as your default editor.

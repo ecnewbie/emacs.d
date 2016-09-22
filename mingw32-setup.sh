@@ -31,9 +31,15 @@ function MaybeInstall()
 	done
 }
 
-MaybeInstall python make cmake clang ag lua emacs ctags etags global gdb w3m
+MaybeInstall python make cmake clang emacs ctags etags global gdb w3m
 
 CheckCommand emacs || ${install_command} mingw32/mingw-w64-i686-emacs
+
+CheckCommand ag || ${install_command} mingw32/mingw-w64-i686-ag
+
+CheckCommand lua || ${install_command} mingw32/mingw-w64-i686-lua
+
+CheckCommand plink || ${install_command} mingw32/mingw-w64-i686-putty-ssh
 
 CheckCommand git || ${install_command} msys/git
 
