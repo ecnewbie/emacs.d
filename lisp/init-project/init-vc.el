@@ -24,7 +24,7 @@
 ;; If you enable global minor mode
 (global-git-gutter-mode t)
 
-;; kill revert buffer after delete window as M-g p/n confit.
+;; kill revert buffer after delete window as M-g p/n conflict.
 (defadvice delete-window (after kill-git-gutter-popup-buffer activate)
   "Kill speedbar buffer if it's window deleted."
   (when (get-buffer git-gutter:popup-buffer)

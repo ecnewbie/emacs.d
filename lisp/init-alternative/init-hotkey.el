@@ -1,3 +1,6 @@
+(require-package 'smartrep)
+(require 'smartrep)
+
 ;; goto anywhere.
 (global-set-key (kbd "M-g f") 'counsel-projectile-find-file)
 (global-set-key (kbd "M-g F") 'newbie/find-file-in-current-directory)
@@ -36,6 +39,21 @@
 
 ;; do what i mean.
 (global-set-key (kbd "C-c d n") 'narrow-or-widen-dwim)
+
+(smartrep-define-key global-map "C-c d"
+  '(("+" . apply-operation-to-number-at-point)
+    ("=" . apply-operation-to-number-at-point)
+    ("_" . apply-operation-to-number-at-point)
+    ("-" . apply-operation-to-number-at-point)
+    ("*" . apply-operation-to-number-at-point)
+    ("/" . apply-operation-to-number-at-point)
+    ("\\" . apply-operation-to-number-at-point)
+    ("^" . apply-operation-to-number-at-point)
+    ("<" . apply-operation-to-number-at-point)
+    (">" . apply-operation-to-number-at-point)
+    ("#" . apply-operation-to-number-at-point)
+    ("%" . apply-operation-to-number-at-point)
+    ("'" . operate-on-number-at-point)))
 
 ;; other keys
 (global-set-key (kbd "<f5>") 'quickrun)
