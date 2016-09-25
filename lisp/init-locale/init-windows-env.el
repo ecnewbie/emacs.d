@@ -6,6 +6,8 @@
     (dolist (v paths)
       (setq reverse-path (concat v ";" reverse-path)))
     (setenv "PATH" reverse-path))
-  (setq-default visible-bell t))
+  (setq-default visible-bell t)
+  (setq explicit-shell-file-name nil)
+  (setq explicit-bash-args nil))
 
 (provide 'init-windows-env)

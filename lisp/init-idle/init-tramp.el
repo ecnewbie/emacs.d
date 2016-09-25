@@ -10,6 +10,11 @@
   (let ((default-directory (format "/%s@%s:" username host)))
     (eshell host)))
 
+(defun remote-shell (username host)
+  (interactive "sUsername: \nsHost: ")
+  (let ((default-directory (format "/%s@%s:" username host)))
+    (shell host)))
+
 (when (daemonp)
   (require 'tramp))
 
