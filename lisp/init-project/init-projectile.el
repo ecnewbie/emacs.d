@@ -2,6 +2,7 @@
 
 (require 'projectile)
 (projectile-global-mode)
+(setq projectile-use-git-grep t)
 ;; (setq projectile-enable-caching nil) ; caching mixed ignored files.
 
 (when (featurep 'sr-speedbar)

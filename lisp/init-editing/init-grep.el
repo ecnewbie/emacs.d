@@ -19,7 +19,8 @@
                "elpa"))
     (add-to-list 'grep-find-ignored-directories v))
   (add-hook 'grep-mode-hook 'newbie/grep-setup)
-  (require 'wgrep))
+  (require 'wgrep)
+  (define-key grep-mode-map [(s)] 'scf-mode))
 
 (defun newbie/grep-setup()
   (toggle-truncate-lines 1)
@@ -31,8 +32,9 @@
     (define-key wgrep-mode-map "\C-c\C-q" 'wgrep-toggle-readonly-area)
     (define-key wgrep-mode-map "\C-x\C-q" 'wgrep-change-to-wgrep-mode))
 
-;; (with-eval-after-load 'scf-mode
-;;   (setq scf-minimum-hide-length 1))
+(with-eval-after-load 'scf-mode
+  ;;;FIXME: scf-mode partly work with large output.
+  (setq scf-minimum-hide-length 1))
 
 ;; http://stackoverflow.com/questions/16122801/remove-header-information-from-rgrep-grep-output-in-emacs
 (defun delete-grep-header ()
@@ -40,9 +42,6 @@
     (with-current-buffer grep-last-buffer
       (goto-line 5)
       (narrow-to-region (point) (point-max)))))
-
-(defadvice grep (after delete-grep-header activate) (delete-grep-header))
-(defadvice rgrep (after delete-grep-header activate) (delete-grep-header))
 
 (defvar delete-grep-header-advice
   (ad-make-advice
@@ -54,6 +53,6 @@
   (ad-activate function))
 
 (mapc 'add-delete-grep-header-advice
-      '(grep lgrep grep-find rgrep zrgrep))
+      '(grep lgrep grep-find rgrep zrgrep projectile-grep))
 
 (provide 'init-grep)
