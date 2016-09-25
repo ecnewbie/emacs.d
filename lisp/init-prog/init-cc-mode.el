@@ -36,6 +36,7 @@
   (fix-c-indent-offset-according-to-syntax-context 'inline-open 0)
   (fix-c-indent-offset-according-to-syntax-context 'innamespace 0))
 
+(require-package 'c-eldoc)
 (defun my-c-mode-setup ()
   "C/C++ only setup"
   (local-set-key (kbd "C-x C-o") 'ff-find-other-file)

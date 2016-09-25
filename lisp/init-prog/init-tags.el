@@ -10,21 +10,21 @@
 
 (defun tags-find-symbol-at-point (&optional prefix)
   (interactive "P")
-  (if (and (not (rtags-find-symbol-at-point prefix)) rtags-last-request-not-indexed)
-      (gtags-find-tag)))
+  (if (or (not (rtags-find-symbol-at-point prefix)) rtags-last-request-not-indexed)
+      (etags-select-find-tag-at-point)))
 (defun tags-find-references-at-point (&optional prefix)
   (interactive "P")
-  (if (and (not (rtags-find-references-at-point prefix)) rtags-last-request-not-indexed)
-      (gtags-find-rtag)))
+  (if (or (not (rtags-find-references-at-point prefix)) rtags-last-request-not-indexed)
+      (xref-find-references)))
 (defun tags-find-symbol ()
   (interactive)
-  (call-interactively (if (use-rtags) 'rtags-find-symbol 'ggtags-find-tag-dwim)))
+  (call-interactively (if (use-rtags) 'rtags-find-symbol 'etags-select-find-tag)))
 (defun tags-find-references ()
   (interactive)
-  (call-interactively (if (use-rtags) 'rtags-find-references 'ggtags-find-reference)))
+  (call-interactively (if (use-rtags) 'rtags-find-references '(lambda () (xref-find-references t)))))
 (defun tags-find-file ()
   (interactive)
-  (call-interactively (if (use-rtags t) 'rtags-find-file 'ggtags-find-file)))
+  (call-interactively (if (use-rtags t) 'rtags-find-file 'find-file)))
 (defun tags-imenu ()
   (interactive)
   (call-interactively (if (use-rtags t) 'rtags-imenu 'ido-imenu-anywhere)))
@@ -45,14 +45,6 @@
   (make-local-variable 'hippie-expand-try-functions-list)
   (add-to-list 'hippie-expand-try-functions-list 'ggtags-try-complete-tag))
 
-(defun newbie/tags-setup ()
-  (if (use-rtags t)
-      (progn
-        (ggtags-mode -1)
-        (remove-hook 'c-mode-common-hook 'newbie/ggtags-setup))
-    (ggtags-mode 1)
-    (add-hook 'c-mode-common-hook 'newbie/ggtags-setup)))
-
 (with-eval-after-load 'cc-mode
   (define-key c-mode-base-map (kbd "M-.") (function tags-find-symbol-at-point))
   (define-key c-mode-base-map (kbd "M-]") (function tags-find-references-at-point))
@@ -62,8 +54,6 @@
 
 (with-eval-after-load 'ggtags
   (setq ggtags-sort-by-nearness t)
-  (newbie/tags-setup))
-
-(with-eval-after-load 'rtags (newbie/tags-setup))
+  (newbie/ggtags-setup))
 
 (provide 'init-tags)

@@ -48,6 +48,8 @@
 ;; ----------------------------------------------------------------------------
 (require-package 'paredit-everywhere)
 (with-eval-after-load 'paredit-everywhere
+  ;; M-] is bind to find refrence.
+  (define-key paredit-everywhere-mode-map (kbd "M-]") nil)
   (define-key paredit-everywhere-mode-map (kbd "M-s") nil)
   (define-key paredit-everywhere-mode-map (kbd "M-s s") 'paredit-splice-sexp))
 (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
