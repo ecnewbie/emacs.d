@@ -5,6 +5,7 @@
         (reverse-path ""))
     (dolist (v paths)
       (setq reverse-path (concat v ";" reverse-path)))
-    (setenv "PATH" reverse-path)))
+    (setenv "PATH" reverse-path))
+  (setq-default visible-bell t))
 
 (provide 'init-windows-env)
