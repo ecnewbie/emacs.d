@@ -250,7 +250,8 @@
 
 ;; Shift lines up and down with M-up and M-down. When paredit is enabled,
 ;; M-up and M-down is not available, so use M-S-up and M-S-down.
-(require-package 'move-text)
+;; (require-package 'move-text)
+(require 'move-text)
 (global-set-key [M-up] 'move-text-up)
 (global-set-key [M-down] 'move-text-down)
 (global-set-key [M-S-up] 'move-text-up)
