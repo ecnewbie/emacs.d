@@ -35,6 +35,7 @@
    'zenburn
    ;; default
    `(fringe ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
+   `(font-lock-builtin-face ((t (:foreground ,zenburn-blue-1))))
    ;; linum-relative
    `(linum-relative-current-face ((t (:foreground "#CAE682" :background ,zenburn-bg :weight bold))))
    `(company-template-field
