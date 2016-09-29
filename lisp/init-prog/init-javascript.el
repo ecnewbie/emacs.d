@@ -106,6 +106,7 @@
     (with-output-to-temp-buffer (get-buffer-create temp-name)
       (jsons-print-path))))
 
+(require-package 'json-mode)
 (with-eval-after-load 'json-mode
   (define-key json-mode-map [remap json-mode-show-path] 'newbie/json-mode-show-path))
 
