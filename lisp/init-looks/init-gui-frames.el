@@ -27,11 +27,6 @@
 (which-function-mode t)  ;;; 在状态条上显示当前光标在哪个函数体内部
 (column-number-mode t)
 
-;; from RobinH, Time management
-(setq display-time-24hr-format t)
-(setq display-time-day-and-date t)
-(display-time-mode t)    ;;; 显示时间
-
 ;;; --- 在 Mode-line 显示当前Buffer的大小
 (size-indication-mode 1)
 
@@ -45,16 +40,6 @@
 
 
 (add-hook 'after-make-frame-functions 'maximize-frame t)
-
-(require-package 'linum-relative)
-(require 'linum-relative)
-(setq linum-relative-current-symbol "")
-(add-hook 'find-file-hook
-          (lambda ()
-            (if (< (line-number-at-pos (point-max))
-                   5000)
-                (linum-relative-mode t)
-              (linum-mode -1))))
 
 ;; set frame title.
 (setq-default frame-title-format
