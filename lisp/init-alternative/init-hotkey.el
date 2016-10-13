@@ -16,7 +16,7 @@
 
 (global-set-key (kbd "M-g j") 'jump-to-char)
 (global-set-key (kbd "M-g l") 'ace-link)
-(global-set-key (kbd "M-g i") 'tags-imenu)
+;; (global-set-key (kbd "M-g i") 'tags-imenu)
 
 (global-set-key (kbd "M-g s") 'newbie/swiper-the-thing)
 

@@ -68,9 +68,9 @@
 (require-dir "init-text-modes")  ; setting for modes.
 (require-dir "init-prog")        ; setting for programing.
 
-(require-dir "init-funny")       ; some funny usage.
+;; (require-dir "init-funny")       ; some funny usage.
 
-(require-dir "init-custom")      ; custom settings.
+;; (require-dir "init-custom")      ; custom settings.
 
 (require 'init-idle-require)     ; load some package when idle.
 
