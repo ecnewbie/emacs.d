@@ -21,7 +21,7 @@
 
 (with-eval-after-load 'paredit
   ;; Suppress certain paredit keybindings to avoid clashes
-  (dolist (binding '("C-<left>" "C-<right>" "C-M-<left>" "C-M-<right>" "M-s"))
+  (dolist (binding '("C-<left>" "C-<right>" "C-M-<left>" "C-M-<right>" "M-s" "M-;"))
     (define-key paredit-mode-map (read-kbd-macro binding) nil))
   (define-key paredit-mode-map (kbd "DEL") 'newbie/paredit-hungry-delete-backward)
   (define-key paredit-mode-map (kbd "M-s s") 'paredit-splice-sexp))

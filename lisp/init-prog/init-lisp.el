@@ -11,6 +11,10 @@
 (require-package 'rainbow-delimiters)
 (require-package 'elisp-slime-nav)
 
+(with-eval-after-load 'elisp-slime-nav
+  (define-key elisp-slime-nav-mode-map (kbd "M-*") 'pop-tag-mark)
+  (define-key elisp-slime-nav-mode-map (kbd "M-,") nil))
+
 ;; Enable desired features for all lisp modes
 (defun sanityinc/lisp-setup ()
   "Enable features useful in any Lisp mode."
