@@ -35,7 +35,7 @@
    'zenburn
    ;; default
    `(fringe ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
-   `(font-lock-builtin-face ((t (:foreground ,zenburn-blue-1))))
+   `(font-lock-builtin-face ((t (:foreground ,zenburn-blue-1 :slant italic :weight normal))))
    ;; linum-relative
    `(linum-relative-current-face ((t (:foreground "#CAE682" :background ,zenburn-bg :weight bold))))
    `(company-template-field
@@ -65,6 +65,10 @@
    `(rtags-argument-face ((t (:background ,zenburn-blue-5))))
    ;;;FIXME: pangu-spacing
    `(pangu-spacing-separator-face ((t (:inherit 'default))))
+   ;; cperl
+   `(cperl-array-face ((t (:inherit font-lock-variable-name-face :slant italic :weight normal))))
+   `(cperl-hash-face ((t (:inherit font-lock-variable-name-face :slant italic :weight normal))))
+   `(cperl-nonoverridable-face ((t (:inherit font-lock-builtin-face :slant italic :weight normal))))
    )))
 
 
