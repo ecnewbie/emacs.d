@@ -31,6 +31,7 @@
 
   (add-to-list 'company-backends 'company-cmake)
   (add-to-list 'company-backends 'company-c-headers)
+  (add-to-list 'company-backends 'company-yasnippet)
   ;; can't work with TRAMP
   (setq company-backends (delete 'company-ropemacs company-backends))
 
@@ -47,7 +48,7 @@
   (setq company-idle-delay 0.4)
   (setq company-minimum-prefix-length 2)
   (setq company-require-match nil)
-  (setq company-etags-ignore-case t)
+  (setq company-etags-ignore-case nil)
 
   (define-key company-mode-map (kbd "<tab>") 'newbie/tab-indent-or-complete)
 
