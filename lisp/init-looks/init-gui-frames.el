@@ -49,12 +49,7 @@
 (require-package 'linum-relative)
 (require 'linum-relative)
 (setq linum-relative-current-symbol "")
-(add-hook 'find-file-hook
-          (lambda ()
-            (if (< (line-number-at-pos (point-max))
-                   5000)
-                (linum-relative-mode t)
-              (linum-mode -1))))
+(linum-relative-global-mode)
 
 ;; set frame title.
 (setq-default frame-title-format
