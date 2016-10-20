@@ -29,6 +29,9 @@
   (with-eval-after-load 'highlight-parentheses
     (setq hl-paren-colors '("Springgreen3" "IndianRed1" "IndianRed3" "IndianRed4")))
 
+  (with-eval-after-load 'compile
+    (setq compilation-message-face 'default))
+
   (zenburn-with-color-variables
   ;; set color for company clang insert args..
   (custom-theme-set-faces
@@ -36,6 +39,8 @@
    ;; default
    `(fringe ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
    `(font-lock-builtin-face ((t (:foreground ,zenburn-blue-1 :slant italic :weight normal))))
+   ;; grep
+   `(compilation-info ((t (:foreground ,zenburn-green+4 :underline nil))))
    ;; linum-relative
    `(linum-relative-current-face ((t (:foreground "#CAE682" :background ,zenburn-bg :weight bold))))
    `(company-template-field

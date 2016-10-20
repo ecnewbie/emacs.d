@@ -41,6 +41,11 @@
 
 (add-hook 'after-make-frame-functions 'maximize-frame t)
 
+(require-package 'linum-relative)
+(require 'linum-relative)
+(setq linum-relative-current-symbol "")
+(linum-relative-global-mode)
+
 ;; set frame title.
 (setq-default frame-title-format
               '(buffer-file-name

@@ -18,19 +18,13 @@
                ".hg"
                "elpa"))
     (add-to-list 'grep-find-ignored-directories v))
-  (add-hook 'grep-mode-hook 'newbie/grep-setup)
   (require 'wgrep)
   (define-key grep-mode-map [(s)] 'scf-mode))
 
-(defun newbie/grep-setup()
-  (toggle-truncate-lines 1)
-  (scf-mode)
-  (linum-mode -1))
-
 (with-eval-after-load 'wgrep
-    (define-key wgrep-mode-map (kbd "C-k") 'wgrep-mark-deletion)
-    (define-key wgrep-mode-map "\C-c\C-q" 'wgrep-toggle-readonly-area)
-    (define-key wgrep-mode-map "\C-x\C-q" 'wgrep-change-to-wgrep-mode))
+  (define-key wgrep-mode-map (kbd "C-k") 'wgrep-mark-deletion)
+  (define-key wgrep-mode-map "\C-c\C-q" 'wgrep-toggle-readonly-area)
+  (define-key wgrep-mode-map "\C-x\C-q" 'wgrep-change-to-wgrep-mode))
 
 (with-eval-after-load 'scf-mode
   ;;;FIXME: scf-mode partly work with large output.

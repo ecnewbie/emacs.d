@@ -120,7 +120,7 @@
   (add-hook hook 'highlight-symbol-mode)
   (add-hook hook 'highlight-symbol-nav-mode))
 (add-hook 'org-mode-hook 'highlight-symbol-nav-mode)
-(setq highlight-symbol-idle-delay 0)
+(setq highlight-symbol-idle-delay 1)
 
 (defun sanityinc/maybe-suppress (orig-fun &rest args)
   "Suppress symbol highlighting while isearching."
