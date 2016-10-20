@@ -1,13 +1,6 @@
-(dolist (hook '(c-mode-common-hook
-                emacs-lisp-mode-hook
-                java-mode-hook
-                lisp-mode-hook
-                perl-mode-hook
-                sh-mode-hook
-                js-mode-hook
-                js2-mode-hook))
-      (add-hook hook (lambda ()
-                         (hs-minor-mode))))
+(dolist (hook '(prog-mode-hook))
+  (add-hook hook (lambda ()
+                   (hs-minor-mode))))
 
 (setq hs-minor-mode-map
       (let ((map (make-sparse-keymap)))
@@ -67,18 +60,18 @@
     (hs-toggle-hiding)))
 
 (with-eval-after-load "hideshow"
-     (setq hs-isearch-open t)
-     (setq-default mode-line-format
-                   (append '((:eval (hs-display-headline))) mode-line-format))
-     (setq hs-set-up-overlay 'hs-abstract-overlay)
-     (make-local-variable 'hs-hide-all)
-     (make-variable-buffer-local 'fold-all-fun)
-     (make-variable-buffer-local 'fold-fun)
+  (setq hs-isearch-open t)
+  (setq-default mode-line-format
+                (append '((:eval (hs-display-headline))) mode-line-format))
+  (setq hs-set-up-overlay 'hs-abstract-overlay)
+  (make-local-variable 'hs-hide-all)
+  (make-variable-buffer-local 'fold-all-fun)
+  (make-variable-buffer-local 'fold-fun)
 
-     (defadvice goto-line (after expand-after-goto-line activate compile)
-       (save-excursion (hs-show-block)))
+  (defadvice goto-line (after expand-after-goto-line activate compile)
+    (save-excursion (hs-show-block)))
 
-     (defadvice find-tag (after expand-after-find-tag activate compile)
-       (save-excursion (hs-show-block))))
+  (defadvice find-tag (after expand-after-find-tag activate compile)
+    (save-excursion (hs-show-block))))
 
 (provide 'init-hs-minor-mode)
