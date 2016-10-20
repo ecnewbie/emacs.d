@@ -1,3 +1,6 @@
+(with-eval-after-load 'etags
+  (setq tags-add-tables nil))
+
 (require-package 'etags-select)
 
 (with-eval-after-load 'etags-select
