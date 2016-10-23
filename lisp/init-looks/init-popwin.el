@@ -3,7 +3,7 @@
 (with-eval-after-load 'popwin
   (setq popwin:special-display-config
         (append '(("*json-path*" :height 5 :noselect t)
-                  ("*Org Agenda*" :height 15 :noselect t)
+                  ("*Org Agenda(.*)*" :height 15 :noselect t :regexp t)
                   (help-mode :noselect t)
                   (anaconda-mode-view-mode :noselect t)
                   ("*Flycheck errors*" :noselect t)
