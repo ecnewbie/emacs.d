@@ -2,7 +2,8 @@
   ;; desktop-remove clears desktop-dirname
   (setq desktop-dirname-tmp desktop-dirname)
   (desktop-remove)
-  (setq desktop-dirname desktop-dirname-tmp))
+  (setq desktop-dirname desktop-dirname-tmp)
+  (desktop-save-mode -1))
 
 (with-eval-after-load 'desktop
   ;; see https://www.emacswiki.org/emacs?action=browse;oldid=DeskTop;id=Desktop
@@ -14,6 +15,7 @@
   (setq desktop-load-locked-desktop nil)
   ;; do not save desktop
   (setq desktop-save nil)
+  (setq desktop-restore-eager 3)
 
   ;; remove desktop after it's been read
   (add-hook 'desktop-after-read-hook 'newbie/desktop-remove))
