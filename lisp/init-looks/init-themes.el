@@ -32,6 +32,13 @@
   (with-eval-after-load 'compile
     (setq compilation-message-face 'default))
 
+  (with-eval-after-load 'hl-todo
+    (setq hl-todo-keyword-faces (append
+                                 '(("CANCELLED" . "#afd8af")
+                                   ("WAITING" . "#d0bf8f")
+                                   ("DELEGATED" . "#dc8cc3"))
+                                 hl-todo-keyword-faces)))
+
   (zenburn-with-color-variables
   ;; set color for company clang insert args..
   (custom-theme-set-faces

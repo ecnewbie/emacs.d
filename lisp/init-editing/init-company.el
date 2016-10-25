@@ -15,6 +15,8 @@
     (c++-mode-hook company-c-headers
                    (company-clang company-keywords company-dabbrev-code company-yasnippet))
     (web-mode-hook (company-web-html company-web-jade company-web-slim company-yasnippet company-files company-keywords))
+    (emacs-lisp-mode-hook (company-elisp company-yasnippet company-keywords)
+                          company-files company-dabbrev-code)
     ))
 
 (defun newbie/company-backends-setup()
