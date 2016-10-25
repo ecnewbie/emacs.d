@@ -7,8 +7,6 @@
   (electric-pair-mode 1)
   ;; eldoc, show API doc in minibuffer echo area
   (turn-on-eldoc-mode)
-  ;; show trailing spaces in a programming mode
-  (setq show-trailing-whitespace t)
 
   (highlight-numbers-mode t)
 
